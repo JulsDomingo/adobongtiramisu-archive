@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>adobongtiramisu's archive</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+  :root {
+    --cream:#fdf6ee; --rose:#e8c4b8; --rose-dark:#c9957f;
+    --sage:#b5c4b1; --sage-dark:#7a9e76; --brown:#7c5c4a;
+    --text:#4a3728; --muted:#9a7e72; --white:#fffaf6;
+    --card:#fff8f2; --border:#f0ddd3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Lato',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;}
+
+  nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;}
+  .nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--brown);cursor:pointer;}
+  .nav-links{display:flex;gap:1.2rem;align-items:center;}
+  .nav-links button{background:none;border:none;font-family:'Lato',sans-serif;font-size:0.9rem;color:var(--muted);cursor:pointer;padding:0.3rem 0;border-bottom:2px solid transparent;transition:all .2s;}
+  .nav-links button:hover,.nav-links button.active{color:var(--brown);border-bottom-color:var(--rose-dark);}
+  .admin-btn{background:var(--rose)!important;color:var(--brown)!important;border-radius:20px!important;padding:0.3rem 1rem!important;border-bottom:none!important;font-weight:700!important;}
+  .admin-btn:hover{background:var(--rose-dark)!important;color:var(--white)!important;}
+
+  .page{display:none;padding:2rem;max-width:1100px;margin:0 auto;}
+  .page.active{display:block;}
+
+  .hero{text-align:center;padding:4rem 1rem 3rem;}
+  .hero-badge{display:inline-block;background:var(--rose);color:var(--brown);border-radius:20px;padding:0.3rem 1rem;font-size:0.85rem;margin-bottom:1rem;letter-spacing:1px;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;color:var(--brown);margin-bottom:1rem;}
+  .hero h1 span{color:var(--rose-dark);font-style:italic;}
+  .hero p{color:var(--muted);font-size:1.05rem;max-width:500px;margin:0 auto 2rem;line-height:1.7;}
+  .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+
+  .btn{padding:0.7rem 1.8rem;border-radius:30px;border:none;cursor:pointer;font-family:'Lato',sans-serif;font-size:1rem;font-weight:700;transition:all .2s;}
+  .btn-primary{background:var(--brown);color:var(--white);}
+  .btn-primary:hover{background:var(--text);}
+  .btn-secondary{background:var(--rose);color:var(--brown);}
+  .btn-secondary:hover{background:var(--rose-dark);color:var(--white);}
+  .btn-sage{background:var(--sage);color:var(--brown);}
+  .btn-sage:hover{background:var(--sage-dark);color:var(--white);}
+  .btn-sm{padding:0.4rem 1rem;font-size:0.85rem;}
+
+  .section-title{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--brown);margin-bottom:0.3rem;}
+  .section-sub{color:var(--muted);margin-bottom:1.5rem;font-size:0.95rem;}
+
+  .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.5rem;margin-top:1rem;}
+  .au-card{background:var(--card);border:1.5px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:all .2s;}
+  .au-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(124,92,74,.12);}
+  .au-card-img{width:100%;height:175px;object-fit:cover;background:var(--rose);display:flex;align-items:center;justify-content:center;font-size:3rem;}
+  .au-card-img img{width:100%;height:100%;object-fit:cover;}
+  .au-card-body{padding:1rem 1.2rem;}
+  .au-card-type{font-size:0.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--rose-dark);font-weight:700;margin-bottom:0.4rem;}
+  .au-card-title{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--brown);margin-bottom:0.4rem;}
+  .au-card-desc{color:var(--muted);font-size:0.88rem;line-height:1.5;margin-bottom:0.8rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+  .tags-row{display:flex;flex-wrap:wrap;gap:0.4rem;}
+  .tag{background:var(--sage);color:var(--brown);border-radius:12px;padding:0.2rem 0.7rem;font-size:0.75rem;font-weight:700;}
+
+  .filters{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+  .filter-btn{background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:0.35rem 1rem;font-size:0.85rem;cursor:pointer;color:var(--muted);font-family:'Lato',sans-serif;transition:all .2s;}
+  .filter-btn:hover,.filter-btn.active{background:var(--rose);border-color:var(--rose-dark);color:var(--brown);font-weight:700;}
+
+  .search-bar{width:100%;padding:0.7rem 1.2rem;border:1.5px solid var(--border);border-radius:30px;background:var(--white);font-family:'Lato',sans-serif;font-size:1rem;color:var(--text);margin-bottom:1rem;outline:none;}
+  .search-bar:focus{border-color:var(--rose-dark);}
+
+  /* DETAIL */
+  .au-detail-header{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:2rem;margin-bottom:1.5rem;}
+  .back-btn{background:none;border:none;color:var(--muted);cursor:pointer;font-family:'Lato',sans-serif;font-size:0.95rem;margin-bottom:1rem;display:flex;align-items:center;gap:0.4rem;padding:0;}
+  .back-btn:hover{color:var(--brown);}
+  .au-detail-title{font-family:'Playfair Display',serif;font-size:2rem;color:var(--brown);margin-bottom:0.5rem;}
+  .au-detail-content{background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:2rem;margin-bottom:1.5rem;line-height:1.9;color:var(--text);white-space:pre-wrap;font-size:1rem;}
+
+  /* CHAPTERS */
+  .chapters-sidebar{display:grid;grid-template-columns:260px 1fr;gap:1.5rem;}
+  .chapter-list{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:1rem;height:fit-content;position:sticky;top:80px;}
+  .chapter-list h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--brown);margin-bottom:0.8rem;padding-bottom:0.5rem;border-bottom:1.5px solid var(--border);}
+  .chapter-item{padding:0.6rem 0.8rem;border-radius:10px;cursor:pointer;font-size:0.9rem;color:var(--muted);transition:all .2s;margin-bottom:0.3rem;}
+  .chapter-item:hover{background:var(--rose);color:var(--brown);}
+  .chapter-item.active{background:var(--brown);color:var(--white);font-weight:700;}
+  .chapter-nav{display:flex;justify-content:space-between;margin-top:1rem;}
+
+  .photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-bottom:1.5rem;}
+  .photo-grid img{width:100%;border-radius:12px;border:1.5px solid var(--border);cursor:pointer;}
+
+  /* COMMENTS */
+  .comments-section{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;}
+  .form-group{margin-bottom:0.8rem;}
+  .form-group label{display:block;font-size:0.85rem;color:var(--muted);margin-bottom:0.3rem;font-weight:700;}
+  .form-group input,.form-group textarea,.form-group select{width:100%;padding:0.65rem 1rem;border:1.5px solid var(--border);border-radius:10px;background:var(--white);font-family:'Lato',sans-serif;font-size:0.95rem;color:var(--text);outline:none;resize:vertical;}
+  .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--rose-dark);}
+  .comment-item{border-top:1.5px solid var(--border);padding:1rem 0;}
+  .comment-name{font-weight:700;color:var(--brown);font-size:0.9rem;margin-bottom:0.3rem;}
+  .comment-date{color:var(--muted);font-size:0.78rem;margin-bottom:0.4rem;}
+  .comment-text{color:var(--text);font-size:0.95rem;line-height:1.6;}
+
+  /* ABOUT */
+  .about-card{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:2.5rem;max-width:700px;margin:0 auto;text-align:center;}
+  .about-avatar{width:100px;height:100px;border-radius:50%;background:var(--rose);display:flex;align-items:center;justify-content:center;font-size:3rem;margin:0 auto 1.2rem;border:3px solid var(--rose-dark);}
+  .about-name{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--brown);margin-bottom:0.5rem;}
+  .about-bio{color:var(--muted);line-height:1.8;margin-bottom:1.5rem;font-size:1rem;}
+
+  .suggestion-card{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:2rem;max-width:600px;margin:0 auto;}
+
+  /* ADMIN */
+  .admin-login{max-width:400px;margin:4rem auto;background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:2rem;text-align:center;}
+  .admin-panel{max-width:860px;margin:0 auto;}
+  .admin-tabs{display:flex;gap:0.5rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+  .admin-tab{padding:0.5rem 1.2rem;border-radius:20px;border:1.5px solid var(--border);background:var(--white);cursor:pointer;font-family:'Lato',sans-serif;color:var(--muted);transition:all .2s;}
+  .admin-tab.active,.admin-tab:hover{background:var(--brown);color:var(--white);border-color:var(--brown);}
+
+  .image-preview-row{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.5rem;}
+  .image-preview-row img{width:80px;height:80px;object-fit:cover;border-radius:8px;border:1.5px solid var(--border);}
+
+  .chapter-editor{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:0.8rem;}
+  .chapter-editor-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;}
+  .chapter-editor input{width:100%;padding:0.5rem 0.8rem;border:1.5px solid var(--border);border-radius:8px;font-family:'Lato',sans-serif;font-size:0.9rem;margin-bottom:0.5rem;outline:none;}
+  .chapter-editor textarea{width:100%;padding:0.5rem 0.8rem;border:1.5px solid var(--border);border-radius:8px;font-family:'Lato',sans-serif;font-size:0.9rem;resize:vertical;outline:none;min-height:120px;}
+
+  .toast{position:fixed;bottom:2rem;right:2rem;background:var(--brown);color:var(--white);padding:0.8rem 1.5rem;border-radius:12px;font-size:0.95rem;z-index:9999;opacity:0;transform:translateY(20px);transition:all .3s;pointer-events:none;}
+  .toast.show{opacity:1;transform:translateY(0);}
+  .empty-state{text-align:center;padding:3rem;color:var(--muted);}
+  .empty-state .emoji{font-size:3rem;margin-bottom:1rem;}
+  .divider{border:none;border-top:1.5px solid var(--border);margin:1.5rem 0;}
+  .au-meta{color:var(--muted);font-size:0.85rem;margin-bottom:0.8rem;}
+  .loading{text-align:center;padding:2rem;color:var(--muted);}
+
+  .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;align-items:center;justify-content:center;}
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:90vw;max-height:90vh;border-radius:8px;}
+  .lightbox-close{position:absolute;top:1rem;right:1.5rem;color:white;font-size:2rem;cursor:pointer;background:none;border:none;}
+
+  @media(max-width:700px){
+    .chapters-sidebar{grid-template-columns:1fr;}
+    .chapter-list{position:static;}
+    .hero h1{font-size:2rem;}
+    nav{padding:0 1rem;}
+    .page{padding:1rem;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo" onclick="showPage('home')">🍮 adobongtiramisu's archive</span>
+  <div class="nav-links">
+    <button onclick="showPage('home')" id="nav-home" class="active">Home</button>
+    <button onclick="showPage('browse')" id="nav-browse">Browse</button>
+    <button onclick="showPage('about')" id="nav-about">About</button>
+    <button onclick="showPage('suggest')" id="nav-suggest">Suggest</button>
+    <button onclick="showPage('admin')" id="nav-admin" class="admin-btn">Admin</button>
+  </div>
+</nav>
+
+<div class="toast" id="toast"></div>
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt=""/>
+</div>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-badge">✨ au writer</div>
+    <h1>adobongtiramisu's<br/><span>archive</span></h1>
+    <p>a cozy little corner of the internet for all my aus 🍮</p>
+    <div class="hero-btns">
+      <button class="btn btn-primary" onclick="showPage('browse')">browse aus</button>
+      <button class="btn btn-secondary" onclick="showPage('suggest')">suggest an au</button>
+    </div>
+  </div>
+  <hr class="divider"/>
+  <h2 class="section-title">Latest AUs</h2>
+  <p class="section-sub">freshly written, still warm ☕</p>
+  <div class="cards-grid" id="home-cards"><div class="loading">loading aus...</div></div>
+</div>
+
+<!-- BROWSE -->
+<div class="page" id="page-browse">
+  <h2 class="section-title">Browse AUs</h2>
+  <p class="section-sub">find your next favorite 📖</p>
+  <input class="search-bar" type="text" placeholder="🔍 search aus..." id="search-input" oninput="filterAUs()"/>
+  <div class="filters" id="tag-filters">
+    <button class="filter-btn active" onclick="setTagFilter('all',this)">All</button>
+    <button class="filter-btn" onclick="setTagFilter('text',this)">📝 Text AUs</button>
+    <button class="filter-btn" onclick="setTagFilter('photo',this)">📸 Photo AUs</button>
+    <button class="filter-btn" onclick="setTagFilter('story',this)">📖 Story AUs</button>
+  </div>
+  <div class="cards-grid" id="browse-cards"><div class="loading">loading aus...</div></div>
+</div>
+
+<!-- DETAIL -->
+<div class="page" id="page-detail">
+  <button class="back-btn" onclick="goBack()">← back</button>
+  <div id="detail-content"></div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about">
+  <div class="about-card">
+    <div class="about-avatar">🍮</div>
+    <h2 class="about-name">adobongtiramisu</h2>
+    <p class="about-bio">
+      hi! i'm adobongtiramisu — an au writer who got permanently banned from tiktok for unknown crimes 🥲<br/><br/>
+      so i made my own little website instead. here you'll find all my aus — photo aus, text aus, and full story aus with chapters.<br/><br/>
+      feel free to browse, comment, and send suggestions! ✨🍮
+    </p>
+    <div class="tags-row" style="justify-content:center;">
+      <span class="tag">au writer</span>
+      <span class="tag">filipino 🇵🇭</span>
+      <span class="tag">cozy vibes</span>
+    </div>
+  </div>
+</div>
+
+<!-- SUGGEST -->
+<div class="page" id="page-suggest">
+  <h2 class="section-title">Suggestion Box</h2>
+  <p class="section-sub">got an au idea? drop it here! 💌</p>
+  <div class="suggestion-card">
+    <div class="form-group">
+      <label>your name (optional)</label>
+      <input type="text" id="sug-name" placeholder="anonymous is fine too!"/>
+    </div>
+    <div class="form-group">
+      <label>your au idea ✨</label>
+      <textarea id="sug-content" rows="5" placeholder="describe your au idea here..."></textarea>
+    </div>
+    <button class="btn btn-primary" onclick="submitSuggestion()">send suggestion 💌</button>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div class="page" id="page-admin">
+  <div id="admin-login-section" class="admin-login">
+    <div style="font-size:2.5rem;margin-bottom:1rem;">🔐</div>
+    <h2 class="section-title" style="margin-bottom:0.5rem;">admin login</h2>
+    <p style="color:var(--muted);margin-bottom:1.5rem;font-size:0.9rem;">only you can enter here 🍮</p>
+    <div class="form-group">
+      <input type="password" id="admin-pass" placeholder="enter password..." onkeydown="if(event.key==='Enter')adminLogin()"/>
+    </div>
+    <button class="btn btn-primary" onclick="adminLogin()">login</button>
+  </div>
+
+  <div id="admin-panel-section" style="display:none;">
+    <div class="admin-panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+        <h2 class="section-title">admin panel</h2>
+        <button class="btn btn-secondary btn-sm" onclick="adminLogout()">logout</button>
+      </div>
+      <div class="admin-tabs">
+        <button class="admin-tab active" onclick="showAdminTab('post',this)">📝 post au</button>
+        <button class="admin-tab" onclick="showAdminTab('manage',this)">📚 manage aus</button>
+        <button class="admin-tab" onclick="showAdminTab('tags',this)">🏷️ tags</button>
+        <button class="admin-tab" onclick="showAdminTab('suggestions',this)">💌 suggestions</button>
+      </div>
+
+      <!-- POST AU -->
+      <div id="admin-tab-post">
+        <div class="form-group">
+          <label>au title</label>
+          <input type="text" id="au-title" placeholder="e.g. coffee shop au"/>
+        </div>
+        <div class="form-group">
+          <label>type</label>
+          <select id="au-type" onchange="toggleAUType()">
+            <option value="text">📝 text au</option>
+            <option value="photo">📸 photo au</option>
+            <option value="story">📖 story au (with chapters)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>short description</label>
+          <textarea id="au-desc" rows="2" placeholder="a brief summary..."></textarea>
+        </div>
+
+        <!-- TEXT -->
+        <div id="text-content-group" class="form-group">
+          <label>au content</label>
+          <textarea id="au-content" rows="10" placeholder="write your au here..."></textarea>
+        </div>
+
+        <!-- PHOTO -->
+        <div id="photo-content-group" class="form-group" style="display:none;">
+          <label>upload photos</label>
+          <input type="file" id="au-photos" multiple accept="image/*" onchange="previewPhotos()"/>
+          <div class="image-preview-row" id="photo-previews"></div>
+        </div>
+
+        <!-- STORY CHAPTERS -->
+        <div id="story-content-group" style="display:none;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+            <label style="font-size:0.85rem;color:var(--muted);font-weight:700;">chapters</label>
+            <button class="btn btn-sage btn-sm" onclick="addChapterEditor()">+ add chapter</button>
+          </div>
+          <div id="chapter-editors"></div>
+        </div>
+
+        <div class="form-group">
+          <label>cover image (optional)</label>
+          <input type="file" id="au-cover" accept="image/*" onchange="previewCover()"/>
+          <div id="cover-preview" style="margin-top:0.5rem;"></div>
+        </div>
+        <div class="form-group">
+          <label>tags (comma separated)</label>
+          <input type="text" id="au-tags-input" placeholder="e.g. fluff, coffee shop, enemies to lovers"/>
+        </div>
+        <button class="btn btn-primary" onclick="postAU()">post au ✨</button>
+      </div>
+
+      <!-- MANAGE -->
+      <div id="admin-tab-manage" style="display:none;">
+        <div id="manage-list"><div class="loading">loading...</div></div>
+      </div>
+
+      <!-- TAGS -->
+      <div id="admin-tab-tags" style="display:none;">
+        <div class="form-group">
+          <label>add new tag</label>
+          <div style="display:flex;gap:0.5rem;">
+            <input type="text" id="new-tag-input" placeholder="tag name..."/>
+            <button class="btn btn-sage" onclick="addTag()">add</button>
+          </div>
+        </div>
+        <div id="tags-list"><div class="loading">loading...</div></div>
+      </div>
+
+      <!-- SUGGESTIONS -->
+      <div id="admin-tab-suggestions" style="display:none;">
+        <div id="suggestions-list"><div class="loading">loading...</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const SUPABASE_URL='https://qmlhsstiwlfjpjwibfht.supabase.co';
+const SUPABASE_KEY='sb_publishable_bp2aZ0VbTmcLGi_nDk1svw_KrF4dC7g';
+const ADMIN_PASSWORD='adobongtiramisu2024';
+const BUCKET='au-images';
+
+let currentPage='home', prevPage='home';
+let allAUs=[], allTags=[];
+let activeTagFilter='all';
+let isAdmin=false;
+let currentAUID=null;
+let currentChapterIdx=0;
+let chapterCount=0;
+
+const TYPE_EMOJI={text:'📝',photo:'📸',story:'📖'};
+const TYPE_LABEL={text:'text au',photo:'photo au',story:'story au'};
+
+async function sb(path,opts={}){
+  const res=await fetch(`${SUPABASE_URL}/rest/v1/${path}`,{
+    headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`,'Content-Type':'application/json','Prefer':opts.prefer||'return=representation',...opts.headers},
+    ...opts
+  });
+  if(!res.ok){const e=await res.text();throw new Error(e);}
+  const ct=res.headers.get('content-type')||'';
+  return ct.includes('json')?res.json():res.text();
+}
+
+async function uploadFile(file,path){
+  const res=await fetch(`${SUPABASE_URL}/storage/v1/object/${BUCKET}/${path}`,{
+    method:'POST',
+    headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`,'Content-Type':file.type,'x-upsert':'true'},
+    body:file
+  });
+  if(!res.ok)throw new Error('upload failed');
+  return `${SUPABASE_URL}/storage/v1/object/public/${BUCKET}/${path}`;
+}
+
+function uid(){return `${Date.now()}-${Math.random().toString(36).slice(2)}`;}
+function fileToPath(f){return `${uid()}.${f.name.split('.').pop()}`;}
+
+function showPage(p){
+  prevPage=currentPage; currentPage=p;
+  document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.nav-links button').forEach(el=>el.classList.remove('active'));
+  document.getElementById(`page-${p}`).classList.add('active');
+  const nb=document.getElementById(`nav-${p}`);
+  if(nb)nb.classList.add('active');
+  if(p==='home')loadHomeAUs();
+  if(p==='browse')loadBrowseAUs();
+  if(p==='admin'&&isAdmin){
+    document.getElementById('admin-login-section').style.display='none';
+    document.getElementById('admin-panel-section').style.display='block';
+  }
+  window.scrollTo(0,0);
+}
+
+function goBack(){showPage(prevPage==='detail'?'browse':prevPage);}
+
+function toast(msg,dur=3000){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),dur);
+}
+
+// LOAD
+async function loadHomeAUs(){
+  const el=document.getElementById('home-cards');
+  try{
+    const aus=await sb('aus?select=*,au_tags(tag_id,tags(name))&order=created_at.desc&limit=6');
+    allAUs=aus;
+    el.innerHTML=aus.length?aus.map(auCard).join(''):'<div class="empty-state"><div class="emoji">🌸</div><p>no aus yet — check back soon!</p></div>';
+  }catch(e){el.innerHTML='<div class="empty-state"><div class="emoji">😔</div><p>could not load aus</p></div>';}
+}
+
+async function loadBrowseAUs(){
+  const el=document.getElementById('browse-cards');
+  try{
+    const [aus,tags]=await Promise.all([
+      sb('aus?select=*,au_tags(tag_id,tags(name))&order=created_at.desc'),
+      sb('tags?order=name.asc')
+    ]);
+    allAUs=aus; allTags=tags;
+    renderTagFilters(); renderBrowseCards();
+  }catch(e){el.innerHTML='<div class="empty-state"><div class="emoji">😔</div><p>could not load aus</p></div>';}
+}
+
+function renderTagFilters(){
+  const f=document.getElementById('tag-filters');
+  f.innerHTML=`
+    <button class="filter-btn ${activeTagFilter==='all'?'active':''}" onclick="setTagFilter('all',this)">All</button>
+    <button class="filter-btn ${activeTagFilter==='text'?'active':''}" onclick="setTagFilter('text',this)">📝 Text AUs</button>
+    <button class="filter-btn ${activeTagFilter==='photo'?'active':''}" onclick="setTagFilter('photo',this)">📸 Photo AUs</button>
+    <button class="filter-btn ${activeTagFilter==='story'?'active':''}" onclick="setTagFilter('story',this)">📖 Story AUs</button>
+    ${allTags.map(t=>`<button class="filter-btn ${activeTagFilter===t.id?'active':''}" onclick="setTagFilter('${t.id}',this)">${t.name}</button>`).join('')}
+  `;
+}
+
+function setTagFilter(val,btn){
+  activeTagFilter=val;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderBrowseCards();
+}
+
+function filterAUs(){renderBrowseCards();}
+
+function renderBrowseCards(){
+  const q=document.getElementById('search-input').value.toLowerCase();
+  let f=allAUs;
+  if(['text','photo','story'].includes(activeTagFilter)) f=f.filter(a=>a.type===activeTagFilter);
+  else if(activeTagFilter!=='all') f=f.filter(a=>a.au_tags?.some(t=>t.tag_id===activeTagFilter));
+  if(q) f=f.filter(a=>a.title.toLowerCase().includes(q)||(a.description||'').toLowerCase().includes(q));
+  document.getElementById('browse-cards').innerHTML=f.length?f.map(auCard).join(''):'<div class="empty-state"><div class="emoji">🌸</div><p>no aus found</p></div>';
+}
+
+function auCard(au){
+  const tags=au.au_tags?.map(t=>t.tags?.name).filter(Boolean)||[];
+  const img=au.cover_image
+    ?`<div class="au-card-img"><img src="${au.cover_image}" alt=""/></div>`
+    :`<div class="au-card-img">${TYPE_EMOJI[au.type]||'📝'}</div>`;
+  const chapBadge=au.type==='story'&&au.chapters?.length?`<span style="font-size:0.78rem;color:var(--muted);">📖 ${au.chapters.length} chapter${au.chapters.length>1?'s':''}</span>`:'';
+  return `<div class="au-card" onclick="openAU('${au.id}')">
+    ${img}
+    <div class="au-card-body">
+      <div class="au-card-type">${TYPE_LABEL[au.type]||'text au'}</div>
+      <div class="au-card-title">${au.title}</div>
+      <div class="au-card-desc">${au.description||''}</div>
+      ${chapBadge}
+      <div class="tags-row" style="margin-top:0.5rem;">${tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+    </div>
+  </div>`;
+}
+
+// AU DETAIL
+async function openAU(id){
+  prevPage=currentPage; currentPage='detail';
+  currentAUID=id; currentChapterIdx=0;
+  document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+  document.getElementById('page-detail').classList.add('active');
+  document.getElementById('detail-content').innerHTML='<div class="loading">loading...</div>';
+  try{
+    const au=await sb(`aus?id=eq.${id}&select=*,au_tags(tag_id,tags(name))&limit=1`).then(r=>r[0]);
+    const comments=await sb(`comments?au_id=eq.${id}&order=created_at.asc`);
+    renderDetail(au,comments,0);
+  }catch(e){document.getElementById('detail-content').innerHTML='<div class="empty-state"><div class="emoji">😔</div><p>could not load au</p></div>';}
+  window.scrollTo(0,0);
+}
+
+function renderDetail(au,comments,chapIdx){
+  const tags=au.au_tags?.map(t=>t.tags?.name).filter(Boolean)||[];
+  const date=new Date(au.created_at).toLocaleDateString('en-PH',{year:'numeric',month:'long',day:'numeric'});
+
+  let mainContent='';
+  if(au.type==='text'){
+    mainContent=`<div class="au-detail-content">${au.content||'(no content yet)'}</div>`;
+  } else if(au.type==='photo'){
+    const imgs=au.images||[];
+    mainContent=`<div class="photo-grid">${imgs.map(src=>`<img src="${src}" onclick="openLightbox('${src}')" alt=""/>`).join('')}</div>`;
+  } else if(au.type==='story'){
+    const chapters=au.chapters||[];
+    if(!chapters.length){
+      mainContent=`<div class="au-detail-content" style="color:var(--muted);">no chapters yet 🌸</div>`;
+    } else {
+      const ch=chapters[chapIdx];
+      mainContent=`
+        <div class="chapters-sidebar">
+          <div class="chapter-list">
+            <h3>chapters</h3>
+            ${chapters.map((c,i)=>`<div class="chapter-item ${i===chapIdx?'active':''}" onclick="switchChapter(${i})">${i+1}. ${c.title||'untitled'}</div>`).join('')}
+          </div>
+          <div>
+            <div class="au-detail-content">
+              <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--brown);margin-bottom:1rem;">chapter ${chapIdx+1}: ${ch.title||'untitled'}</div>
+              ${ch.content||'(empty chapter)'}
+            </div>
+            <div class="chapter-nav">
+              ${chapIdx>0?`<button class="btn btn-secondary btn-sm" onclick="switchChapter(${chapIdx-1})">← prev chapter</button>`:'<span></span>'}
+              ${chapIdx<chapters.length-1?`<button class="btn btn-primary btn-sm" onclick="switchChapter(${chapIdx+1})">next chapter →</button>`:'<span></span>'}
+            </div>
+          </div>
+        </div>`;
+    }
+  }
+
+  document.getElementById('detail-content').innerHTML=`
+    <div class="au-detail-header">
+      <div class="au-card-type">${TYPE_LABEL[au.type]||'text au'}</div>
+      <h1 class="au-detail-title">${au.title}</h1>
+      <div class="au-meta">posted ${date}${au.type==='story'&&au.chapters?.length?' · '+(au.chapters.length)+' chapter'+(au.chapters.length>1?'s':''):''}</div>
+      <p style="color:var(--muted);line-height:1.7;">${au.description||''}</p>
+      <div class="tags-row" style="margin-top:0.8rem;">${tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+    </div>
+    ${mainContent}
+    <div class="comments-section">
+      <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1rem;">comments 💬</h3>
+      <div class="comment-form">
+        <div class="form-group">
+          <label>your name</label>
+          <input type="text" id="cmt-name" placeholder="your name or alias"/>
+        </div>
+        <div class="form-group">
+          <label>your comment</label>
+          <textarea id="cmt-text" rows="3" placeholder="leave a comment..."></textarea>
+        </div>
+        <button class="btn btn-secondary" onclick="submitComment('${au.id}')">post comment 💬</button>
+      </div>
+      <div id="comments-list">
+        ${comments.length?comments.map(c=>`
+          <div class="comment-item">
+            <div class="comment-name">${c.name}</div>
+            <div class="comment-date">${new Date(c.created_at).toLocaleDateString('en-PH',{year:'numeric',month:'long',day:'numeric'})}</div>
+            <div class="comment-text">${c.content}</div>
+          </div>
+        `).join(''):'<p style="color:var(--muted);font-size:0.9rem;">no comments yet — be the first! 🌸</p>'}
+      </div>
+    </div>
+  `;
+  // store au for chapter switching
+  window._currentAU=au;
+  window._currentComments=comments;
+}
+
+function switchChapter(idx){
+  currentChapterIdx=idx;
+  renderDetail(window._currentAU, window._currentComments, idx);
+  window.scrollTo(0,200);
+}
+
+async function submitComment(auId){
+  const name=document.getElementById('cmt-name').value.trim()||'anonymous';
+  const content=document.getElementById('cmt-text').value.trim();
+  if(!content)return toast('please write something first! 🌸');
+  try{
+    await sb('comments',{method:'POST',body:JSON.stringify({au_id:auId,name,content})});
+    document.getElementById('cmt-name').value='';
+    document.getElementById('cmt-text').value='';
+    toast('comment posted! 💬');
+    openAU(auId);
+  }catch(e){toast('error posting comment 😔');}
+}
+
+async function submitSuggestion(){
+  const name=document.getElementById('sug-name').value.trim()||'anonymous';
+  const content=document.getElementById('sug-content').value.trim();
+  if(!content)return toast('please write your idea first! 💌');
+  try{
+    await sb('suggestions',{method:'POST',body:JSON.stringify({name,content})});
+    document.getElementById('sug-name').value='';
+    document.getElementById('sug-content').value='';
+    toast('suggestion sent! thank you 💌');
+  }catch(e){toast('error sending suggestion 😔');}
+}
+
+// ADMIN
+function adminLogin(){
+  if(document.getElementById('admin-pass').value===ADMIN_PASSWORD){
+    isAdmin=true;
+    document.getElementById('admin-login-section').style.display='none';
+    document.getElementById('admin-panel-section').style.display='block';
+    toast('welcome back, adobongtiramisu! 🍮');
+  }else{toast('wrong password! 🔐');}
+}
+
+function adminLogout(){
+  isAdmin=false;
+  document.getElementById('admin-login-section').style.display='block';
+  document.getElementById('admin-panel-section').style.display='none';
+  document.getElementById('admin-pass').value='';
+}
+
+function showAdminTab(tab,btn){
+  ['post','manage','tags','suggestions'].forEach(t=>{
+    document.getElementById(`admin-tab-${t}`).style.display=t===tab?'block':'none';
+  });
+  document.querySelectorAll('.admin-tab').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  if(tab==='manage')loadManageAUs();
+  if(tab==='tags')loadAdminTags();
+  if(tab==='suggestions')loadAdminSuggestions();
+}
+
+function toggleAUType(){
+  const type=document.getElementById('au-type').value;
+  document.getElementById('text-content-group').style.display=type==='text'?'block':'none';
+  document.getElementById('photo-content-group').style.display=type==='photo'?'block':'none';
+  document.getElementById('story-content-group').style.display=type==='story'?'block':'none';
+  if(type==='story'&&document.getElementById('chapter-editors').children.length===0)addChapterEditor();
+}
+
+function addChapterEditor(){
+  chapterCount++;
+  const idx=chapterCount;
+  const div=document.createElement('div');
+  div.className='chapter-editor';
+  div.id=`ch-editor-${idx}`;
+  div.innerHTML=`
+    <div class="chapter-editor-header">
+      <span style="font-weight:700;color:var(--brown);font-size:0.9rem;">chapter ${idx}</span>
+      <button class="btn btn-secondary btn-sm" onclick="removeChapterEditor(${idx})">remove</button>
+    </div>
+    <input type="text" placeholder="chapter title..." id="ch-title-${idx}"/>
+    <textarea placeholder="write chapter content here..." id="ch-content-${idx}"></textarea>
+  `;
+  document.getElementById('chapter-editors').appendChild(div);
+}
+
+function removeChapterEditor(idx){
+  const el=document.getElementById(`ch-editor-${idx}`);
+  if(el)el.remove();
+}
+
+function previewPhotos(){
+  const files=document.getElementById('au-photos').files;
+  const prev=document.getElementById('photo-previews');
+  prev.innerHTML='';
+  for(const f of files){const img=document.createElement('img');img.src=URL.createObjectURL(f);prev.appendChild(img);}
+}
+
+function previewCover(){
+  const file=document.getElementById('au-cover').files[0];
+  document.getElementById('cover-preview').innerHTML=file
+    ?`<img src="${URL.createObjectURL(file)}" style="width:120px;height:80px;object-fit:cover;border-radius:8px;border:1.5px solid var(--border);"/>`
+    :'';
+}
+
+async function postAU(){
+  const title=document.getElementById('au-title').value.trim();
+  const type=document.getElementById('au-type').value;
+  const desc=document.getElementById('au-desc').value.trim();
+  const tagsRaw=document.getElementById('au-tags-input').value.trim();
+  if(!title)return toast('please add a title! 🌸');
+  try{
+    toast('uploading... please wait ✨');
+    let coverUrl=null;
+    const coverFile=document.getElementById('au-cover').files[0];
+    if(coverFile)coverUrl=await uploadFile(coverFile,`covers/${fileToPath(coverFile)}`);
+
+    let imageUrls=[], chapters=[], content=null;
+
+    if(type==='photo'){
+      const photos=document.getElementById('au-photos').files;
+      for(const f of photos)imageUrls.push(await uploadFile(f,`photos/${fileToPath(f)}`));
+    } else if(type==='text'){
+      content=document.getElementById('au-content').value.trim();
+    } else if(type==='story'){
+      const editors=document.querySelectorAll('.chapter-editor');
+      for(const ed of editors){
+        const id=ed.id.replace('ch-editor-','');
+        const t=document.getElementById(`ch-title-${id}`)?.value.trim()||'';
+        const c=document.getElementById(`ch-content-${id}`)?.value.trim()||'';
+        if(t||c)chapters.push({title:t,content:c});
+      }
+    }
+
+    const [au]=await sb('aus',{method:'POST',body:JSON.stringify({title,type,description:desc,content,cover_image:coverUrl,images:imageUrls,chapters:chapters.length?chapters:null})});
+
+    if(tagsRaw){
+      for(const name of tagsRaw.split(',').map(t=>t.trim()).filter(Boolean)){
+        try{
+          const ex=await sb(`tags?name=eq.${encodeURIComponent(name)}&limit=1`);
+          const tag=ex.length?ex[0]:(await sb('tags',{method:'POST',body:JSON.stringify({name})}))[0];
+          await sb('au_tags',{method:'POST',body:JSON.stringify({au_id:au.id,tag_id:tag.id}),prefer:'return=minimal'});
+        }catch(e){}
+      }
+    }
+
+    ['au-title','au-desc','au-content','au-tags-input'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('au-cover').value='';
+    document.getElementById('au-photos').value='';
+    document.getElementById('photo-previews').innerHTML='';
+    document.getElementById('cover-preview').innerHTML='';
+    document.getElementById('chapter-editors').innerHTML='';
+    chapterCount=0;
+    toast('au posted! 🍮✨');
+  }catch(e){toast('error posting au 😔');console.error(e);}
+}
+
+async function loadManageAUs(){
+  const el=document.getElementById('manage-list');
+  try{
+    const aus=await sb('aus?select=*&order=created_at.desc');
+    el.innerHTML=aus.length?aus.map(au=>`
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:0.8rem 0;border-bottom:1.5px solid var(--border);">
+        <div>
+          <div style="font-weight:700;color:var(--brown);">${au.title}</div>
+          <div style="font-size:0.8rem;color:var(--muted);">${TYPE_LABEL[au.type]||au.type} · ${new Date(au.created_at).toLocaleDateString()}</div>
+        </div>
+        <button class="btn btn-secondary btn-sm" onclick="deleteAU('${au.id}','${au.title.replace(/'/g,"\\'")}')">delete</button>
+      </div>
+    `).join(''):'<div class="empty-state"><div class="emoji">📭</div><p>no aus yet</p></div>';
+  }catch(e){el.innerHTML='<p style="color:var(--muted)">could not load</p>';}
+}
+
+async function deleteAU(id,title){
+  if(!confirm(`delete "${title}"? this cannot be undone.`))return;
+  try{
+    await sb(`aus?id=eq.${id}`,{method:'DELETE',prefer:'return=minimal'});
+    toast('au deleted 🗑️'); loadManageAUs();
+  }catch(e){toast('error deleting au 😔');}
+}
+
+async function loadAdminTags(){
+  const el=document.getElementById('tags-list');
+  try{
+    const tags=await sb('tags?order=name.asc');
+    el.innerHTML=tags.length?tags.map(t=>`
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:0.6rem 0;border-bottom:1.5px solid var(--border);">
+        <span class="tag">${t.name}</span>
+        <button class="btn btn-secondary btn-sm" onclick="deleteTag('${t.id}','${t.name}')">remove</button>
+      </div>
+    `).join(''):'<p style="color:var(--muted);padding:1rem 0;">no tags yet</p>';
+  }catch(e){}
+}
+
+async function addTag(){
+  const name=document.getElementById('new-tag-input').value.trim();
+  if(!name)return;
+  try{
+    await sb('tags',{method:'POST',body:JSON.stringify({name})});
+    document.getElementById('new-tag-input').value='';
+    toast(`tag "${name}" added! 🏷️`); loadAdminTags();
+  }catch(e){toast('tag already exists 😔');}
+}
+
+async function deleteTag(id,name){
+  if(!confirm(`remove tag "${name}"?`))return;
+  try{
+    await sb(`tags?id=eq.${id}`,{method:'DELETE',prefer:'return=minimal'});
+    toast('tag removed!'); loadAdminTags();
+  }catch(e){toast('error removing tag');}
+}
+
+async function loadAdminSuggestions(){
+  const el=document.getElementById('suggestions-list');
+  try{
+    const sugs=await sb('suggestions?order=created_at.desc');
+    el.innerHTML=sugs.length?sugs.map(s=>`
+      <div style="border-top:1.5px solid var(--border);padding:1rem 0;">
+        <div style="font-weight:700;color:var(--brown);font-size:0.9rem;">${s.name||'anonymous'} · <span style="color:var(--muted);font-weight:400;">${new Date(s.created_at).toLocaleDateString()}</span></div>
+        <div style="margin-top:0.4rem;line-height:1.6;">${s.content}</div>
+      </div>
+    `).join(''):'<div class="empty-state"><div class="emoji">💌</div><p>no suggestions yet</p></div>';
+  }catch(e){el.innerHTML='<p style="color:var(--muted)">could not load</p>';}
+}
+
+function openLightbox(src){
+  document.getElementById('lightbox-img').src=src;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
+
+// but we need chapters column — run this SQL if chapters don't work:
+// alter table aus add column if not exists chapters jsonb;
+
+loadHomeAUs();
+</script>
+</body>
+</html>
