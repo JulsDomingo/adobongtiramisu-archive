@@ -87,6 +87,7 @@
   .thread-avatar{width:36px;height:36px;border-radius:50%;background:var(--rose);border:2px solid var(--rose-dark);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
   .thread-line{width:2px;background:var(--border);flex:1;min-height:12px;margin-top:4px;}
   .thread-body{flex:1;padding-bottom:0.8rem;}
+  .panel-number{font-size:0.78rem;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.4rem;}
 
   /* COMMENTS */
   .comments-section{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;}
@@ -502,7 +503,8 @@ function renderDetail(au,comments,chapIdx){
           ${i<imgs.length-1?'<div class="thread-line"></div>':''}
         </div>
         <div class="thread-body">
-          <img class="photo-thread-img" src="${src}" onclick="openLightbox('${src}')" alt=""/>
+          <div class="panel-number">panel ${i+1}</div>
+          <img class="photo-thread-img" src="${src}" onclick="openLightbox('${src}')" alt="panel ${i+1}"/>
         </div>
       </div>
     `).join('')}</div>`;
@@ -733,12 +735,51 @@ async function loadManageAUs(){
       <div style="display:flex;justify-content:space-between;align-items:center;padding:0.8rem 0;border-bottom:1.5px solid var(--border);">
         <div>
           <div style="font-weight:700;color:var(--brown);">${au.title}</div>
-          <div style="font-size:0.8rem;color:var(--muted);">${TYPE_LABEL[au.type]||au.type} · ${new Date(au.created_at).toLocaleDateString()}</div>
+          <div style="font-size:0.8rem;color:var(--muted);">${TYPE_LABEL[au.type]||au.type} · ${new Date(au.created_at).toLocaleDateString()}${au.type==='photo'?' · '+(au.images?.length||0)+' panels':''}</div>
         </div>
-        <button class="btn btn-secondary btn-sm" onclick="deleteAU('${au.id}','${au.title.replace(/'/g,"\\'")}')">delete</button>
+        <div style="display:flex;gap:0.5rem;">
+          ${au.type==='photo'?`<button class="btn btn-sage btn-sm" onclick="showAddPanels('${au.id}','${au.title.replace(/'/g,"\\'")}')">+ panels</button>`:''}
+          <button class="btn btn-secondary btn-sm" onclick="deleteAU('${au.id}','${au.title.replace(/'/g,"\\'")}')">delete</button>
+        </div>
       </div>
+      ${au.type==='photo'?`<div id="add-panels-${au.id}" style="display:none;background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:0.5rem;">
+        <div style="font-weight:700;color:var(--brown);margin-bottom:0.5rem;font-size:0.9rem;">add panels to "${au.title}"</div>
+        <div style="font-size:0.8rem;color:var(--muted);margin-bottom:0.5rem;">currently has ${au.images?.length||0} panels — new ones will be added after</div>
+        <input type="file" id="new-panels-${au.id}" multiple accept="image/*" onchange="previewNewPanels('${au.id}')"/>
+        <div class="image-preview-row" id="new-panels-preview-${au.id}" style="margin:0.5rem 0;"></div>
+        <button class="btn btn-primary btn-sm" onclick="uploadNewPanels('${au.id}',${au.images?.length||0})">upload panels</button>
+      </div>`:''}
     `).join(''):'<div class="empty-state"><div class="emoji">📭</div><p>no aus yet</p></div>';
   }catch(e){el.innerHTML='<p style="color:var(--muted)">could not load</p>';}
+}
+
+function showAddPanels(id){
+  const el=document.getElementById(`add-panels-${id}`);
+  el.style.display=el.style.display==='none'?'block':'none';
+}
+
+function previewNewPanels(id){
+  const files=document.getElementById(`new-panels-${id}`).files;
+  const prev=document.getElementById(`new-panels-preview-${id}`);
+  prev.innerHTML='';
+  for(const f of files){const img=document.createElement('img');img.src=URL.createObjectURL(f);prev.appendChild(img);}
+}
+
+async function uploadNewPanels(auId, currentCount){
+  const files=document.getElementById(`new-panels-${auId}`).files;
+  if(!files.length)return toast('please select photos first! 🌸');
+  try{
+    toast('uploading panels... please wait ✨');
+    const newUrls=[];
+    for(const f of files)newUrls.push(await uploadFile(f,`photos/${fileToPath(f)}`));
+    // fetch existing images
+    const au=await sb(`aus?id=eq.${auId}&select=images&limit=1`).then(r=>r[0]);
+    const existing=au.images||[];
+    await sb(`aus?id=eq.${auId}`,{method:'PATCH',body:JSON.stringify({images:[...existing,...newUrls]}),prefer:'return=minimal'});
+    toast(`${newUrls.length} panel${newUrls.length>1?'s':''} added! 🍮✨`);
+    document.getElementById(`add-panels-${auId}`).style.display='none';
+    loadManageAUs();
+  }catch(e){toast('error uploading panels 😔');console.error(e);}
 }
 
 async function deleteAU(id,title){
