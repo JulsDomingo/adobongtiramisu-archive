@@ -77,7 +77,8 @@
   .thread-imgs{display:flex;flex-direction:column;gap:0.6rem;margin-top:0.5rem;}
   .thread-img-wrap{position:relative;}
   .thread-panel-num{font-size:0.72rem;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.3rem;}
-  .thread-imgs img{width:100%;border-radius:14px;border:1.5px solid var(--border);cursor:pointer;display:block;}
+  .thread-imgs img{width:100%;max-width:480px;max-height:70vh;object-fit:contain;border-radius:14px;border:1.5px solid var(--border);cursor:pointer;display:block;}
+  @media(max-width:600px){.thread-imgs img{max-width:100%;max-height:60vh;}}
 
   /* CHAPTERS */
   .chapters-sidebar{display:grid;grid-template-columns:240px 1fr;gap:1.5rem;}
