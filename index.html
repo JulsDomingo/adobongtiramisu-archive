@@ -474,7 +474,7 @@ function renderDetail(au,updates,comments,chapIdx){
   } else {
     // Build thread from updates (mixed text + photos)
     let panelCounter=0;
-    const threadItems=updates.map((u,i)=>{
+          const threadItems=updates.map((u,i)=>{
       let bodyHtml='';
       const isLast=i===updates.length-1;
       if(u.content){
@@ -483,7 +483,8 @@ function renderDetail(au,updates,comments,chapIdx){
       if(u.images&&u.images.length){
         bodyHtml+=`<div class="thread-imgs">${u.images.map(src=>{
           panelCounter++;
-          return `<div class="thread-img-wrap"><div class="thread-panel-num">panel ${panelCounter}</div><img src="${src}" onclick="openLightbox('${src}')" alt="panel ${panelCounter}"/></div>`;
+          const pNum=panelCounter;
+          return `<div class="thread-img-wrap"><div class="thread-panel-num" style="cursor:pointer;" onclick="saveBookmark('${au.id}',${pNum},'${au.title.replace(/'/g,"\\'")}')">panel ${pNum} 🔖 tap to bookmark</div><img src="${src}" onclick="openLightbox('${src}')" alt="panel ${pNum}"/></div>`;
         }).join('')}</div>`;
       }
       if(!bodyHtml)return '';
@@ -530,6 +531,11 @@ function renderDetail(au,updates,comments,chapIdx){
     </div>
   `;
   window._currentAU=au;window._currentComments=comments;window._currentUpdates=updates;
+  // show bookmark bar for non-story aus
+  if(au.type!=='story'){
+    const bm=getBookmark(au.id);
+    renderBookmarkBar(au.id, bm?.panel||1, au.title);
+  }
 }
 
 function switchChapter(idx){
@@ -778,6 +784,59 @@ async function loadAdminSuggestions(){
 
 function openLightbox(src){document.getElementById('lightbox-img').src=src;document.getElementById('lightbox').classList.add('open');}
 function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
+
+// BOOKMARKS — saved in localStorage per AU
+function getBookmarks(){try{return JSON.parse(localStorage.getItem('au_bookmarks')||'{}');}catch(e){return {};}}
+function saveBookmark(auId,panelNum,auTitle){
+  const bm=getBookmarks();
+  bm[auId]={panel:panelNum,title:auTitle,saved:new Date().toISOString()};
+  localStorage.setItem('au_bookmarks',JSON.stringify(bm));
+  toast(`bookmarked at panel ${panelNum}! 🔖`);
+  // re-render bookmark bar
+  renderBookmarkBar(auId,panelNum,auTitle);
+}
+function getBookmark(auId){return getBookmarks()[auId]||null;}
+function clearBookmark(auId){
+  const bm=getBookmarks();delete bm[auId];
+  localStorage.setItem('au_bookmarks',JSON.stringify(bm));
+  toast('bookmark cleared 🗑️');
+  document.getElementById('bookmark-bar')?.remove();
+}
+
+function renderBookmarkBar(auId,currentPanel,auTitle){
+  const bm=getBookmark(auId);
+  const existing=document.getElementById('bookmark-bar');
+  if(existing)existing.remove();
+  const bar=document.createElement('div');
+  bar.id='bookmark-bar';
+  bar.style.cssText='background:var(--white);border:1.5px solid var(--rose-dark);border-radius:14px;padding:0.8rem 1.2rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;';
+  bar.innerHTML=`
+    <div style="font-size:0.9rem;color:var(--brown);">
+      🔖 ${bm?`last bookmarked at <strong>panel ${bm.panel}</strong>`:'no bookmark yet'}
+    </div>
+    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+      <button class="btn btn-sage btn-sm" onclick="saveBookmark('${auId}',${currentPanel},'${auTitle.replace(/'/g,"\\'")}')">save panel ${currentPanel}</button>
+      ${bm?`<button class="btn btn-secondary btn-sm" onclick="scrollToPanel(${bm.panel})">go to panel ${bm.panel}</button><button class="btn btn-sm" style="background:var(--border);color:var(--brown);" onclick="clearBookmark('${auId}')">clear</button>`:''}
+    </div>
+  `;
+  // insert before thread
+  const thread=document.querySelector('.thread');
+  if(thread)thread.parentNode.insertBefore(bar,thread);
+}
+
+function scrollToPanel(panelNum){
+  const panels=document.querySelectorAll('.thread-panel-num');
+  for(const p of panels){
+    if(p.textContent.trim()===`panel ${panelNum}`){
+      p.scrollIntoView({behavior:'smooth',block:'center'});
+      p.parentNode.style.outline='2px solid var(--rose-dark)';
+      p.parentNode.style.borderRadius='14px';
+      setTimeout(()=>p.parentNode.style.outline='',2000);
+      return;
+    }
+  }
+  toast(`panel ${panelNum} not found — it may not be loaded yet 🌸`);
+}
 
 loadHomeAUs();
 </script>
