@@ -77,7 +77,9 @@
   .thread-imgs{display:flex;flex-direction:column;gap:0.6rem;margin-top:0.5rem;}
   .thread-img-wrap{position:relative;}
   .thread-panel-num{font-size:0.72rem;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.3rem;}
-  .thread-imgs img{width:100%;max-width:480px;max-height:70vh;object-fit:contain;border-radius:14px;border:1.5px solid var(--border);cursor:pointer;display:block;}
+  .react-btn{background:none;border:1.5px solid var(--border);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.85rem;cursor:pointer;color:var(--muted);font-family:'Lato',sans-serif;transition:all .2s;display:inline-flex;align-items:center;gap:0.3rem;margin-top:0.5rem;}
+  .react-btn:hover{background:var(--rose);border-color:var(--rose-dark);color:var(--brown);}
+  .react-btn.reacted{background:var(--rose);border-color:var(--rose-dark);color:var(--brown);font-weight:700;}
   @media(max-width:600px){.thread-imgs img{max-width:100%;max-height:60vh;}}
 
   /* CHAPTERS */
@@ -783,8 +785,50 @@ async function loadAdminSuggestions(){
   }catch(e){el.innerHTML='<p style="color:var(--muted)">could not load</p>';}
 }
 
-function openLightbox(src){document.getElementById('lightbox-img').src=src;document.getElementById('lightbox').classList.add('open');}
-function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
+// REACTIONS
+function getLocalReactions(){try{return JSON.parse(localStorage.getItem('au_reactions')||'{}');}catch(e){return {};}}
+function hasReacted(auId,type,idx){const r=getLocalReactions();return !!(r[`${auId}_${type}_${idx}`]);}
+function markReacted(auId,type,idx){
+  const r=getLocalReactions();
+  r[`${auId}_${type}_${idx}`]=true;
+  localStorage.setItem('au_reactions',JSON.stringify(r));
+}
+
+async function loadReactionCounts(auId){
+  try{
+    const rows=await sb(`reactions?au_id=eq.${auId}&select=target_type,target_index`);
+    const counts={};
+    for(const r of rows){
+      const k=`${r.target_type}_${r.target_index}`;
+      counts[k]=(counts[k]||0)+1;
+    }
+    return counts;
+  }catch(e){return {};}
+}
+
+async function react(auId,type,idx,btnId){
+  if(hasReacted(auId,type,idx)){toast('you already liked this! 🩷');return;}
+  try{
+    await sb('reactions',{method:'POST',body:JSON.stringify({au_id:auId,target_type:type,target_index:idx})});
+    markReacted(auId,type,idx);
+    const btn=document.getElementById(btnId);
+    if(btn){
+      const cur=parseInt(btn.dataset.count||'0')+1;
+      btn.dataset.count=cur;
+      btn.innerHTML=`🩷 ${cur}`;
+      btn.classList.add('reacted');
+    }
+    toast('liked! 🩷');
+  }catch(e){toast('error liking 😔');}
+}
+
+function reactBtnHtml(auId,type,idx,counts){
+  const k=`${type}_${idx}`;
+  const count=counts[k]||0;
+  const reacted=hasReacted(auId,type,idx);
+  const btnId=`react-${auId}-${type}-${idx}`;
+  return `<button class="react-btn ${reacted?'reacted':''}" id="${btnId}" data-count="${count}" onclick="react('${auId}','${type}',${idx},'${btnId}')">${reacted?'🩷':'🤍'} ${count}</button>`;
+}
 
 // BOOKMARKS — saved in localStorage per AU
 function getBookmarks(){try{return JSON.parse(localStorage.getItem('au_bookmarks')||'{}');}catch(e){return {};}}
