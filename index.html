@@ -827,11 +827,13 @@ function renderBookmarkBar(auId,currentPanel,auTitle){
 function scrollToPanel(panelNum){
   const panels=document.querySelectorAll('.thread-panel-num');
   for(const p of panels){
-    if(p.textContent.trim()===`panel ${panelNum}`){
+    const txt=p.textContent.replace('🔖 tap to bookmark','').trim();
+    if(txt===`panel ${panelNum}`){
       p.scrollIntoView({behavior:'smooth',block:'center'});
-      p.parentNode.style.outline='2px solid var(--rose-dark)';
-      p.parentNode.style.borderRadius='14px';
-      setTimeout(()=>p.parentNode.style.outline='',2000);
+      const wrap=p.closest('.thread-img-wrap')||p.parentNode;
+      wrap.style.outline='2px solid var(--rose-dark)';
+      wrap.style.borderRadius='14px';
+      setTimeout(()=>{wrap.style.outline='';wrap.style.borderRadius='';},2000);
       return;
     }
   }
