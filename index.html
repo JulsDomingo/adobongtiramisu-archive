@@ -6,12 +6,7 @@
 <title>adobongtiramisu's archive</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
-  :root {
-    --cream:#fdf6ee; --rose:#e8c4b8; --rose-dark:#c9957f;
-    --sage:#b5c4b1; --sage-dark:#7a9e76; --brown:#7c5c4a;
-    --text:#4a3728; --muted:#9a7e72; --white:#fffaf6;
-    --card:#fff8f2; --border:#f0ddd3;
-  }
+  :root{--cream:#fdf6ee;--rose:#e8c4b8;--rose-dark:#c9957f;--sage:#b5c4b1;--sage-dark:#7a9e76;--brown:#7c5c4a;--text:#4a3728;--muted:#9a7e72;--white:#fffaf6;--card:#fff8f2;--border:#f0ddd3;}
   *{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:'Lato',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;}
 
@@ -48,7 +43,7 @@
   .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.5rem;margin-top:1rem;}
   .au-card{background:var(--card);border:1.5px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:all .2s;}
   .au-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(124,92,74,.12);}
-  .au-card-img{width:100%;height:175px;object-fit:cover;background:var(--rose);display:flex;align-items:center;justify-content:center;font-size:3rem;}
+  .au-card-img{width:100%;height:175px;background:var(--rose);display:flex;align-items:center;justify-content:center;font-size:3rem;overflow:hidden;}
   .au-card-img img{width:100%;height:100%;object-fit:cover;}
   .au-card-body{padding:1rem 1.2rem;}
   .au-card-type{font-size:0.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--rose-dark);font-weight:700;margin-bottom:0.4rem;}
@@ -60,7 +55,6 @@
   .filters{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:1.5rem;}
   .filter-btn{background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:0.35rem 1rem;font-size:0.85rem;cursor:pointer;color:var(--muted);font-family:'Lato',sans-serif;transition:all .2s;}
   .filter-btn:hover,.filter-btn.active{background:var(--rose);border-color:var(--rose-dark);color:var(--brown);font-weight:700;}
-
   .search-bar{width:100%;padding:0.7rem 1.2rem;border:1.5px solid var(--border);border-radius:30px;background:var(--white);font-family:'Lato',sans-serif;font-size:1rem;color:var(--text);margin-bottom:1rem;outline:none;}
   .search-bar:focus{border-color:var(--rose-dark);}
 
@@ -69,25 +63,31 @@
   .back-btn{background:none;border:none;color:var(--muted);cursor:pointer;font-family:'Lato',sans-serif;font-size:0.95rem;margin-bottom:1rem;display:flex;align-items:center;gap:0.4rem;padding:0;}
   .back-btn:hover{color:var(--brown);}
   .au-detail-title{font-family:'Playfair Display',serif;font-size:2rem;color:var(--brown);margin-bottom:0.5rem;}
-  .au-detail-content{background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:2rem;margin-bottom:1.5rem;line-height:1.9;color:var(--text);white-space:pre-wrap;font-size:1rem;}
+  .au-meta{color:var(--muted);font-size:0.85rem;margin-bottom:0.8rem;}
+
+  /* THREAD */
+  .thread{display:flex;flex-direction:column;gap:0;margin-bottom:1.5rem;max-width:640px;}
+  .thread-item{display:flex;gap:0.8rem;align-items:flex-start;}
+  .thread-left{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
+  .thread-avatar{width:38px;height:38px;border-radius:50%;background:var(--rose);border:2px solid var(--rose-dark);display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+  .thread-line{width:2px;background:var(--border);flex:1;min-height:16px;margin-top:4px;}
+  .thread-body{flex:1;padding-bottom:1.2rem;}
+  .thread-update-label{font-size:0.75rem;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.5rem;}
+  .thread-text{line-height:1.85;color:var(--text);white-space:pre-wrap;font-size:0.98rem;}
+  .thread-imgs{display:flex;flex-direction:column;gap:0.6rem;margin-top:0.5rem;}
+  .thread-img-wrap{position:relative;}
+  .thread-panel-num{font-size:0.72rem;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.3rem;}
+  .thread-imgs img{width:100%;border-radius:14px;border:1.5px solid var(--border);cursor:pointer;display:block;}
 
   /* CHAPTERS */
-  .chapters-sidebar{display:grid;grid-template-columns:260px 1fr;gap:1.5rem;}
+  .chapters-sidebar{display:grid;grid-template-columns:240px 1fr;gap:1.5rem;}
   .chapter-list{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:1rem;height:fit-content;position:sticky;top:80px;}
   .chapter-list h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--brown);margin-bottom:0.8rem;padding-bottom:0.5rem;border-bottom:1.5px solid var(--border);}
   .chapter-item{padding:0.6rem 0.8rem;border-radius:10px;cursor:pointer;font-size:0.9rem;color:var(--muted);transition:all .2s;margin-bottom:0.3rem;}
   .chapter-item:hover{background:var(--rose);color:var(--brown);}
   .chapter-item.active{background:var(--brown);color:var(--white);font-weight:700;}
+  .chapter-content{background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:2rem;line-height:1.9;color:var(--text);white-space:pre-wrap;}
   .chapter-nav{display:flex;justify-content:space-between;margin-top:1rem;}
-
-  .photo-thread{display:flex;flex-direction:column;gap:0.8rem;margin-bottom:1.5rem;max-width:600px;}
-  .photo-thread-img{width:100%;border-radius:16px;border:1.5px solid var(--border);cursor:pointer;display:block;}
-  .photo-thread-item{display:flex;gap:0.8rem;align-items:flex-start;}
-  .thread-line-wrap{display:flex;flex-direction:column;align-items:center;padding-top:4px;}
-  .thread-avatar{width:36px;height:36px;border-radius:50%;background:var(--rose);border:2px solid var(--rose-dark);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
-  .thread-line{width:2px;background:var(--border);flex:1;min-height:12px;margin-top:4px;}
-  .thread-body{flex:1;padding-bottom:0.8rem;}
-  .panel-number{font-size:0.78rem;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.4rem;}
 
   /* COMMENTS */
   .comments-section{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;}
@@ -104,8 +104,7 @@
   .about-card{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:2.5rem;max-width:700px;margin:0 auto;text-align:center;}
   .about-avatar{width:100px;height:100px;border-radius:50%;background:var(--rose);display:flex;align-items:center;justify-content:center;font-size:3rem;margin:0 auto 1.2rem;border:3px solid var(--rose-dark);}
   .about-name{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--brown);margin-bottom:0.5rem;}
-  .about-bio{color:var(--muted);line-height:1.8;margin-bottom:1.5rem;font-size:1rem;}
-
+  .about-bio{color:var(--muted);line-height:1.8;margin-bottom:1.5rem;}
   .suggestion-card{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:2rem;max-width:600px;margin:0 auto;}
 
   /* ADMIN */
@@ -114,23 +113,24 @@
   .admin-tabs{display:flex;gap:0.5rem;margin-bottom:1.5rem;flex-wrap:wrap;}
   .admin-tab{padding:0.5rem 1.2rem;border-radius:20px;border:1.5px solid var(--border);background:var(--white);cursor:pointer;font-family:'Lato',sans-serif;color:var(--muted);transition:all .2s;}
   .admin-tab.active,.admin-tab:hover{background:var(--brown);color:var(--white);border-color:var(--brown);}
-
   .image-preview-row{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.5rem;}
   .image-preview-row img{width:80px;height:80px;object-fit:cover;border-radius:8px;border:1.5px solid var(--border);}
-
   .chapter-editor{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:0.8rem;}
   .chapter-editor-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;}
   .chapter-editor input{width:100%;padding:0.5rem 0.8rem;border:1.5px solid var(--border);border-radius:8px;font-family:'Lato',sans-serif;font-size:0.9rem;margin-bottom:0.5rem;outline:none;}
   .chapter-editor textarea{width:100%;padding:0.5rem 0.8rem;border:1.5px solid var(--border);border-radius:8px;font-family:'Lato',sans-serif;font-size:0.9rem;resize:vertical;outline:none;min-height:120px;}
+
+  .manage-au-item{border-bottom:1.5px solid var(--border);padding:0.8rem 0;}
+  .manage-au-actions{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.5rem;}
+  .add-update-form{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:1rem;margin-top:0.5rem;display:none;}
+  .add-update-form.open{display:block;}
 
   .toast{position:fixed;bottom:2rem;right:2rem;background:var(--brown);color:var(--white);padding:0.8rem 1.5rem;border-radius:12px;font-size:0.95rem;z-index:9999;opacity:0;transform:translateY(20px);transition:all .3s;pointer-events:none;}
   .toast.show{opacity:1;transform:translateY(0);}
   .empty-state{text-align:center;padding:3rem;color:var(--muted);}
   .empty-state .emoji{font-size:3rem;margin-bottom:1rem;}
   .divider{border:none;border-top:1.5px solid var(--border);margin:1.5rem 0;}
-  .au-meta{color:var(--muted);font-size:0.85rem;margin-bottom:0.8rem;}
   .loading{text-align:center;padding:2rem;color:var(--muted);}
-
   .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;align-items:center;justify-content:center;}
   .lightbox.open{display:flex;}
   .lightbox img{max-width:90vw;max-height:90vh;border-radius:8px;}
@@ -212,9 +212,7 @@
       feel free to browse, comment, and send suggestions! ✨🍮
     </p>
     <div class="tags-row" style="justify-content:center;">
-      <span class="tag">au writer</span>
-      <span class="tag">filipino 🇵🇭</span>
-      <span class="tag">cozy vibes</span>
+      <span class="tag">au writer</span><span class="tag">filipino 🇵🇭</span><span class="tag">cozy vibes</span>
     </div>
   </div>
 </div>
@@ -224,14 +222,8 @@
   <h2 class="section-title">Suggestion Box</h2>
   <p class="section-sub">got an au idea? drop it here! 💌</p>
   <div class="suggestion-card">
-    <div class="form-group">
-      <label>your name (optional)</label>
-      <input type="text" id="sug-name" placeholder="anonymous is fine too!"/>
-    </div>
-    <div class="form-group">
-      <label>your au idea ✨</label>
-      <textarea id="sug-content" rows="5" placeholder="describe your au idea here..."></textarea>
-    </div>
+    <div class="form-group"><label>your name (optional)</label><input type="text" id="sug-name" placeholder="anonymous is fine too!"/></div>
+    <div class="form-group"><label>your au idea ✨</label><textarea id="sug-content" rows="5" placeholder="describe your au idea here..."></textarea></div>
     <button class="btn btn-primary" onclick="submitSuggestion()">send suggestion 💌</button>
   </div>
 </div>
@@ -242,12 +234,9 @@
     <div style="font-size:2.5rem;margin-bottom:1rem;">🔐</div>
     <h2 class="section-title" style="margin-bottom:0.5rem;">admin login</h2>
     <p style="color:var(--muted);margin-bottom:1.5rem;font-size:0.9rem;">only you can enter here 🍮</p>
-    <div class="form-group">
-      <input type="password" id="admin-pass" placeholder="enter password..." onkeydown="if(event.key==='Enter')adminLogin()"/>
-    </div>
+    <div class="form-group"><input type="password" id="admin-pass" placeholder="enter password..." onkeydown="if(event.key==='Enter')adminLogin()"/></div>
     <button class="btn btn-primary" onclick="adminLogin()">login</button>
   </div>
-
   <div id="admin-panel-section" style="display:none;">
     <div class="admin-panel">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
@@ -263,10 +252,7 @@
 
       <!-- POST AU -->
       <div id="admin-tab-post">
-        <div class="form-group">
-          <label>au title</label>
-          <input type="text" id="au-title" placeholder="e.g. coffee shop au"/>
-        </div>
+        <div class="form-group"><label>au title</label><input type="text" id="au-title" placeholder="e.g. coffee shop au"/></div>
         <div class="form-group">
           <label>type</label>
           <select id="au-type" onchange="toggleAUType()">
@@ -275,25 +261,21 @@
             <option value="story">📖 story au (with chapters)</option>
           </select>
         </div>
-        <div class="form-group">
-          <label>short description</label>
-          <textarea id="au-desc" rows="2" placeholder="a brief summary..."></textarea>
-        </div>
+        <div class="form-group"><label>short description</label><textarea id="au-desc" rows="2" placeholder="a brief summary..."></textarea></div>
 
         <!-- TEXT -->
-        <div id="text-content-group" class="form-group">
-          <label>au content</label>
-          <textarea id="au-content" rows="10" placeholder="write your au here..."></textarea>
+        <div id="text-content-group">
+          <div class="form-group"><label>text content (optional)</label><textarea id="au-content" rows="6" placeholder="write your text here... (you can also add photos below)"></textarea></div>
+          <div class="form-group"><label>photos (optional)</label><input type="file" id="au-photos-text" multiple accept="image/*" onchange="previewPhotosFor('au-photos-text','photo-previews-text')"/><div class="image-preview-row" id="photo-previews-text"></div></div>
         </div>
 
         <!-- PHOTO -->
-        <div id="photo-content-group" class="form-group" style="display:none;">
-          <label>upload photos</label>
-          <input type="file" id="au-photos" multiple accept="image/*" onchange="previewPhotos()"/>
-          <div class="image-preview-row" id="photo-previews"></div>
+        <div id="photo-content-group" style="display:none;">
+          <div class="form-group"><label>photos (optional)</label><input type="file" id="au-photos-photo" multiple accept="image/*" onchange="previewPhotosFor('au-photos-photo','photo-previews-photo')"/><div class="image-preview-row" id="photo-previews-photo"></div></div>
+          <div class="form-group"><label>text caption (optional)</label><textarea id="au-content-photo" rows="4" placeholder="add a caption or text alongside your photos..."></textarea></div>
         </div>
 
-        <!-- STORY CHAPTERS -->
+        <!-- STORY -->
         <div id="story-content-group" style="display:none;">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
             <label style="font-size:0.85rem;color:var(--muted);font-weight:700;">chapters</label>
@@ -302,15 +284,8 @@
           <div id="chapter-editors"></div>
         </div>
 
-        <div class="form-group">
-          <label>cover image (optional)</label>
-          <input type="file" id="au-cover" accept="image/*" onchange="previewCover()"/>
-          <div id="cover-preview" style="margin-top:0.5rem;"></div>
-        </div>
-        <div class="form-group">
-          <label>tags (comma separated)</label>
-          <input type="text" id="au-tags-input" placeholder="e.g. fluff, coffee shop, enemies to lovers"/>
-        </div>
+        <div class="form-group"><label>cover image (optional)</label><input type="file" id="au-cover" accept="image/*" onchange="previewCover()"/><div id="cover-preview" style="margin-top:0.5rem;"></div></div>
+        <div class="form-group"><label>tags (comma separated)</label><input type="text" id="au-tags-input" placeholder="e.g. fluff, coffee shop, enemies to lovers"/></div>
         <button class="btn btn-primary" onclick="postAU()">post au ✨</button>
       </div>
 
@@ -344,17 +319,12 @@ const SUPABASE_URL='https://qmlhsstiwlfjpjwibfht.supabase.co';
 const SUPABASE_KEY='sb_publishable_bp2aZ0VbTmcLGi_nDk1svw_KrF4dC7g';
 const ADMIN_PASSWORD='adobongtiramisu2024';
 const BUCKET='au-images';
-
-let currentPage='home', prevPage='home';
-let allAUs=[], allTags=[];
-let activeTagFilter='all';
-let isAdmin=false;
-let currentAUID=null;
-let currentChapterIdx=0;
-let chapterCount=0;
-
 const TYPE_EMOJI={text:'📝',photo:'📸',story:'📖'};
 const TYPE_LABEL={text:'text au',photo:'photo au',story:'story au'};
+
+let currentPage='home',prevPage='home';
+let allAUs=[],allTags=[],activeTagFilter='all';
+let isAdmin=false,chapterCount=0;
 
 async function sb(path,opts={}){
   const res=await fetch(`${SUPABASE_URL}/rest/v1/${path}`,{
@@ -380,54 +350,44 @@ function uid(){return `${Date.now()}-${Math.random().toString(36).slice(2)}`;}
 function fileToPath(f){return `${uid()}.${f.name.split('.').pop()}`;}
 
 function showPage(p){
-  prevPage=currentPage; currentPage=p;
+  prevPage=currentPage;currentPage=p;
   document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
   document.querySelectorAll('.nav-links button').forEach(el=>el.classList.remove('active'));
   document.getElementById(`page-${p}`).classList.add('active');
-  const nb=document.getElementById(`nav-${p}`);
-  if(nb)nb.classList.add('active');
+  const nb=document.getElementById(`nav-${p}`);if(nb)nb.classList.add('active');
   if(p==='home')loadHomeAUs();
   if(p==='browse')loadBrowseAUs();
-  if(p==='admin'&&isAdmin){
-    document.getElementById('admin-login-section').style.display='none';
-    document.getElementById('admin-panel-section').style.display='block';
-  }
+  if(p==='admin'&&isAdmin){document.getElementById('admin-login-section').style.display='none';document.getElementById('admin-panel-section').style.display='block';}
   window.scrollTo(0,0);
 }
 
 function goBack(){showPage(prevPage==='detail'?'browse':prevPage);}
 
 function toast(msg,dur=3000){
-  const t=document.getElementById('toast');
-  t.textContent=msg; t.classList.add('show');
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),dur);
 }
 
-// LOAD
 async function loadHomeAUs(){
   const el=document.getElementById('home-cards');
   try{
     const aus=await sb('aus?select=*,au_tags(tag_id,tags(name))&order=created_at.desc&limit=6');
     allAUs=aus;
-    el.innerHTML=aus.length?aus.map(auCard).join(''):'<div class="empty-state"><div class="emoji">🌸</div><p>no aus yet — check back soon!</p></div>';
+    el.innerHTML=aus.length?aus.map(auCard).join(''):'<div class="empty-state"><div class="emoji">🌸</div><p>no aus yet!</p></div>';
   }catch(e){el.innerHTML='<div class="empty-state"><div class="emoji">😔</div><p>could not load aus</p></div>';}
 }
 
 async function loadBrowseAUs(){
   const el=document.getElementById('browse-cards');
   try{
-    const [aus,tags]=await Promise.all([
-      sb('aus?select=*,au_tags(tag_id,tags(name))&order=created_at.desc'),
-      sb('tags?order=name.asc')
-    ]);
-    allAUs=aus; allTags=tags;
-    renderTagFilters(); renderBrowseCards();
+    const [aus,tags]=await Promise.all([sb('aus?select=*,au_tags(tag_id,tags(name))&order=created_at.desc'),sb('tags?order=name.asc')]);
+    allAUs=aus;allTags=tags;
+    renderTagFilters();renderBrowseCards();
   }catch(e){el.innerHTML='<div class="empty-state"><div class="emoji">😔</div><p>could not load aus</p></div>';}
 }
 
 function renderTagFilters(){
-  const f=document.getElementById('tag-filters');
-  f.innerHTML=`
+  document.getElementById('tag-filters').innerHTML=`
     <button class="filter-btn ${activeTagFilter==='all'?'active':''}" onclick="setTagFilter('all',this)">All</button>
     <button class="filter-btn ${activeTagFilter==='text'?'active':''}" onclick="setTagFilter('text',this)">📝 Text AUs</button>
     <button class="filter-btn ${activeTagFilter==='photo'?'active':''}" onclick="setTagFilter('photo',this)">📸 Photo AUs</button>
@@ -439,8 +399,7 @@ function renderTagFilters(){
 function setTagFilter(val,btn){
   activeTagFilter=val;
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  renderBrowseCards();
+  btn.classList.add('active');renderBrowseCards();
 }
 
 function filterAUs(){renderBrowseCards();}
@@ -448,97 +407,106 @@ function filterAUs(){renderBrowseCards();}
 function renderBrowseCards(){
   const q=document.getElementById('search-input').value.toLowerCase();
   let f=allAUs;
-  if(['text','photo','story'].includes(activeTagFilter)) f=f.filter(a=>a.type===activeTagFilter);
-  else if(activeTagFilter!=='all') f=f.filter(a=>a.au_tags?.some(t=>t.tag_id===activeTagFilter));
-  if(q) f=f.filter(a=>a.title.toLowerCase().includes(q)||(a.description||'').toLowerCase().includes(q));
+  if(['text','photo','story'].includes(activeTagFilter))f=f.filter(a=>a.type===activeTagFilter);
+  else if(activeTagFilter!=='all')f=f.filter(a=>a.au_tags?.some(t=>t.tag_id===activeTagFilter));
+  if(q)f=f.filter(a=>a.title.toLowerCase().includes(q)||(a.description||'').toLowerCase().includes(q));
   document.getElementById('browse-cards').innerHTML=f.length?f.map(auCard).join(''):'<div class="empty-state"><div class="emoji">🌸</div><p>no aus found</p></div>';
 }
 
 function auCard(au){
   const tags=au.au_tags?.map(t=>t.tags?.name).filter(Boolean)||[];
-  const img=au.cover_image
-    ?`<div class="au-card-img"><img src="${au.cover_image}" alt=""/></div>`
-    :`<div class="au-card-img">${TYPE_EMOJI[au.type]||'📝'}</div>`;
-  const chapBadge=au.type==='story'&&au.chapters?.length?`<span style="font-size:0.78rem;color:var(--muted);">📖 ${au.chapters.length} chapter${au.chapters.length>1?'s':''}</span>`:'';
+  const img=au.cover_image?`<div class="au-card-img"><img src="${au.cover_image}" alt=""/></div>`:`<div class="au-card-img">${TYPE_EMOJI[au.type]||'📝'}</div>`;
   return `<div class="au-card" onclick="openAU('${au.id}')">
     ${img}
     <div class="au-card-body">
-      <div class="au-card-type">${TYPE_LABEL[au.type]||'text au'}</div>
+      <div class="au-card-type">${TYPE_LABEL[au.type]||'au'}</div>
       <div class="au-card-title">${au.title}</div>
       <div class="au-card-desc">${au.description||''}</div>
-      ${chapBadge}
       <div class="tags-row" style="margin-top:0.5rem;">${tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
     </div>
   </div>`;
 }
 
-// AU DETAIL
 async function openAU(id){
-  prevPage=currentPage; currentPage='detail';
-  currentAUID=id; currentChapterIdx=0;
+  prevPage=currentPage;currentPage='detail';
   document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
   document.getElementById('page-detail').classList.add('active');
   document.getElementById('detail-content').innerHTML='<div class="loading">loading...</div>';
   try{
-    const au=await sb(`aus?id=eq.${id}&select=*,au_tags(tag_id,tags(name))&limit=1`).then(r=>r[0]);
-    const comments=await sb(`comments?au_id=eq.${id}&order=created_at.asc`);
-    renderDetail(au,comments,0);
+    const [au,updates,comments]=await Promise.all([
+      sb(`aus?id=eq.${id}&select=*,au_tags(tag_id,tags(name))&limit=1`).then(r=>r[0]),
+      sb(`au_updates?au_id=eq.${id}&order=order_index.asc,created_at.asc`),
+      sb(`comments?au_id=eq.${id}&order=created_at.asc`)
+    ]);
+    renderDetail(au,updates,comments,0);
   }catch(e){document.getElementById('detail-content').innerHTML='<div class="empty-state"><div class="emoji">😔</div><p>could not load au</p></div>';}
   window.scrollTo(0,0);
 }
 
-function renderDetail(au,comments,chapIdx){
+function renderDetail(au,updates,comments,chapIdx){
   const tags=au.au_tags?.map(t=>t.tags?.name).filter(Boolean)||[];
   const date=new Date(au.created_at).toLocaleDateString('en-PH',{year:'numeric',month:'long',day:'numeric'});
-
   let mainContent='';
-  if(au.type==='text'){
-    mainContent=`<div class="au-detail-content">${au.content||'(no content yet)'}</div>`;
-  } else if(au.type==='photo'){
-    const imgs=au.images||[];
-    mainContent=`<div class="photo-thread">${imgs.map((src,i)=>`
-      <div class="photo-thread-item">
-        <div class="thread-line-wrap">
-          <div class="thread-avatar">🍮</div>
-          ${i<imgs.length-1?'<div class="thread-line"></div>':''}
-        </div>
-        <div class="thread-body">
-          <div class="panel-number">panel ${i+1}</div>
-          <img class="photo-thread-img" src="${src}" onclick="openLightbox('${src}')" alt="panel ${i+1}"/>
-        </div>
-      </div>
-    `).join('')}</div>`;
-  } else if(au.type==='story'){
+
+  if(au.type==='story'){
     const chapters=au.chapters||[];
     if(!chapters.length){
-      mainContent=`<div class="au-detail-content" style="color:var(--muted);">no chapters yet 🌸</div>`;
+      mainContent=`<div style="background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:2rem;color:var(--muted);margin-bottom:1.5rem;">no chapters yet 🌸</div>`;
     } else {
       const ch=chapters[chapIdx];
-      mainContent=`
-        <div class="chapters-sidebar">
-          <div class="chapter-list">
-            <h3>chapters</h3>
-            ${chapters.map((c,i)=>`<div class="chapter-item ${i===chapIdx?'active':''}" onclick="switchChapter(${i})">${i+1}. ${c.title||'untitled'}</div>`).join('')}
+      mainContent=`<div class="chapters-sidebar">
+        <div class="chapter-list">
+          <h3>chapters</h3>
+          ${chapters.map((c,i)=>`<div class="chapter-item ${i===chapIdx?'active':''}" onclick="switchChapter(${i})">${i+1}. ${c.title||'untitled'}</div>`).join('')}
+        </div>
+        <div>
+          <div class="chapter-content">
+            <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--brown);margin-bottom:1rem;">chapter ${chapIdx+1}: ${ch.title||'untitled'}</div>
+            ${ch.content||'(empty chapter)'}
           </div>
-          <div>
-            <div class="au-detail-content">
-              <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--brown);margin-bottom:1rem;">chapter ${chapIdx+1}: ${ch.title||'untitled'}</div>
-              ${ch.content||'(empty chapter)'}
-            </div>
-            <div class="chapter-nav">
-              ${chapIdx>0?`<button class="btn btn-secondary btn-sm" onclick="switchChapter(${chapIdx-1})">← prev chapter</button>`:'<span></span>'}
-              ${chapIdx<chapters.length-1?`<button class="btn btn-primary btn-sm" onclick="switchChapter(${chapIdx+1})">next chapter →</button>`:'<span></span>'}
-            </div>
+          <div class="chapter-nav">
+            ${chapIdx>0?`<button class="btn btn-secondary btn-sm" onclick="switchChapter(${chapIdx-1})">← prev</button>`:'<span></span>'}
+            ${chapIdx<chapters.length-1?`<button class="btn btn-primary btn-sm" onclick="switchChapter(${chapIdx+1})">next →</button>`:'<span></span>'}
           </div>
-        </div>`;
+        </div>
+      </div>`;
     }
+  } else {
+    // Build thread from updates (mixed text + photos)
+    let panelCounter=0;
+    const threadItems=updates.map((u,i)=>{
+      let bodyHtml='';
+      const isLast=i===updates.length-1;
+      if(u.content){
+        bodyHtml+=`<div class="thread-text">${u.content}</div>`;
+      }
+      if(u.images&&u.images.length){
+        bodyHtml+=`<div class="thread-imgs">${u.images.map(src=>{
+          panelCounter++;
+          return `<div class="thread-img-wrap"><div class="thread-panel-num">panel ${panelCounter}</div><img src="${src}" onclick="openLightbox('${src}')" alt="panel ${panelCounter}"/></div>`;
+        }).join('')}</div>`;
+      }
+      if(!bodyHtml)return '';
+      return `<div class="thread-item">
+        <div class="thread-left">
+          <div class="thread-avatar">🍮</div>
+          ${!isLast?'<div class="thread-line"></div>':''}
+        </div>
+        <div class="thread-body">
+          <div class="thread-update-label">${new Date(u.created_at).toLocaleDateString('en-PH',{month:'short',day:'numeric',year:'numeric'})}</div>
+          ${bodyHtml}
+        </div>
+      </div>`;
+    }).filter(Boolean).join('');
+
+    mainContent=`<div class="thread">${threadItems||'<div style="color:var(--muted);padding:1rem;">no updates yet 🌸</div>'}</div>`;
   }
 
   document.getElementById('detail-content').innerHTML=`
     <div class="au-detail-header">
-      <div class="au-card-type">${TYPE_LABEL[au.type]||'text au'}</div>
+      <div class="au-card-type">${TYPE_LABEL[au.type]||'au'}</div>
       <h1 class="au-detail-title">${au.title}</h1>
-      <div class="au-meta">posted ${date}${au.type==='story'&&au.chapters?.length?' · '+(au.chapters.length)+' chapter'+(au.chapters.length>1?'s':''):''}</div>
+      <div class="au-meta">posted ${date}</div>
       <p style="color:var(--muted);line-height:1.7;">${au.description||''}</p>
       <div class="tags-row" style="margin-top:0.8rem;">${tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
     </div>
@@ -546,14 +514,8 @@ function renderDetail(au,comments,chapIdx){
     <div class="comments-section">
       <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1rem;">comments 💬</h3>
       <div class="comment-form">
-        <div class="form-group">
-          <label>your name</label>
-          <input type="text" id="cmt-name" placeholder="your name or alias"/>
-        </div>
-        <div class="form-group">
-          <label>your comment</label>
-          <textarea id="cmt-text" rows="3" placeholder="leave a comment..."></textarea>
-        </div>
+        <div class="form-group"><label>your name</label><input type="text" id="cmt-name" placeholder="your name or alias"/></div>
+        <div class="form-group"><label>your comment</label><textarea id="cmt-text" rows="3" placeholder="leave a comment..."></textarea></div>
         <button class="btn btn-secondary" onclick="submitComment('${au.id}')">post comment 💬</button>
       </div>
       <div id="comments-list">
@@ -567,43 +529,36 @@ function renderDetail(au,comments,chapIdx){
       </div>
     </div>
   `;
-  // store au for chapter switching
-  window._currentAU=au;
-  window._currentComments=comments;
+  window._currentAU=au;window._currentComments=comments;window._currentUpdates=updates;
 }
 
 function switchChapter(idx){
-  currentChapterIdx=idx;
-  renderDetail(window._currentAU, window._currentComments, idx);
+  renderDetail(window._currentAU,window._currentUpdates,window._currentComments,idx);
   window.scrollTo(0,200);
 }
 
 async function submitComment(auId){
   const name=document.getElementById('cmt-name').value.trim()||'anonymous';
   const content=document.getElementById('cmt-text').value.trim();
-  if(!content)return toast('please write something first! 🌸');
+  if(!content)return toast('please write something! 🌸');
   try{
     await sb('comments',{method:'POST',body:JSON.stringify({au_id:auId,name,content})});
-    document.getElementById('cmt-name').value='';
-    document.getElementById('cmt-text').value='';
-    toast('comment posted! 💬');
-    openAU(auId);
+    document.getElementById('cmt-name').value='';document.getElementById('cmt-text').value='';
+    toast('comment posted! 💬');openAU(auId);
   }catch(e){toast('error posting comment 😔');}
 }
 
 async function submitSuggestion(){
   const name=document.getElementById('sug-name').value.trim()||'anonymous';
   const content=document.getElementById('sug-content').value.trim();
-  if(!content)return toast('please write your idea first! 💌');
+  if(!content)return toast('write your idea first! 💌');
   try{
     await sb('suggestions',{method:'POST',body:JSON.stringify({name,content})});
-    document.getElementById('sug-name').value='';
-    document.getElementById('sug-content').value='';
-    toast('suggestion sent! thank you 💌');
+    document.getElementById('sug-name').value='';document.getElementById('sug-content').value='';
+    toast('suggestion sent! 💌');
   }catch(e){toast('error sending suggestion 😔');}
 }
 
-// ADMIN
 function adminLogin(){
   if(document.getElementById('admin-pass').value===ADMIN_PASSWORD){
     isAdmin=true;
@@ -621,9 +576,7 @@ function adminLogout(){
 }
 
 function showAdminTab(tab,btn){
-  ['post','manage','tags','suggestions'].forEach(t=>{
-    document.getElementById(`admin-tab-${t}`).style.display=t===tab?'block':'none';
-  });
+  ['post','manage','tags','suggestions'].forEach(t=>document.getElementById(`admin-tab-${t}`).style.display=t===tab?'block':'none');
   document.querySelectorAll('.admin-tab').forEach(b=>b.classList.remove('active'));
   if(btn)btn.classList.add('active');
   if(tab==='manage')loadManageAUs();
@@ -636,43 +589,30 @@ function toggleAUType(){
   document.getElementById('text-content-group').style.display=type==='text'?'block':'none';
   document.getElementById('photo-content-group').style.display=type==='photo'?'block':'none';
   document.getElementById('story-content-group').style.display=type==='story'?'block':'none';
-  if(type==='story'&&document.getElementById('chapter-editors').children.length===0)addChapterEditor();
+  if(type==='story'&&!document.getElementById('chapter-editors').children.length)addChapterEditor();
 }
 
 function addChapterEditor(){
   chapterCount++;
-  const idx=chapterCount;
   const div=document.createElement('div');
-  div.className='chapter-editor';
-  div.id=`ch-editor-${idx}`;
-  div.innerHTML=`
-    <div class="chapter-editor-header">
-      <span style="font-weight:700;color:var(--brown);font-size:0.9rem;">chapter ${idx}</span>
-      <button class="btn btn-secondary btn-sm" onclick="removeChapterEditor(${idx})">remove</button>
-    </div>
-    <input type="text" placeholder="chapter title..." id="ch-title-${idx}"/>
-    <textarea placeholder="write chapter content here..." id="ch-content-${idx}"></textarea>
-  `;
+  div.className='chapter-editor';div.id=`ch-editor-${chapterCount}`;
+  div.innerHTML=`<div class="chapter-editor-header"><span style="font-weight:700;color:var(--brown);font-size:0.9rem;">chapter ${chapterCount}</span><button class="btn btn-secondary btn-sm" onclick="removeChapterEditor(${chapterCount})">remove</button></div>
+    <input type="text" placeholder="chapter title..." id="ch-title-${chapterCount}"/>
+    <textarea placeholder="write chapter content..." id="ch-content-${chapterCount}"></textarea>`;
   document.getElementById('chapter-editors').appendChild(div);
 }
 
-function removeChapterEditor(idx){
-  const el=document.getElementById(`ch-editor-${idx}`);
-  if(el)el.remove();
-}
+function removeChapterEditor(idx){document.getElementById(`ch-editor-${idx}`)?.remove();}
 
-function previewPhotos(){
-  const files=document.getElementById('au-photos').files;
-  const prev=document.getElementById('photo-previews');
-  prev.innerHTML='';
+function previewPhotosFor(inputId,previewId){
+  const files=document.getElementById(inputId).files;
+  const prev=document.getElementById(previewId);prev.innerHTML='';
   for(const f of files){const img=document.createElement('img');img.src=URL.createObjectURL(f);prev.appendChild(img);}
 }
 
 function previewCover(){
   const file=document.getElementById('au-cover').files[0];
-  document.getElementById('cover-preview').innerHTML=file
-    ?`<img src="${URL.createObjectURL(file)}" style="width:120px;height:80px;object-fit:cover;border-radius:8px;border:1.5px solid var(--border);"/>`
-    :'';
+  document.getElementById('cover-preview').innerHTML=file?`<img src="${URL.createObjectURL(file)}" style="width:120px;height:80px;object-fit:cover;border-radius:8px;border:1.5px solid var(--border);"/>`:'';
 }
 
 async function postAU(){
@@ -687,16 +627,10 @@ async function postAU(){
     const coverFile=document.getElementById('au-cover').files[0];
     if(coverFile)coverUrl=await uploadFile(coverFile,`covers/${fileToPath(coverFile)}`);
 
-    let imageUrls=[], chapters=[], content=null;
-
-    if(type==='photo'){
-      const photos=document.getElementById('au-photos').files;
-      for(const f of photos)imageUrls.push(await uploadFile(f,`photos/${fileToPath(f)}`));
-    } else if(type==='text'){
-      content=document.getElementById('au-content').value.trim();
-    } else if(type==='story'){
-      const editors=document.querySelectorAll('.chapter-editor');
-      for(const ed of editors){
+    let chapters=null;
+    if(type==='story'){
+      chapters=[];
+      for(const ed of document.querySelectorAll('.chapter-editor')){
         const id=ed.id.replace('ch-editor-','');
         const t=document.getElementById(`ch-title-${id}`)?.value.trim()||'';
         const c=document.getElementById(`ch-content-${id}`)?.value.trim()||'';
@@ -704,8 +638,26 @@ async function postAU(){
       }
     }
 
-    const [au]=await sb('aus',{method:'POST',body:JSON.stringify({title,type,description:desc,content,cover_image:coverUrl,images:imageUrls,chapters:chapters.length?chapters:null})});
+    const [au]=await sb('aus',{method:'POST',body:JSON.stringify({title,type,description:desc,cover_image:coverUrl,chapters})});
 
+    // For text and photo types, create first update
+    if(type!=='story'){
+      let content=null,images=[];
+      if(type==='text'){
+        content=document.getElementById('au-content').value.trim()||null;
+        const photos=document.getElementById('au-photos-text').files;
+        for(const f of photos)images.push(await uploadFile(f,`photos/${fileToPath(f)}`));
+      } else {
+        content=document.getElementById('au-content-photo').value.trim()||null;
+        const photos=document.getElementById('au-photos-photo').files;
+        for(const f of photos)images.push(await uploadFile(f,`photos/${fileToPath(f)}`));
+      }
+      if(content||images.length){
+        await sb('au_updates',{method:'POST',body:JSON.stringify({au_id:au.id,content,images:images.length?images:null,order_index:0})});
+      }
+    }
+
+    // Tags
     if(tagsRaw){
       for(const name of tagsRaw.split(',').map(t=>t.trim()).filter(Boolean)){
         try{
@@ -716,13 +668,10 @@ async function postAU(){
       }
     }
 
-    ['au-title','au-desc','au-content','au-tags-input'].forEach(id=>document.getElementById(id).value='');
-    document.getElementById('au-cover').value='';
-    document.getElementById('au-photos').value='';
-    document.getElementById('photo-previews').innerHTML='';
-    document.getElementById('cover-preview').innerHTML='';
-    document.getElementById('chapter-editors').innerHTML='';
-    chapterCount=0;
+    ['au-title','au-desc','au-content','au-content-photo','au-tags-input'].forEach(id=>document.getElementById(id).value='');
+    ['au-cover','au-photos-text','au-photos-photo'].forEach(id=>document.getElementById(id).value='');
+    ['cover-preview','photo-previews-text','photo-previews-photo'].forEach(id=>document.getElementById(id).innerHTML='');
+    document.getElementById('chapter-editors').innerHTML='';chapterCount=0;
     toast('au posted! 🍮✨');
   }catch(e){toast('error posting au 😔');console.error(e);}
 }
@@ -732,61 +681,54 @@ async function loadManageAUs(){
   try{
     const aus=await sb('aus?select=*&order=created_at.desc');
     el.innerHTML=aus.length?aus.map(au=>`
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:0.8rem 0;border-bottom:1.5px solid var(--border);">
-        <div>
-          <div style="font-weight:700;color:var(--brown);">${au.title}</div>
-          <div style="font-size:0.8rem;color:var(--muted);">${TYPE_LABEL[au.type]||au.type} · ${new Date(au.created_at).toLocaleDateString()}${au.type==='photo'?' · '+(au.images?.length||0)+' panels':''}</div>
-        </div>
-        <div style="display:flex;gap:0.5rem;">
-          ${au.type==='photo'?`<button class="btn btn-sage btn-sm" onclick="showAddPanels('${au.id}','${au.title.replace(/'/g,"\\'")}')">+ panels</button>`:''}
+      <div class="manage-au-item">
+        <div style="font-weight:700;color:var(--brown);">${au.title}</div>
+        <div style="font-size:0.8rem;color:var(--muted);">${TYPE_LABEL[au.type]||au.type} · ${new Date(au.created_at).toLocaleDateString()}</div>
+        <div class="manage-au-actions">
+          ${au.type!=='story'?`<button class="btn btn-sage btn-sm" onclick="toggleUpdateForm('${au.id}')">+ add update</button>`:''}
           <button class="btn btn-secondary btn-sm" onclick="deleteAU('${au.id}','${au.title.replace(/'/g,"\\'")}')">delete</button>
         </div>
+        <div class="add-update-form" id="update-form-${au.id}">
+          <div style="font-weight:700;color:var(--brown);margin-bottom:0.8rem;font-size:0.9rem;">add update to "${au.title}"</div>
+          <div class="form-group"><label>text (optional)</label><textarea id="upd-text-${au.id}" rows="4" placeholder="write text here..."></textarea></div>
+          <div class="form-group"><label>photos (optional)</label><input type="file" id="upd-photos-${au.id}" multiple accept="image/*" onchange="previewPhotosFor('upd-photos-${au.id}','upd-preview-${au.id}')"/><div class="image-preview-row" id="upd-preview-${au.id}"></div></div>
+          <button class="btn btn-primary btn-sm" onclick="postUpdate('${au.id}')">post update ✨</button>
+        </div>
       </div>
-      ${au.type==='photo'?`<div id="add-panels-${au.id}" style="display:none;background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:0.5rem;">
-        <div style="font-weight:700;color:var(--brown);margin-bottom:0.5rem;font-size:0.9rem;">add panels to "${au.title}"</div>
-        <div style="font-size:0.8rem;color:var(--muted);margin-bottom:0.5rem;">currently has ${au.images?.length||0} panels — new ones will be added after</div>
-        <input type="file" id="new-panels-${au.id}" multiple accept="image/*" onchange="previewNewPanels('${au.id}')"/>
-        <div class="image-preview-row" id="new-panels-preview-${au.id}" style="margin:0.5rem 0;"></div>
-        <button class="btn btn-primary btn-sm" onclick="uploadNewPanels('${au.id}',${au.images?.length||0})">upload panels</button>
-      </div>`:''}
     `).join(''):'<div class="empty-state"><div class="emoji">📭</div><p>no aus yet</p></div>';
   }catch(e){el.innerHTML='<p style="color:var(--muted)">could not load</p>';}
 }
 
-function showAddPanels(id){
-  const el=document.getElementById(`add-panels-${id}`);
-  el.style.display=el.style.display==='none'?'block':'none';
+function toggleUpdateForm(auId){
+  const el=document.getElementById(`update-form-${auId}`);
+  el.classList.toggle('open');
 }
 
-function previewNewPanels(id){
-  const files=document.getElementById(`new-panels-${id}`).files;
-  const prev=document.getElementById(`new-panels-preview-${id}`);
-  prev.innerHTML='';
-  for(const f of files){const img=document.createElement('img');img.src=URL.createObjectURL(f);prev.appendChild(img);}
-}
-
-async function uploadNewPanels(auId, currentCount){
-  const files=document.getElementById(`new-panels-${auId}`).files;
-  if(!files.length)return toast('please select photos first! 🌸');
+async function postUpdate(auId){
+  const content=document.getElementById(`upd-text-${auId}`).value.trim()||null;
+  const photoFiles=document.getElementById(`upd-photos-${auId}`).files;
+  if(!content&&!photoFiles.length)return toast('add some text or photos! 🌸');
   try{
-    toast('uploading panels... please wait ✨');
-    const newUrls=[];
-    for(const f of files)newUrls.push(await uploadFile(f,`photos/${fileToPath(f)}`));
-    // fetch existing images
-    const au=await sb(`aus?id=eq.${auId}&select=images&limit=1`).then(r=>r[0]);
-    const existing=au.images||[];
-    await sb(`aus?id=eq.${auId}`,{method:'PATCH',body:JSON.stringify({images:[...existing,...newUrls]}),prefer:'return=minimal'});
-    toast(`${newUrls.length} panel${newUrls.length>1?'s':''} added! 🍮✨`);
-    document.getElementById(`add-panels-${auId}`).style.display='none';
-    loadManageAUs();
-  }catch(e){toast('error uploading panels 😔');console.error(e);}
+    toast('uploading update... ✨');
+    const images=[];
+    for(const f of photoFiles)images.push(await uploadFile(f,`photos/${fileToPath(f)}`));
+    // get current max order_index
+    const existing=await sb(`au_updates?au_id=eq.${auId}&select=order_index&order=order_index.desc&limit=1`);
+    const nextIdx=(existing[0]?.order_index??-1)+1;
+    await sb('au_updates',{method:'POST',body:JSON.stringify({au_id:auId,content,images:images.length?images:null,order_index:nextIdx})});
+    document.getElementById(`upd-text-${auId}`).value='';
+    document.getElementById(`upd-photos-${auId}`).value='';
+    document.getElementById(`upd-preview-${auId}`).innerHTML='';
+    document.getElementById(`update-form-${auId}`).classList.remove('open');
+    toast('update posted! 🍮✨');
+  }catch(e){toast('error posting update 😔');console.error(e);}
 }
 
 async function deleteAU(id,title){
   if(!confirm(`delete "${title}"? this cannot be undone.`))return;
   try{
     await sb(`aus?id=eq.${id}`,{method:'DELETE',prefer:'return=minimal'});
-    toast('au deleted 🗑️'); loadManageAUs();
+    toast('au deleted 🗑️');loadManageAUs();
   }catch(e){toast('error deleting au 😔');}
 }
 
@@ -809,7 +751,7 @@ async function addTag(){
   try{
     await sb('tags',{method:'POST',body:JSON.stringify({name})});
     document.getElementById('new-tag-input').value='';
-    toast(`tag "${name}" added! 🏷️`); loadAdminTags();
+    toast(`tag "${name}" added! 🏷️`);loadAdminTags();
   }catch(e){toast('tag already exists 😔');}
 }
 
@@ -817,7 +759,7 @@ async function deleteTag(id,name){
   if(!confirm(`remove tag "${name}"?`))return;
   try{
     await sb(`tags?id=eq.${id}`,{method:'DELETE',prefer:'return=minimal'});
-    toast('tag removed!'); loadAdminTags();
+    toast('tag removed!');loadAdminTags();
   }catch(e){toast('error removing tag');}
 }
 
@@ -834,14 +776,8 @@ async function loadAdminSuggestions(){
   }catch(e){el.innerHTML='<p style="color:var(--muted)">could not load</p>';}
 }
 
-function openLightbox(src){
-  document.getElementById('lightbox-img').src=src;
-  document.getElementById('lightbox').classList.add('open');
-}
+function openLightbox(src){document.getElementById('lightbox-img').src=src;document.getElementById('lightbox').classList.add('open');}
 function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
-
-// but we need chapters column — run this SQL if chapters don't work:
-// alter table aus add column if not exists chapters jsonb;
 
 loadHomeAUs();
 </script>
