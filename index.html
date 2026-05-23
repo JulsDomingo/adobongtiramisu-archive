@@ -80,6 +80,20 @@
   .react-btn{background:none;border:1.5px solid var(--border);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.85rem;cursor:pointer;color:var(--muted);font-family:'Lato',sans-serif;transition:all .2s;display:inline-flex;align-items:center;gap:0.3rem;margin-top:0.5rem;}
   .react-btn:hover{background:var(--rose);border-color:var(--rose-dark);color:var(--brown);}
   .react-btn.reacted{background:var(--rose);border-color:var(--rose-dark);color:var(--brown);font-weight:700;}
+  .panel-actions{display:flex;gap:0.5rem;align-items:center;margin-top:0.5rem;flex-wrap:wrap;}
+  .toggle-comments-btn{background:none;border:1.5px solid var(--border);border-radius:20px;padding:0.3rem 0.8rem;font-size:0.85rem;cursor:pointer;color:var(--muted);font-family:'Lato',sans-serif;transition:all .2s;display:inline-flex;align-items:center;gap:0.3rem;}
+  .toggle-comments-btn:hover{background:var(--sage);border-color:var(--sage-dark);color:var(--brown);}
+  .panel-comments{display:none;margin-top:0.8rem;background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:1rem;}
+  .panel-comments.open{display:block;}
+  .panel-comment-item{padding:0.6rem 0;border-bottom:1px solid var(--border);font-size:0.88rem;}
+  .panel-comment-item:last-child{border-bottom:none;}
+  .panel-comment-name{font-weight:700;color:var(--brown);font-size:0.82rem;}
+  .panel-comment-text{color:var(--text);margin-top:0.2rem;line-height:1.5;}
+  .panel-comment-form{display:flex;flex-direction:column;gap:0.4rem;margin-top:0.8rem;padding-top:0.8rem;border-top:1px solid var(--border);}
+  .panel-comment-form input,.panel-comment-form textarea{padding:0.5rem 0.8rem;border:1.5px solid var(--border);border-radius:8px;font-family:'Lato',sans-serif;font-size:0.88rem;color:var(--text);background:var(--cream);outline:none;resize:none;}
+  .panel-comment-form input:focus,.panel-comment-form textarea:focus{border-color:var(--rose-dark);}
+  .panel-comment-submit{align-self:flex-end;background:var(--brown);color:var(--white);border:none;border-radius:20px;padding:0.35rem 1rem;font-family:'Lato',sans-serif;font-size:0.85rem;cursor:pointer;font-weight:700;}
+  .panel-comment-submit:hover{background:var(--text);}
   @media(max-width:600px){.thread-imgs img{max-width:100%;max-height:60vh;}}
 
   /* CHAPTERS */
@@ -822,7 +836,27 @@ async function react(auId,type,idx,btnId){
   }catch(e){toast('error liking 😔');}
 }
 
-function reactBtnHtml(auId,type,idx,counts){
+function panelCommentBoxHtml(auId,type,idx){
+  const id=`${auId}-${type}-${idx}`;
+  return `
+    <div class="panel-comments" id="pc-box-${id}">
+      <div id="pc-list-${id}"></div>
+      <div class="panel-comment-form">
+        <input type="text" id="pc-name-${id}" placeholder="your name (optional)"/>
+        <textarea id="pc-text-${id}" rows="2" placeholder="write a comment..."></textarea>
+        <button class="panel-comment-submit" onclick="submitPanelComment('${auId}','${type}',${idx})">post 💬</button>
+      </div>
+    </div>`;
+}
+
+function panelActionsHtml(auId,type,idx,counts){
+  const id=`${auId}-${type}-${idx}`;
+  return `<div class="panel-actions">
+    ${reactBtnHtml(auId,type,idx,counts)}
+    <button class="toggle-comments-btn" onclick="togglePanelComments('${auId}','${type}',${idx})">💬 comments</button>
+  </div>
+  ${panelCommentBoxHtml(auId,type,idx)}`;
+}
   const k=`${type}_${idx}`;
   const count=counts[k]||0;
   const reacted=hasReacted(auId,type,idx);
