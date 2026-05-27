@@ -9,7 +9,6 @@
 :root{--cream:#fdf6ee;--rose:#e8c4b8;--rose-dark:#c9957f;--sage:#b5c4b1;--sage-dark:#7a9e76;--brown:#7c5c4a;--text:#4a3728;--muted:#9a7e72;--white:#fffaf6;--card:#fff8f2;--border:#f0ddd3;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Lato',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;}
-
 nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;}
 .nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--brown);cursor:pointer;}
 .nav-links{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;}
@@ -17,17 +16,14 @@ nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem
 .nav-links button:hover,.nav-links button.active{color:var(--brown);border-bottom-color:var(--rose-dark);}
 .admin-btn{background:var(--rose)!important;color:var(--brown)!important;border-radius:20px!important;padding:0.3rem 1rem!important;border-bottom:none!important;font-weight:700!important;}
 .admin-btn:hover{background:var(--rose-dark)!important;color:var(--white)!important;}
-
 .page{display:none;padding:2rem;max-width:1100px;margin:0 auto;}
 .page.active{display:block;}
-
 .hero{text-align:center;padding:4rem 1rem 3rem;}
 .hero-badge{display:inline-block;background:var(--rose);color:var(--brown);border-radius:20px;padding:0.3rem 1rem;font-size:0.85rem;margin-bottom:1rem;letter-spacing:1px;}
 .hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;color:var(--brown);margin-bottom:1rem;}
 .hero h1 span{color:var(--rose-dark);font-style:italic;}
 .hero p{color:var(--muted);font-size:1.05rem;max-width:500px;margin:0 auto 2rem;line-height:1.7;}
 .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-
 .btn{padding:0.7rem 1.8rem;border-radius:30px;border:none;cursor:pointer;font-family:'Lato',sans-serif;font-size:1rem;font-weight:700;transition:all .2s;}
 .btn-primary{background:var(--brown);color:var(--white);}
 .btn-primary:hover{background:var(--text);}
@@ -36,14 +32,12 @@ nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem
 .btn-sage{background:var(--sage);color:var(--brown);}
 .btn-sage:hover{background:var(--sage-dark);color:var(--white);}
 .btn-sm{padding:0.4rem 1rem;font-size:0.85rem;}
-
 .section-title{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--brown);margin-bottom:0.3rem;}
 .section-sub{color:var(--muted);margin-bottom:1.5rem;font-size:0.95rem;}
 .divider{border:none;border-top:1.5px solid var(--border);margin:1.5rem 0;}
 .loading{text-align:center;padding:2rem;color:var(--muted);}
 .empty-state{text-align:center;padding:3rem;color:var(--muted);}
 .empty-state .emoji{font-size:3rem;margin-bottom:1rem;}
-
 /* RTE */
 .rte-wrap{border:1.5px solid var(--border);border-radius:10px;overflow:hidden;background:var(--white);}
 .rte-wrap:focus-within{border-color:var(--rose-dark);}
@@ -52,7 +46,6 @@ nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem
 .rte-btn:hover{background:var(--rose);border-color:var(--rose-dark);}
 .rte-editor{min-height:100px;padding:0.75rem 1rem;outline:none;font-family:'Lato',sans-serif;font-size:0.95rem;color:var(--text);line-height:1.8;}
 .rte-editor[data-placeholder]:empty:before{content:attr(data-placeholder);color:var(--muted);pointer-events:none;}
-
 /* CARDS */
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.5rem;margin-top:1rem;}
 .au-card{background:var(--card);border:1.5px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:all .2s;}
@@ -65,77 +58,51 @@ nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem
 .au-card-desc{color:var(--muted);font-size:0.88rem;line-height:1.5;margin-bottom:0.8rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .tags-row{display:flex;flex-wrap:wrap;gap:0.4rem;}
 .tag{background:var(--sage);color:var(--brown);border-radius:12px;padding:0.2rem 0.7rem;font-size:0.75rem;font-weight:700;}
-
 .filters{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:1.5rem;}
 .filter-btn{background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:0.35rem 1rem;font-size:0.85rem;cursor:pointer;color:var(--muted);font-family:'Lato',sans-serif;transition:all .2s;}
 .filter-btn:hover,.filter-btn.active{background:var(--rose);border-color:var(--rose-dark);color:var(--brown);font-weight:700;}
 .search-bar{width:100%;padding:0.7rem 1.2rem;border:1.5px solid var(--border);border-radius:30px;background:var(--white);font-family:'Lato',sans-serif;font-size:1rem;color:var(--text);margin-bottom:1rem;outline:none;}
 .search-bar:focus{border-color:var(--rose-dark);}
-
-/* CHARACTER CARDS */
-.char-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem;margin-bottom:1.5rem;}
+/* CHAR CARDS */
+.char-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1rem;margin-bottom:1.5rem;}
 .char-card{background:var(--card);border:1.5px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:all .2s;text-align:center;padding-bottom:1rem;}
 .char-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(124,92,74,.1);}
-.char-card-av{width:72px;height:72px;border-radius:50%;margin:1rem auto 0.6rem;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:700;color:white;}
+.char-card-av{width:68px;height:68px;border-radius:50%;margin:1rem auto 0.6rem;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;color:white;}
 .char-card-av img{width:100%;height:100%;object-fit:cover;}
-.char-card-name{font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--brown);padding:0 0.6rem;margin-bottom:0.15rem;}
-.char-card-nick{font-size:0.75rem;color:var(--rose-dark);font-style:italic;margin-bottom:0.15rem;}
-.char-card-role{font-size:0.72rem;color:var(--muted);padding:0 0.6rem;}
-
-/* CHARACTER MODAL */
+.char-card-name{font-family:'Playfair Display',serif;font-size:0.9rem;color:var(--brown);padding:0 0.5rem;margin-bottom:0.1rem;}
+.char-card-nick{font-size:0.72rem;color:var(--rose-dark);font-style:italic;margin-bottom:0.1rem;}
+.char-card-role{font-size:0.7rem;color:var(--muted);padding:0 0.5rem;}
+/* CHAR MODAL */
 .char-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9997;align-items:center;justify-content:center;padding:1rem;}
 .char-modal-overlay.open{display:flex;}
 .char-modal-box{background:var(--white);border-radius:20px;width:100%;max-width:640px;max-height:92vh;overflow-y:auto;position:relative;}
-.char-modal-header{position:relative;border-radius:20px 20px 0 0;overflow:hidden;}
-.char-header-bg{height:140px;background:linear-gradient(135deg,var(--rose),var(--sage));background-size:cover;background-position:center;}
-.char-header-bg img{width:100%;height:100%;object-fit:cover;}
+.char-modal-hdr{position:relative;border-radius:20px 20px 0 0;overflow:hidden;}
+.char-hdr-bg{height:140px;background:linear-gradient(135deg,var(--rose),var(--sage));background-size:cover;background-position:center;}
+.char-hdr-bg img{width:100%;height:100%;object-fit:cover;}
 .char-modal-av{width:96px;height:96px;border-radius:50%;border:4px solid var(--white);overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700;color:white;position:absolute;bottom:-48px;left:50%;transform:translateX(-50%);}
 .char-modal-av img{width:100%;height:100%;object-fit:cover;}
-.char-modal-close{position:absolute;top:0.8rem;right:0.8rem;background:rgba(255,255,255,.8);border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;}
+.char-modal-close{position:absolute;top:0.8rem;right:0.8rem;background:rgba(255,255,255,.85);border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;}
 .char-modal-body{padding:3.5rem 1.5rem 1.5rem;}
 .char-modal-name{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--brown);text-align:center;margin-bottom:0.15rem;}
 .char-modal-nick{font-size:0.9rem;color:var(--rose-dark);font-style:italic;text-align:center;margin-bottom:0.15rem;}
 .char-modal-sub{font-size:0.82rem;color:var(--muted);text-align:center;margin-bottom:1.2rem;}
 .char-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:1rem;}
 .char-info-item{background:var(--cream);border-radius:10px;padding:0.5rem 0.8rem;}
-.char-info-label{font-size:0.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:0.1rem;}
+.char-info-label{font-size:0.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:0.1rem;}
 .char-info-value{font-size:0.88rem;color:var(--text);}
 .char-section{margin-bottom:1rem;}
-.char-section-title{font-size:0.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:0.5rem;padding-bottom:0.3rem;border-bottom:1.5px solid var(--border);}
+.char-section-title{font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:0.5rem;padding-bottom:0.3rem;border-bottom:1.5px solid var(--border);}
 .char-desc{font-size:0.92rem;line-height:1.8;color:var(--text);}
-.char-list{font-size:0.88rem;line-height:1.8;color:var(--text);padding-left:1rem;}
+.char-list{font-size:0.88rem;line-height:1.9;color:var(--text);padding-left:1.2rem;}
 .socmed-profile{border:1.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:0.7rem;}
-.socmed-label{background:var(--cream);padding:0.4rem 0.8rem;font-size:0.72rem;font-weight:700;color:var(--muted);letter-spacing:1px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.3rem;}
-.ig-profile-wrap{background:#fff;padding:0.8rem;}
-.ig-p-top{display:flex;gap:0.8rem;align-items:center;margin-bottom:0.5rem;}
-.ig-p-av{width:52px;height:52px;border-radius:50%;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);display:flex;align-items:center;justify-content:center;font-weight:700;color:white;overflow:hidden;flex-shrink:0;}
-.ig-p-av img{width:100%;height:100%;object-fit:cover;}
-.ig-p-stats{display:flex;gap:1rem;}
-.ig-p-stat{text-align:center;font-size:0.78rem;color:#262626;}
-.ig-p-stat strong{display:block;font-size:0.9rem;}
-.ig-p-name{font-weight:700;font-size:0.85rem;color:#262626;margin-bottom:0.15rem;}
-.ig-p-bio{font-size:0.8rem;color:#262626;line-height:1.4;}
-.tw-profile-wrap{background:#fff;padding:0;}
-.tw-banner{height:56px;background:linear-gradient(135deg,#1d9bf0,#0d5c8a);}
-.tw-banner img{width:100%;height:100%;object-fit:cover;}
-.tw-p-row{display:flex;align-items:flex-end;padding:0 0.8rem;margin-top:-22px;margin-bottom:0.4rem;}
-.tw-p-av{width:44px;height:44px;border-radius:50%;border:3px solid #fff;background:#1d9bf0;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;overflow:hidden;flex-shrink:0;}
-.tw-p-av img{width:100%;height:100%;object-fit:cover;}
-.tw-p-info{padding:0 0.8rem 0.6rem;}
-.tw-p-name{font-weight:700;font-size:0.88rem;color:#0f1419;}
-.tw-p-handle{font-size:0.78rem;color:#536471;margin-bottom:0.3rem;}
-.tw-p-bio{font-size:0.8rem;color:#0f1419;line-height:1.4;margin-bottom:0.3rem;}
-.tw-p-stats{display:flex;gap:0.8rem;font-size:0.78rem;color:#536471;}
-.tw-p-stats strong{color:#0f1419;}
-.private-badge{background:#fee2e2;color:#991b1b;font-size:0.68rem;font-weight:700;border-radius:8px;padding:0.1rem 0.4rem;margin-left:0.3rem;}
-
+.socmed-label{background:var(--cream);padding:0.4rem 0.8rem;font-size:0.72rem;font-weight:700;color:var(--muted);letter-spacing:1px;border-bottom:1px solid var(--border);}
+.private-badge{background:#fee2e2;color:#991b1b;font-size:0.65rem;font-weight:700;border-radius:6px;padding:0.1rem 0.35rem;margin-left:0.3rem;}
 /* DETAIL */
 .au-detail-header{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:2rem;margin-bottom:1.5rem;}
 .back-btn{background:none;border:none;color:var(--muted);cursor:pointer;font-family:'Lato',sans-serif;font-size:0.95rem;margin-bottom:1rem;display:flex;align-items:center;gap:0.4rem;padding:0;}
 .back-btn:hover{color:var(--brown);}
 .au-detail-title{font-family:'Playfair Display',serif;font-size:2rem;color:var(--brown);margin-bottom:0.5rem;}
 .au-meta{color:var(--muted);font-size:0.85rem;margin-bottom:0.8rem;}
-
 /* THREAD */
 .thread{display:flex;flex-direction:column;max-width:560px;margin-bottom:1.5rem;}
 .thread-item{display:flex;gap:0.8rem;align-items:flex-start;}
@@ -145,13 +112,12 @@ nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem
 .thread-body{flex:1;padding-bottom:1rem;}
 .thread-label{font-size:0.75rem;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.5rem;}
 .thread-text{line-height:1.85;color:var(--text);font-size:0.98rem;margin-bottom:0.5rem;}
-
 .panel-wrap{margin-bottom:0.8rem;}
 .panel-num{font-size:0.72rem;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.4rem;cursor:pointer;display:inline-block;}
 .panel-num:hover{color:var(--rose-dark);}
 .panel-img{display:block;width:100%;max-width:400px;max-height:55vh;object-fit:contain;border-radius:14px;border:1.5px solid var(--border);cursor:pointer;}
 @media(max-width:600px){.panel-img{max-width:100%;max-height:45vh;}}
-
+/* ACTIONS */
 .panel-actions{display:flex;gap:0.5rem;align-items:center;margin-top:0.5rem;flex-wrap:wrap;}
 .react-btn{background:none;border:1.5px solid var(--border);border-radius:20px;padding:0.28rem 0.75rem;font-size:0.82rem;cursor:pointer;color:var(--muted);font-family:'Lato',sans-serif;transition:all .2s;display:inline-flex;align-items:center;gap:0.3rem;}
 .react-btn:hover,.react-btn.reacted{background:var(--rose);border-color:var(--rose-dark);color:var(--brown);}
@@ -167,9 +133,8 @@ nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem
 .pcmt-form{display:flex;flex-direction:column;gap:0.4rem;margin-top:0.7rem;padding-top:0.7rem;border-top:1px solid var(--border);}
 .pcmt-form input{padding:0.45rem 0.75rem;border:1.5px solid var(--border);border-radius:8px;font-family:'Lato',sans-serif;font-size:0.87rem;color:var(--text);background:var(--cream);outline:none;width:100%;}
 .pcmt-submit{align-self:flex-end;background:var(--brown);color:var(--white);border:none;border-radius:20px;padding:0.32rem 0.9rem;font-family:'Lato',sans-serif;font-size:0.83rem;cursor:pointer;font-weight:700;}
-
 .bm-bar{background:var(--white);border:1.5px solid var(--rose-dark);border-radius:14px;padding:0.8rem 1.2rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
-
+/* CHAPTERS */
 .chapters-sidebar{display:grid;grid-template-columns:220px 1fr;gap:1.5rem;margin-bottom:1.5rem;}
 .chap-list{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:1rem;height:fit-content;position:sticky;top:80px;}
 .chap-list h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--brown);margin-bottom:0.8rem;padding-bottom:0.5rem;border-bottom:1.5px solid var(--border);}
@@ -178,7 +143,7 @@ nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem
 .chap-item.active{background:var(--brown);color:var(--white);font-weight:700;}
 .chap-content{background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:2rem;line-height:1.9;color:var(--text);margin-bottom:0.8rem;}
 .chap-nav{display:flex;justify-content:space-between;margin-top:0.8rem;}
-
+/* COMMENTS */
 .comments-section{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;}
 .form-group{margin-bottom:0.8rem;}
 .form-group label{display:block;font-size:0.85rem;color:var(--muted);margin-bottom:0.3rem;font-weight:700;}
@@ -188,13 +153,11 @@ nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem
 .comment-name{font-weight:700;color:var(--brown);font-size:0.9rem;margin-bottom:0.3rem;}
 .comment-date{color:var(--muted);font-size:0.78rem;margin-bottom:0.4rem;}
 .comment-text{color:var(--text);font-size:0.95rem;line-height:1.6;}
-
 .about-card{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:2.5rem;max-width:700px;margin:0 auto;text-align:center;}
 .about-avatar{width:100px;height:100px;border-radius:50%;background:var(--rose);display:flex;align-items:center;justify-content:center;font-size:3rem;margin:0 auto 1.2rem;border:3px solid var(--rose-dark);}
 .about-name{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--brown);margin-bottom:0.5rem;}
 .about-bio{color:var(--muted);line-height:1.8;margin-bottom:1.5rem;}
 .suggestion-card{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:2rem;max-width:600px;margin:0 auto;}
-
 /* ADMIN */
 .admin-login{max-width:400px;margin:4rem auto;background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:2rem;text-align:center;}
 .admin-panel{max-width:960px;margin:0 auto;}
@@ -211,9 +174,6 @@ nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem
 .add-upd-form{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:1rem;margin-top:0.5rem;display:none;}
 .add-upd-form.open{display:block;}
 .upd-list-item{background:var(--cream);border:1.5px solid var(--border);border-radius:10px;padding:0.7rem 1rem;margin-top:0.5rem;display:flex;justify-content:space-between;align-items:flex-start;gap:0.5rem;}
-.upd-edit-form{background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:1rem;margin-top:0.5rem;display:none;}
-.upd-edit-form.open{display:block;}
-
 /* SCENE BUILDER */
 .scene-list{display:flex;flex-direction:column;gap:0.8rem;margin-bottom:0.8rem;}
 .scene-card{background:var(--cream);border:1.5px solid var(--border);border-radius:12px;padding:0.8rem 1rem;}
@@ -228,84 +188,130 @@ nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem
 .se label{font-size:0.78rem;font-weight:700;color:var(--muted);}
 .se input:focus,.se textarea:focus{border-color:var(--rose-dark);}
 .msg-rows{display:flex;flex-direction:column;gap:0.4rem;}
-.msg-row-ed{display:grid;gap:0.4rem;align-items:center;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:0.4rem 0.6rem;}
-.msg-row-ed.dm{grid-template-columns:100px 1fr 70px auto;}
-.msg-row-ed.gc{grid-template-columns:100px 1fr 70px auto;}
+.msg-row-ed{display:grid;gap:0.4rem;align-items:center;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:0.4rem 0.6rem;grid-template-columns:110px 1fr 70px auto;}
 .msg-row-ed input,.msg-row-ed select{border:none;outline:none;padding:0;background:transparent;font-size:0.85rem;}
 .del-btn{background:none;border:none;cursor:pointer;color:var(--muted);font-size:0.9rem;}
 .scene-cmts{display:flex;flex-direction:column;gap:0.3rem;margin-top:0.4rem;}
 .scmt-row{display:grid;grid-template-columns:110px 1fr 1fr auto;gap:0.3rem;align-items:center;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:0.3rem 0.5rem;}
 .scmt-row input{border:none;outline:none;padding:0;background:transparent;font-size:0.85rem;}
 
-/* RENDERED SOCIAL */
-.imsg-wrap{background:#f5f5f7;border-radius:20px;padding:1rem;max-width:340px;font-family:-apple-system,BlinkMacSystemFont,sans-serif;}
-.imsg-hdr{text-align:center;margin-bottom:0.8rem;}
-.imsg-contact{font-weight:600;font-size:0.95rem;color:#1c1c1e;}
-.imsg-msgs{display:flex;flex-direction:column;gap:0.4rem;}
-.imsg-row{display:flex;align-items:flex-end;gap:0.4rem;}
+/* ── REALISTIC SOCIAL MEDIA UI ── */
+
+/* iMESSAGE */
+.imsg-phone{background:#f5f5f7;border-radius:20px;overflow:hidden;max-width:320px;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',Helvetica,sans-serif;box-shadow:0 4px 20px rgba(0,0,0,.1);}
+.imsg-status-bar{background:#f5f5f7;padding:8px 16px 4px;display:flex;justify-content:space-between;font-size:11px;font-weight:600;color:#1c1c1e;}
+.imsg-nav-bar{background:#f5f5f7;padding:6px 12px 8px;display:flex;align-items:center;gap:8px;border-bottom:0.5px solid #c6c6c8;}
+.imsg-nav-back{color:#007aff;font-size:14px;display:flex;align-items:center;gap:2px;}
+.imsg-nav-center{flex:1;text-align:center;}
+.imsg-nav-name{font-size:13px;font-weight:600;color:#1c1c1e;}
+.imsg-nav-status{font-size:11px;color:#8e8e93;}
+.imsg-nav-av{width:28px;height:28px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;flex-shrink:0;}
+.imsg-nav-av img{width:100%;height:100%;object-fit:cover;}
+.imsg-msgs-area{padding:8px 10px 12px;min-height:80px;display:flex;flex-direction:column;gap:6px;background:#f5f5f7;}
+.imsg-row{display:flex;align-items:flex-end;gap:5px;}
 .imsg-row.me{flex-direction:row-reverse;}
-.imsg-row.gc{align-items:flex-start;}
-.imsg-av{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.62rem;font-weight:700;color:white;flex-shrink:0;overflow:hidden;}
-.imsg-av img{width:100%;height:100%;object-fit:cover;}
-.imsg-bubble{max-width:72%;padding:0.5rem 0.85rem;border-radius:18px;font-size:0.88rem;line-height:1.4;}
+.imsg-row.gc-row{align-items:flex-start;}
+.imsg-mini-av{width:22px;height:22px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:white;flex-shrink:0;}
+.imsg-mini-av img{width:100%;height:100%;object-fit:cover;}
+.imsg-bubble-wrap{display:flex;flex-direction:column;max-width:72%;}
+.imsg-sender-lbl{font-size:10px;color:#636366;margin-bottom:2px;padding-left:4px;}
+.imsg-bubble{padding:8px 12px;border-radius:18px;font-size:14px;line-height:1.4;word-break:break-word;}
 .imsg-bubble.them{background:#e5e5ea;color:#1c1c1e;border-bottom-left-radius:4px;}
 .imsg-bubble.me{background:#007aff;color:white;border-bottom-right-radius:4px;}
-.imsg-bubble img{max-width:180px;border-radius:10px;display:block;margin-top:0.3rem;}
-.imsg-sender{font-size:0.65rem;color:#636366;margin-bottom:0.1rem;padding-left:2px;}
-.imsg-read{font-size:0.65rem;color:#8e8e93;text-align:right;margin-top:0.2rem;}
+.imsg-bubble.gc-other{border-bottom-left-radius:4px;}
+.imsg-bubble img{max-width:160px;border-radius:10px;display:block;margin-top:4px;}
+.imsg-time-stamp{font-size:10px;color:#8e8e93;text-align:center;margin:4px 0;}
+.imsg-read-receipt{font-size:10px;color:#8e8e93;text-align:right;padding-right:4px;margin-top:2px;}
+.imsg-input-bar{background:rgba(255,255,255,.9);border-top:0.5px solid #c6c6c8;padding:8px 10px;display:flex;align-items:center;gap:6px;}
+.imsg-input-fake{flex:1;background:#fff;border-radius:18px;border:1px solid #c6c6c8;padding:6px 12px;font-size:13px;color:#8e8e93;}
+.imsg-send-btn{width:28px;height:28px;border-radius:50%;background:#007aff;display:flex;align-items:center;justify-content:center;color:white;font-size:14px;}
 
-.tweet-wrap{background:#fff;border:1.5px solid #e7e7e7;border-radius:16px;padding:1rem 1.2rem;max-width:380px;font-family:-apple-system,BlinkMacSystemFont,sans-serif;}
-.tweet-hdr{display:flex;gap:0.6rem;align-items:center;margin-bottom:0.6rem;}
-.tweet-av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;color:white;flex-shrink:0;overflow:hidden;}
+/* X / TWITTER */
+.tweet-card{background:#fff;border:1px solid #cfd9de;border-radius:16px;padding:12px 16px;max-width:380px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+.tweet-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;}
+.tweet-user{display:flex;gap:8px;align-items:center;}
+.tweet-av{width:40px;height:40px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:white;flex-shrink:0;}
 .tweet-av img{width:100%;height:100%;object-fit:cover;}
-.tweet-name{font-weight:700;font-size:0.95rem;color:#0f1419;}
-.tweet-handle{font-size:0.82rem;color:#536471;}
-.tweet-verified{color:#1d9bf0;}
-.tweet-body{font-size:0.95rem;line-height:1.5;color:#0f1419;margin-bottom:0.6rem;white-space:pre-wrap;}
-.tweet-img{max-width:100%;border-radius:12px;margin-bottom:0.6rem;display:block;cursor:pointer;}
-.tweet-time{font-size:0.82rem;color:#536471;margin-bottom:0.7rem;padding-bottom:0.7rem;border-bottom:1px solid #e7e7e7;}
-.tweet-stats{display:flex;gap:1.2rem;font-size:0.85rem;color:#536471;margin-bottom:0.7rem;padding-bottom:0.7rem;border-bottom:1px solid #e7e7e7;}
-.tweet-cmts{display:flex;flex-direction:column;gap:0.5rem;}
-.tweet-cmt{display:flex;gap:0.5rem;align-items:flex-start;}
-.tweet-cmt-av{width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.62rem;font-weight:700;color:white;overflow:hidden;}
-.tweet-cmt-av img{width:100%;height:100%;object-fit:cover;}
-.tweet-cmt-body{font-size:0.82rem;color:#0f1419;line-height:1.4;}
-.tweet-cmt-name{font-weight:700;}
+.tweet-name-row{display:flex;align-items:center;gap:3px;}
+.tweet-display-name{font-weight:700;font-size:15px;color:#0f1419;}
+.tweet-verified-icon{color:#1d9bf0;font-size:14px;}
+.tweet-handle-time{font-size:13px;color:#536471;}
+.tweet-more{color:#536471;font-size:18px;cursor:pointer;}
+.tweet-body-text{font-size:15px;line-height:1.5;color:#0f1419;margin-bottom:10px;white-space:pre-wrap;}
+.tweet-media{border-radius:12px;overflow:hidden;margin-bottom:10px;border:1px solid #cfd9de;}
+.tweet-media img{width:100%;max-height:280px;object-fit:cover;display:block;cursor:pointer;}
+.tweet-meta{font-size:13px;color:#536471;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #eff3f4;}
+.tweet-actions{display:flex;justify-content:space-between;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #eff3f4;}
+.tweet-action-btn{display:flex;align-items:center;gap:4px;font-size:13px;color:#536471;cursor:pointer;}
+.tweet-action-btn:hover{color:#1d9bf0;}
+.tweet-replies-section{display:flex;flex-direction:column;gap:10px;}
+.tweet-reply{display:flex;gap:8px;}
+.tweet-reply-av{width:32px;height:32px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;flex-shrink:0;}
+.tweet-reply-av img{width:100%;height:100%;object-fit:cover;}
+.tweet-reply-body{flex:1;}
+.tweet-reply-header{display:flex;align-items:center;gap:4px;margin-bottom:2px;}
+.tweet-reply-name{font-weight:700;font-size:13px;color:#0f1419;}
+.tweet-reply-handle{font-size:13px;color:#536471;}
+.tweet-reply-text{font-size:14px;color:#0f1419;line-height:1.4;}
 
-.ig-wrap{background:#fff;border:1.5px solid #dbdbdb;border-radius:12px;max-width:360px;font-family:-apple-system,BlinkMacSystemFont,sans-serif;overflow:hidden;}
-.ig-hdr{display:flex;align-items:center;gap:0.6rem;padding:0.7rem 0.8rem;}
-.ig-av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;color:white;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);overflow:hidden;flex-shrink:0;}
-.ig-av img{width:100%;height:100%;object-fit:cover;}
-.ig-username{font-weight:600;font-size:0.88rem;color:#262626;}
-.ig-post-img{width:100%;max-height:320px;object-fit:cover;display:block;cursor:pointer;}
-.ig-img-placeholder{width:100%;height:200px;background:linear-gradient(135deg,var(--rose),var(--sage));display:flex;align-items:center;justify-content:center;font-size:3rem;}
-.ig-actions{padding:0.6rem 0.8rem 0.3rem;display:flex;gap:0.9rem;font-size:1.3rem;}
-.ig-likes{padding:0 0.8rem;font-size:0.85rem;font-weight:600;color:#262626;margin-bottom:0.3rem;}
-.ig-caption{padding:0 0.8rem 0.4rem;font-size:0.85rem;line-height:1.4;color:#262626;}
-.ig-caption span{font-weight:600;}
-.ig-cmts{padding:0 0.8rem 0.5rem;}
-.ig-cmt{font-size:0.82rem;line-height:1.5;margin-bottom:0.2rem;}
-.ig-cmt strong{font-weight:600;color:#262626;}
-.ig-time{padding:0 0.8rem 0.8rem;font-size:0.72rem;color:#8e8e93;text-transform:uppercase;letter-spacing:.5px;}
+/* INSTAGRAM */
+.ig-card{background:#fff;border:1px solid #dbdbdb;border-radius:8px;max-width:360px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;overflow:hidden;}
+.ig-card-header{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;}
+.ig-header-left{display:flex;align-items:center;gap:8px;}
+.ig-story-ring{width:36px;height:36px;border-radius:50%;padding:2px;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);flex-shrink:0;}
+.ig-av-inner{width:100%;height:100%;border-radius:50%;background:#fff;padding:1.5px;overflow:hidden;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:white;}
+.ig-av-inner img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+.ig-username-bold{font-weight:600;font-size:13px;color:#262626;}
+.ig-location{font-size:11px;color:#262626;}
+.ig-more-btn{color:#262626;font-size:18px;cursor:pointer;}
+.ig-post-image{width:100%;display:block;}
+.ig-post-image img{width:100%;max-height:360px;object-fit:cover;display:block;}
+.ig-actions-bar{display:flex;align-items:center;justify-content:space-between;padding:8px 12px 4px;}
+.ig-left-actions{display:flex;gap:14px;align-items:center;}
+.ig-action-icon{font-size:22px;cursor:pointer;}
+.ig-likes-count{padding:0 12px 4px;font-size:13px;font-weight:600;color:#262626;}
+.ig-caption-area{padding:0 12px 6px;font-size:13px;line-height:1.5;color:#262626;}
+.ig-caption-username{font-weight:600;}
+.ig-comments-area{padding:0 12px 6px;}
+.ig-view-comments{font-size:13px;color:#8e8e93;cursor:pointer;margin-bottom:4px;}
+.ig-comment-row{display:flex;gap:6px;align-items:flex-start;margin-bottom:4px;}
+.ig-comment-av{width:24px;height:24px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:white;flex-shrink:0;}
+.ig-comment-av img{width:100%;height:100%;object-fit:cover;}
+.ig-comment-text{font-size:13px;color:#262626;line-height:1.4;}
+.ig-comment-username{font-weight:600;}
+.ig-timestamp{padding:0 12px 10px;font-size:11px;color:#8e8e93;text-transform:uppercase;letter-spacing:.3px;}
+.ig-add-comment{display:flex;align-items:center;gap:8px;padding:8px 12px;border-top:1px solid #efefef;}
+.ig-add-comment-av{width:24px;height:24px;border-radius:50%;background:var(--rose);flex-shrink:0;}
+.ig-add-comment-input{font-size:13px;color:#8e8e93;flex:1;}
 
-.fb-wrap{background:#fff;border:1.5px solid #ddd;border-radius:10px;max-width:380px;font-family:-apple-system,BlinkMacSystemFont,sans-serif;overflow:hidden;}
-.fb-hdr{padding:0.8rem;display:flex;gap:0.6rem;align-items:flex-start;}
-.fb-av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:1rem;flex-shrink:0;overflow:hidden;}
+/* FACEBOOK */
+.fb-card{background:#fff;border-radius:8px;box-shadow:0 1px 2px rgba(0,0,0,.1);max-width:380px;font-family:Helvetica,Arial,sans-serif;overflow:hidden;}
+.fb-card-header{display:flex;align-items:center;justify-content:space-between;padding:12px 12px 8px;}
+.fb-header-left{display:flex;gap:8px;align-items:center;}
+.fb-av{width:40px;height:40px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:white;flex-shrink:0;}
 .fb-av img{width:100%;height:100%;object-fit:cover;}
-.fb-name{font-weight:600;font-size:0.92rem;color:#050505;}
-.fb-meta{font-size:0.78rem;color:#65676b;}
-.fb-body{padding:0 0.8rem 0.6rem;font-size:0.92rem;line-height:1.5;color:#050505;white-space:pre-wrap;}
-.fb-post-img{width:100%;max-height:280px;object-fit:cover;display:block;cursor:pointer;}
-.fb-reactions{padding:0.5rem 0.8rem;border-top:1px solid #e4e6eb;border-bottom:1px solid #e4e6eb;display:flex;justify-content:space-between;font-size:0.82rem;color:#65676b;}
-.fb-actions-bar{padding:0.3rem 0.8rem;display:flex;}
-.fb-action{flex:1;padding:0.5rem;text-align:center;font-size:0.88rem;font-weight:600;color:#65676b;cursor:pointer;border-radius:6px;}
-.fb-action:hover{background:#f0f2f5;}
-.fb-cmts{padding:0.5rem 0.8rem;}
-.fb-cmt-row{display:flex;gap:0.5rem;margin-bottom:0.5rem;align-items:flex-start;}
-.fb-cmt-av{width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.62rem;font-weight:700;color:white;overflow:hidden;}
-.fb-cmt-av img{width:100%;height:100%;object-fit:cover;}
-.fb-cmt-bubble{background:#f0f2f5;border-radius:18px;padding:0.4rem 0.8rem;font-size:0.82rem;}
-.fb-cmt-name{font-weight:600;color:#050505;}
+.fb-post-name{font-weight:600;font-size:14px;color:#050505;}
+.fb-post-meta{font-size:12px;color:#65676b;display:flex;align-items:center;gap:4px;}
+.fb-globe{font-size:11px;}
+.fb-more-btn{color:#65676b;font-size:18px;}
+.fb-post-text{padding:0 12px 8px;font-size:14px;line-height:1.5;color:#050505;white-space:pre-wrap;}
+.fb-post-image{width:100%;}
+.fb-post-image img{width:100%;max-height:300px;object-fit:cover;display:block;cursor:pointer;}
+.fb-reaction-bar{padding:8px 12px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#65676b;border-bottom:1px solid #e4e6eb;}
+.fb-reaction-icons{display:flex;align-items:center;gap:3px;}
+.fb-reaction-count{font-size:13px;color:#65676b;}
+.fb-comment-share-count{font-size:13px;color:#65676b;}
+.fb-actions-bar{display:flex;border-bottom:1px solid #e4e6eb;}
+.fb-action-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:5px;padding:8px;font-size:14px;font-weight:600;color:#65676b;cursor:pointer;}
+.fb-action-btn:hover{background:#f2f3f5;}
+.fb-comments-section{padding:8px 12px;}
+.fb-comment-item{display:flex;gap:6px;margin-bottom:8px;}
+.fb-comment-av{width:32px;height:32px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;flex-shrink:0;}
+.fb-comment-av img{width:100%;height:100%;object-fit:cover;}
+.fb-comment-bubble{background:#f0f2f5;border-radius:18px;padding:6px 12px;font-size:13px;}
+.fb-comment-name{font-weight:600;color:#050505;}
+.fb-comment-content{color:#050505;}
+.fb-comment-actions{display:flex;gap:10px;font-size:12px;color:#65676b;margin-top:3px;padding-left:4px;}
 
 /* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9998;align-items:center;justify-content:center;padding:1rem;}
@@ -313,14 +319,12 @@ nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem
 .modal{background:var(--white);border-radius:16px;padding:1.5rem;width:100%;max-width:700px;max-height:92vh;overflow-y:auto;}
 .modal h3{font-family:'Playfair Display',serif;color:var(--brown);font-size:1.3rem;margin-bottom:1rem;}
 .modal-actions{display:flex;gap:0.5rem;justify-content:flex-end;margin-top:1rem;}
-
 .toast{position:fixed;bottom:2rem;right:2rem;background:var(--brown);color:var(--white);padding:0.8rem 1.5rem;border-radius:12px;font-size:0.95rem;z-index:9999;opacity:0;transform:translateY(20px);transition:all .3s;pointer-events:none;}
 .toast.show{opacity:1;transform:translateY(0);}
-.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;align-items:center;justify-content:center;}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:9999;align-items:center;justify-content:center;}
 .lightbox.open{display:flex;}
 .lightbox img{max-width:90vw;max-height:90vh;border-radius:8px;object-fit:contain;}
 .lightbox-close{position:absolute;top:1rem;right:1.5rem;color:white;font-size:2rem;cursor:pointer;background:none;border:none;}
-
 @media(max-width:700px){
   .chapters-sidebar{grid-template-columns:1fr;}
   .chap-list{position:static;}
@@ -332,7 +336,6 @@ nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem
 </style>
 </head>
 <body>
-
 <nav>
   <span class="nav-logo" onclick="showPage('home')">🍮 adobongtiramisu's archive</span>
   <div class="nav-links">
@@ -343,21 +346,16 @@ nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem
     <button onclick="showPage('admin')" id="nav-admin" class="admin-btn">Admin</button>
   </div>
 </nav>
-
 <div class="toast" id="toast"></div>
 <div class="lightbox" id="lightbox"><button class="lightbox-close" onclick="closeLB()">✕</button><img id="lb-img" src="" alt=""/></div>
-
-<!-- CHAR MODAL -->
 <div class="char-modal-overlay" id="char-modal" onclick="if(event.target===this)this.classList.remove('open')">
   <div class="char-modal-box" id="char-modal-inner"></div>
 </div>
-
-<!-- EDIT UPDATE MODAL -->
 <div class="modal-overlay" id="edit-modal">
   <div class="modal">
     <h3>edit update ✏️</h3>
     <div class="form-group"><label>text</label><div class="rte-wrap"><div class="rte-toolbar" id="em-rte-tb"></div><div class="rte-editor" id="em-rte" data-placeholder="edit text..."></div></div></div>
-    <div class="form-group"><label>replace photos (optional — leave empty to keep existing)</label><input type="file" id="em-photos" multiple accept="image/*" onchange="previewFor('em-photos','em-photo-prev')"/><div class="img-prev-row" id="em-photo-prev"></div></div>
+    <div class="form-group"><label>replace photos (leave empty to keep existing)</label><input type="file" id="em-photos" multiple accept="image/*" onchange="previewFor('em-photos','em-photo-prev')"/><div class="img-prev-row" id="em-photo-prev"></div></div>
     <div class="form-group"><label>social media scenes</label><div id="em-scenes"></div><div class="add-scene-bar" id="em-scene-bar"></div></div>
     <div class="modal-actions">
       <button class="btn btn-secondary btn-sm" onclick="closeEditModal()">cancel</button>
@@ -438,6 +436,7 @@ nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem
         <button class="admin-tab active" onclick="showAdminTab('post',this)">📝 post au</button>
         <button class="admin-tab" onclick="showAdminTab('manage',this)">📚 manage aus</button>
         <button class="admin-tab" onclick="showAdminTab('characters',this)">👤 characters</button>
+        <button class="admin-tab" onclick="showAdminTab('gcs',this)">💬 saved gcs</button>
         <button class="admin-tab" onclick="showAdminTab('tags',this)">🏷️ tags</button>
         <button class="admin-tab" onclick="showAdminTab('suggestions',this)">💌 suggestions</button>
       </div>
@@ -472,7 +471,7 @@ nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem
         <button class="btn btn-primary" onclick="postAU()">post au ✨</button>
       </div>
 
-      <!-- MANAGE AUS -->
+      <!-- MANAGE -->
       <div id="admin-tab-manage" style="display:none;"><div id="manage-list"><div class="loading">loading...</div></div></div>
 
       <!-- CHARACTERS -->
@@ -484,7 +483,6 @@ nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem
         <div id="char-form-wrap" style="display:none;background:var(--cream);border:1.5px solid var(--border);border-radius:12px;padding:1.2rem;margin-bottom:1rem;">
           <h4 style="color:var(--brown);margin-bottom:1rem;font-family:'Playfair Display',serif;" id="char-form-title">new character</h4>
           <input type="hidden" id="char-edit-id"/>
-          <!-- BASIC INFO -->
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.6rem;">
             <div class="form-group"><label>name *</label><input type="text" id="cf-name" placeholder="full name"/></div>
             <div class="form-group"><label>nickname</label><input type="text" id="cf-nick" placeholder="e.g. Aki"/></div>
@@ -497,17 +495,15 @@ nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem
             <div class="form-group"><label>profile photo</label><input type="file" id="cf-photo" accept="image/*"/></div>
             <div class="form-group"><label>header / cover photo</label><input type="file" id="cf-header" accept="image/*"/></div>
           </div>
-          <!-- STRUCTURED BIO -->
-          <div class="form-group"><label>course / school (optional)</label><input type="text" id="cf-course" placeholder="e.g. BS Accountancy, still finishing"/></div>
-          <div class="form-group"><label>work (optional)</label><input type="text" id="cf-work" placeholder="e.g. Freelance English tutor"/></div>
-          <div class="form-group"><label>favorite motto (optional)</label><input type="text" id="cf-motto" placeholder="e.g. Hindi ako galit, pagod lang."/></div>
-          <div class="form-group"><label>personal description (rich text)</label><div class="rte-wrap"><div class="rte-toolbar" id="cf-desc-tb"></div><div class="rte-editor" id="cf-desc" data-placeholder="describe the character in more detail..."></div></div></div>
+          <div class="form-group"><label>course / school</label><input type="text" id="cf-course" placeholder="e.g. BS Accountancy, still finishing"/></div>
+          <div class="form-group"><label>work</label><input type="text" id="cf-work" placeholder="e.g. Freelance English tutor"/></div>
+          <div class="form-group"><label>favorite motto</label><input type="text" id="cf-motto" placeholder="e.g. Hindi ako galit, pagod lang."/></div>
+          <div class="form-group"><label>personal description (supports bold, italic, underline)</label><div class="rte-wrap"><div class="rte-toolbar" id="cf-desc-tb"></div><div class="rte-editor" id="cf-desc" data-placeholder="describe the character..."></div></div></div>
           <div class="form-group"><label>favorites (one per line)</label><textarea id="cf-favs" rows="3" placeholder="reading self-help books&#10;playing Stardew Valley"></textarea></div>
           <div class="form-group"><label>hobbies (one per line)</label><textarea id="cf-hobbies" rows="3" placeholder="Making Google Sheets to organize emotional damage"></textarea></div>
           <hr style="border-color:var(--border);margin:0.8rem 0;"/>
-          <p style="font-size:0.82rem;font-weight:700;color:var(--muted);margin-bottom:0.8rem;">📱 social media accounts</p>
-          <!-- PUBLIC SOCMED -->
-          <p style="font-size:0.75rem;font-weight:700;color:var(--sage-dark);margin-bottom:0.5rem;">PUBLIC ACCOUNTS</p>
+          <p style="font-size:0.82rem;font-weight:700;color:var(--muted);margin-bottom:0.8rem;">📱 social media</p>
+          <p style="font-size:0.72rem;font-weight:700;color:var(--sage-dark);margin-bottom:0.5rem;">PUBLIC</p>
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0.5rem;">
             <div class="form-group"><label>ig handle</label><input type="text" id="cf-ig-handle" placeholder="@username"/></div>
             <div class="form-group"><label>ig display name</label><input type="text" id="cf-ig-dispname" placeholder="display name"/></div>
@@ -528,15 +524,14 @@ nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem
             <div class="form-group"><label>imessage name</label><input type="text" id="cf-imsg-name" placeholder="contact name"/></div>
             <div class="form-group"><label>phone number</label><input type="text" id="cf-imsg-number" placeholder="+82 10-xxxx-xxxx"/></div>
           </div>
-          <!-- PRIVATE SOCMED -->
-          <p style="font-size:0.75rem;font-weight:700;color:var(--rose-dark);margin:0.8rem 0 0.5rem;">🔒 PRIVATE ACCOUNTS (optional)</p>
+          <p style="font-size:0.72rem;font-weight:700;color:var(--rose-dark);margin:0.8rem 0 0.5rem;">🔒 PRIVATE ACCOUNTS</p>
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.5rem;">
             <div class="form-group"><label>private ig handle</label><input type="text" id="cf-priv-ig" placeholder="@privatehandle"/></div>
             <div class="form-group"><label>private ig display name</label><input type="text" id="cf-priv-ig-dn" placeholder="display name"/></div>
-            <div class="form-group"><label>private ig bio</label><input type="text" id="cf-priv-ig-bio" placeholder="private ig bio..."/></div>
+            <div class="form-group"><label>private ig bio</label><input type="text" id="cf-priv-ig-bio" placeholder="bio..."/></div>
             <div class="form-group"><label>private tw handle</label><input type="text" id="cf-priv-tw" placeholder="@privatehandle"/></div>
             <div class="form-group"><label>private tw display name</label><input type="text" id="cf-priv-tw-dn" placeholder="display name"/></div>
-            <div class="form-group"><label>private tw bio</label><input type="text" id="cf-priv-tw-bio" placeholder="private tw bio..."/></div>
+            <div class="form-group"><label>private tw bio</label><input type="text" id="cf-priv-tw-bio" placeholder="bio..."/></div>
           </div>
           <div style="display:flex;gap:0.5rem;margin-top:0.8rem;">
             <button class="btn btn-primary btn-sm" onclick="saveCharacter()">save character ✨</button>
@@ -544,6 +539,27 @@ nav{background:var(--white);border-bottom:2px solid var(--border);padding:0 2rem
           </div>
         </div>
         <div id="admin-char-list"><div class="loading">loading...</div></div>
+      </div>
+
+      <!-- SAVED GCS -->
+      <div id="admin-tab-gcs" style="display:none;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+          <h3 style="font-family:'Playfair Display',serif;color:var(--brown);">saved group chats</h3>
+          <button class="btn btn-sage btn-sm" onclick="showGCForm()">+ new gc</button>
+        </div>
+        <div id="gc-form-wrap" style="display:none;background:var(--cream);border:1.5px solid var(--border);border-radius:12px;padding:1.2rem;margin-bottom:1rem;">
+          <input type="hidden" id="gc-edit-id"/>
+          <div class="form-group"><label>gc name</label><input type="text" id="gc-name" placeholder="e.g. bangtan gc 🔥"/></div>
+          <div class="form-group"><label>members (select from characters)</label>
+            <div id="gc-member-list" style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:0.5rem;"></div>
+            <button class="btn btn-sage btn-sm" onclick="addGCMemberRow()">+ add member</button>
+          </div>
+          <div style="display:flex;gap:0.5rem;margin-top:0.8rem;">
+            <button class="btn btn-primary btn-sm" onclick="saveGC()">save gc ✨</button>
+            <button class="btn btn-secondary btn-sm" onclick="hideGCForm()">cancel</button>
+          </div>
+        </div>
+        <div id="admin-gc-list"><div class="loading">loading...</div></div>
       </div>
 
       <!-- TAGS -->
@@ -568,29 +584,30 @@ const TE={text:'📝',photo:'📸',story:'📖'};
 const AVC=['#007aff','#34c759','#ff9500','#ff2d55','#af52de','#5856d6','#30b0c7','#ff6b6b','#ffa94d'];
 const ST=[{id:'imessage',l:'💬 iMessage'},{id:'imessage-gc',l:'👥 iMessage GC'},{id:'twitter',l:'🐦 Tweet'},{id:'instagram',l:'📸 Instagram'},{id:'facebook',l:'📘 Facebook'},{id:'groupchat',l:'💬 Group Chat'}];
 
-let curPage='home',prevPage='home',allAUs=[],allTags=[],allChars=[],activeFilter='all';
+let curPage='home',prevPage='home',allAUs=[],allTags=[],allChars=[],allGCs=[],activeFilter='all';
 let isAdmin=false,chapCnt=0,editingUpdId=null,editingUpdAuId=null;
 const SS={};
 
 async function api(path,opts={}){
   const r=await fetch(`${SB}/rest/v1/${path}`,{headers:{'apikey':KEY,'Authorization':`Bearer ${KEY}`,'Content-Type':'application/json','Prefer':opts.prefer||'return=representation',...(opts.headers||{})},...opts});
-  if(!r.ok) throw new Error(await r.text());
+  if(!r.ok)throw new Error(await r.text());
   const ct=r.headers.get('content-type')||'';
   return ct.includes('json')?r.json():r.text();
 }
 async function up(file,path){
   const r=await fetch(`${SB}/storage/v1/object/${BKT}/${path}`,{method:'POST',headers:{'apikey':KEY,'Authorization':`Bearer ${KEY}`,'Content-Type':file.type,'x-upsert':'true'},body:file});
-  if(!r.ok) throw new Error('upload failed');
+  if(!r.ok)throw new Error('upload failed');
   return `${SB}/storage/v1/object/public/${BKT}/${path}`;
 }
-function uid(){return `${Date.now()}-${Math.random().toString(36).slice(2)}`;}
-function fp(f){return `${uid()}.${f.name.split('.').pop()}`;}
+function uid(){return`${Date.now()}-${Math.random().toString(36).slice(2)}`;}
+function fp(f){return`${uid()}.${f.name.split('.').pop()}`;}
 function avc(n){let h=0;for(const c of(n||'?'))h=(h*31+c.charCodeAt(0))%AVC.length;return AVC[h];}
 function ini(n){return(n||'?').split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);}
 function avEl(name,photo,size,extra=''){
   const s=`width:${size}px;height:${size}px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:${Math.round(size*.33)}px;overflow:hidden;${extra}`;
   return photo?`<div style="${s}"><img src="${photo}" style="width:100%;height:100%;object-fit:cover"/></div>`:`<div style="${s}background:${avc(name)}">${ini(name)}</div>`;
 }
+function now12(){const d=new Date();let h=d.getHours(),m=d.getMinutes(),ap=h>=12?'PM':'AM';h=h%12||12;return`${h}:${m.toString().padStart(2,'0')} ${ap}`;}
 
 // ── RTE ──────────────────────────────────────────────────
 function initRTE(tb,ed){
@@ -623,16 +640,18 @@ function closeLB(){document.getElementById('lightbox').classList.remove('open');
 
 // ── CHARACTERS ───────────────────────────────────────────
 async function loadAllChars(){try{allChars=await api('characters?order=name.asc');}catch(e){allChars=[];}}
+async function loadAllGCs(){try{allGCs=await api('saved_gcs?order=name.asc');}catch(e){allGCs=[];}}
 function gChar(id){return allChars.find(c=>c.id===id);}
 function charOpts(blank=true){return(blank?'<option value="">— custom —</option>':'')+allChars.map(c=>`<option value="${c.id}">${c.name}${c.nickname?` "${c.nickname}"`:''}</option>`).join('');}
+function gcOpts(){return'<option value="">— new scene —</option>'+allGCs.map(g=>`<option value="${g.id}">${g.name}</option>`).join('');}
 
 function showCharModal(id){
   const c=gChar(id);if(!c)return;
   const favs=(c.favorites||'').split('\n').filter(Boolean);
   const hobbies=(c.hobbies||'').split('\n').filter(Boolean);
   document.getElementById('char-modal-inner').innerHTML=`
-    <div class="char-modal-header">
-      <div class="char-header-bg">${c.header_photo?`<img src="${c.header_photo}" alt=""/>`:''}</div>
+    <div class="char-modal-hdr">
+      <div class="char-hdr-bg">${c.header_photo?`<img src="${c.header_photo}" alt=""/>`:''}</div>
       <div class="char-modal-av">${c.photo?`<img src="${c.photo}" alt=""/>`:`<div style="width:100%;height:100%;background:${avc(c.name)};display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700;color:white;">${ini(c.name)}</div>`}</div>
       <button class="char-modal-close" onclick="document.getElementById('char-modal').classList.remove('open')">✕</button>
     </div>
@@ -651,28 +670,91 @@ function showCharModal(id){
       ${favs.length?`<div class="char-section"><div class="char-section-title">favorites</div><ul class="char-list">${favs.map(f=>`<li>${f}</li>`).join('')}</ul></div>`:''}
       ${hobbies.length?`<div class="char-section"><div class="char-section-title">hobbies</div><ul class="char-list">${hobbies.map(h=>`<li>${h}</li>`).join('')}</ul></div>`:''}
       ${c.ig_handle||c.tw_handle||c.fb_name||c.imsg_name||c.private_ig_handle||c.private_tw_handle?`
-      <div class="char-section"><div class="char-section-title">social media</div><div class="char-socmed" style="display:flex;flex-direction:column;gap:0.7rem;">
-        ${c.ig_handle?`<div class="socmed-profile"><div class="socmed-label">📸 instagram</div><div class="ig-profile-wrap"><div class="ig-p-top"><div class="ig-p-av">${c.photo?`<img src="${c.photo}"/>`:`${ini(c.name)}`}</div><div class="ig-p-stats"><div class="ig-p-stat"><strong>—</strong>posts</div><div class="ig-p-stat"><strong>${c.ig_followers||'0'}</strong>followers</div><div class="ig-p-stat"><strong>${c.ig_following||'0'}</strong>following</div></div></div><div class="ig-p-name">${c.ig_dispname||c.name}</div><div style="font-size:0.78rem;color:#536471;margin-bottom:0.1rem;">${c.ig_handle}</div>${c.ig_bio?`<div class="ig-p-bio">${c.ig_bio}</div>`:''}</div></div>`:''}
-        ${c.private_ig_handle?`<div class="socmed-profile"><div class="socmed-label">📸 instagram <span class="private-badge">🔒 private</span></div><div class="ig-profile-wrap"><div class="ig-p-name">${c.private_ig_dispname||c.name}</div><div style="font-size:0.78rem;color:#536471;">${c.private_ig_handle}</div>${c.private_ig_bio?`<div class="ig-p-bio" style="margin-top:0.2rem;">${c.private_ig_bio}</div>`:''}</div></div>`:''}
-        ${c.tw_handle?`<div class="socmed-profile"><div class="socmed-label">🐦 twitter / x</div><div class="tw-profile-wrap"><div class="tw-banner"></div><div class="tw-p-row"><div class="tw-p-av">${c.photo?`<img src="${c.photo}"/>`:`${ini(c.name)}`}</div></div><div class="tw-p-info"><div class="tw-p-name">${c.tw_dispname||c.name} <span style="color:#1d9bf0">✓</span></div><div class="tw-p-handle">${c.tw_handle}</div>${c.tw_bio?`<div class="tw-p-bio">${c.tw_bio}</div>`:''}<div class="tw-p-stats"><span><strong>${c.tw_following||'0'}</strong> following</span><span><strong>${c.tw_followers||'0'}</strong> followers</span></div></div></div></div>`:''}
-        ${c.private_tw_handle?`<div class="socmed-profile"><div class="socmed-label">🐦 twitter / x <span class="private-badge">🔒 private</span></div><div style="padding:0.6rem 0.8rem;background:#fff;"><div style="font-weight:700;font-size:0.88rem;color:#0f1419;">${c.private_tw_dispname||c.name}</div><div style="font-size:0.78rem;color:#536471;">${c.private_tw_handle}</div>${c.private_tw_bio?`<div style="font-size:0.8rem;color:#0f1419;margin-top:0.2rem;">${c.private_tw_bio}</div>`:''}</div></div>`:''}
-        ${c.fb_name?`<div class="socmed-profile"><div class="socmed-label">📘 facebook</div><div style="padding:0.8rem;background:#fff;display:flex;gap:0.8rem;align-items:center;">${avEl(c.name,c.photo,40)}<div><div style="font-weight:700;font-size:0.9rem;color:#050505;">${c.fb_name}</div>${c.fb_bio?`<div style="font-size:0.8rem;color:#65676b;">${c.fb_bio}</div>`:''}</div></div></div>`:''}
-        ${c.imsg_name?`<div class="socmed-profile"><div class="socmed-label">💬 imessage</div><div style="padding:0.7rem 0.8rem;background:#f5f5f7;display:flex;gap:0.8rem;align-items:center;">${avEl(c.name,c.photo,40)}<div><div style="font-weight:600;font-size:0.9rem;">${c.imsg_name}</div>${c.imsg_number?`<div style="font-size:0.78rem;color:#8e8e93;">${c.imsg_number}</div>`:''}</div></div></div>`:''}
+      <div class="char-section"><div class="char-section-title">social media</div><div style="display:flex;flex-direction:column;gap:0.7rem;">
+        ${c.ig_handle?renderIGProfile(c):''}
+        ${c.private_ig_handle?renderIGProfile(c,true):''}
+        ${c.tw_handle?renderTWProfile(c):''}
+        ${c.private_tw_handle?renderTWProfile(c,true):''}
+        ${c.fb_name?renderFBProfile(c):''}
+        ${c.imsg_name?renderIMSGContact(c):''}
       </div></div>`:''}
     </div>`;
   document.getElementById('char-modal').classList.add('open');
+}
+
+function renderIGProfile(c,priv=false){
+  const handle=priv?c.private_ig_handle:c.ig_handle;
+  const dn=priv?(c.private_ig_dispname||c.name):(c.ig_dispname||c.name);
+  const bio=priv?c.private_ig_bio:c.ig_bio;
+  return `<div class="socmed-profile"><div class="socmed-label">📸 instagram${priv?`<span class="private-badge">🔒 private</span>`:''}</div>
+    <div style="background:#fff;padding:10px 12px;">
+      <div style="display:flex;gap:12px;align-items:center;margin-bottom:8px;">
+        <div style="width:52px;height:52px;border-radius:50%;padding:2px;background:${priv?'#888':'linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)'};">
+          <div style="width:100%;height:100%;border-radius:50%;border:2px solid #fff;overflow:hidden;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:14px;background:${avc(dn)};">
+            ${c.photo?`<img src="${c.photo}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`:`${ini(dn)}`}
+          </div>
+        </div>
+        ${!priv?`<div style="display:flex;gap:16px;">
+          <div style="text-align:center;font-size:12px;color:#262626;"><strong style="display:block;font-size:14px;">—</strong>posts</div>
+          <div style="text-align:center;font-size:12px;color:#262626;"><strong style="display:block;font-size:14px;">${c.ig_followers||'0'}</strong>followers</div>
+          <div style="text-align:center;font-size:12px;color:#262626;"><strong style="display:block;font-size:14px;">${c.ig_following||'0'}</strong>following</div>
+        </div>`:'<div style="font-size:12px;color:#8e8e93;">🔒 private account</div>'}
+      </div>
+      <div style="font-weight:600;font-size:13px;color:#262626;">${dn}</div>
+      <div style="font-size:12px;color:#536471;margin-bottom:4px;">${handle}</div>
+      ${bio?`<div style="font-size:12px;color:#262626;line-height:1.4;">${bio}</div>`:''}
+    </div></div>`;
+}
+
+function renderTWProfile(c,priv=false){
+  const handle=priv?c.private_tw_handle:c.tw_handle;
+  const dn=priv?(c.private_tw_dispname||c.name):(c.tw_dispname||c.name);
+  const bio=priv?c.private_tw_bio:c.tw_bio;
+  return `<div class="socmed-profile"><div class="socmed-label">🐦 twitter / x${priv?`<span class="private-badge">🔒 private</span>`:''}</div>
+    <div style="background:#fff;">
+      <div style="height:48px;background:${priv?'#aaa':'linear-gradient(135deg,#1d9bf0,#0d5c8a)'};">${c.header_photo&&!priv?`<img src="${c.header_photo}" style="width:100%;height:100%;object-fit:cover;">`:''}
+      </div>
+      <div style="padding:0 12px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:-18px;margin-bottom:8px;">
+          <div style="width:40px;height:40px;border-radius:50%;border:3px solid #fff;overflow:hidden;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:white;background:${avc(dn)};">
+            ${c.photo?`<img src="${c.photo}" style="width:100%;height:100%;object-fit:cover;">`:`${ini(dn)}`}
+          </div>
+          ${!priv?`<button style="border:1px solid #cfd9de;border-radius:20px;padding:4px 14px;font-size:13px;font-weight:700;background:none;cursor:pointer;">Follow</button>`:''}
+        </div>
+        <div style="font-weight:700;font-size:14px;color:#0f1419;">${dn} ${!priv?'<span style="color:#1d9bf0;font-size:13px;">✓</span>':''}</div>
+        <div style="font-size:13px;color:#536471;margin-bottom:4px;">${handle}</div>
+        ${bio?`<div style="font-size:13px;color:#0f1419;margin-bottom:6px;line-height:1.4;">${bio}</div>`:''}
+        ${!priv?`<div style="display:flex;gap:12px;font-size:13px;color:#536471;padding-bottom:10px;"><span><strong style="color:#0f1419;">${c.tw_following||'0'}</strong> Following</span><span><strong style="color:#0f1419;">${c.tw_followers||'0'}</strong> Followers</span></div>`:''}
+      </div>
+    </div></div>`;
+}
+
+function renderFBProfile(c){
+  return `<div class="socmed-profile"><div class="socmed-label">📘 facebook</div>
+    <div style="background:#fff;padding:10px 12px;display:flex;gap:10px;align-items:center;">
+      ${avEl(c.name,c.photo,44)}
+      <div><div style="font-weight:700;font-size:14px;color:#050505;">${c.fb_name}</div>${c.fb_bio?`<div style="font-size:12px;color:#65676b;">${c.fb_bio}</div>`:''}</div>
+    </div></div>`;
+}
+
+function renderIMSGContact(c){
+  return `<div class="socmed-profile"><div class="socmed-label">💬 imessage</div>
+    <div style="background:#f5f5f7;padding:10px 12px;display:flex;gap:10px;align-items:center;">
+      ${avEl(c.name,c.photo,40)}
+      <div><div style="font-weight:600;font-size:13px;">${c.imsg_name}</div>${c.imsg_number?`<div style="font-size:11px;color:#8e8e93;">${c.imsg_number}</div>`:''}</div>
+    </div></div>`;
 }
 
 function showCharForm(){
   document.getElementById('char-form-wrap').style.display='block';
   document.getElementById('char-edit-id').value='';
   document.getElementById('char-form-title').textContent='new character';
-  ['cf-name','cf-nick','cf-age','cf-bday','cf-loc','cf-role','cf-course','cf-work','cf-motto','cf-favs','cf-hobbies','cf-ig-handle','cf-ig-dispname','cf-ig-bio','cf-ig-followers','cf-ig-following','cf-tw-handle','cf-tw-dispname','cf-tw-bio','cf-tw-followers','cf-tw-following','cf-fb-name','cf-fb-bio','cf-imsg-name','cf-imsg-number','cf-priv-ig','cf-priv-ig-dn','cf-priv-ig-bio','cf-priv-tw','cf-priv-tw-dn','cf-priv-tw-bio'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
+  const fields=['cf-name','cf-nick','cf-age','cf-bday','cf-loc','cf-role','cf-course','cf-work','cf-motto','cf-favs','cf-hobbies','cf-ig-handle','cf-ig-dispname','cf-ig-bio','cf-ig-followers','cf-ig-following','cf-tw-handle','cf-tw-dispname','cf-tw-bio','cf-tw-followers','cf-tw-following','cf-fb-name','cf-fb-bio','cf-imsg-name','cf-imsg-number','cf-priv-ig','cf-priv-ig-dn','cf-priv-ig-bio','cf-priv-tw','cf-priv-tw-dn','cf-priv-tw-bio'];
+  fields.forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
   cRTE('cf-desc');
   initRTE('cf-desc-tb','cf-desc');
 }
 function hideCharForm(){document.getElementById('char-form-wrap').style.display='none';}
-
 function gv(id){return(document.getElementById(id)?.value||'').trim()||null;}
 
 async function saveCharacter(){
@@ -680,35 +762,40 @@ async function saveCharacter(){
   try{
     toast('saving... ✨');
     let photo=null,header_photo=null;
-    const pf=document.getElementById('cf-photo').files[0];if(pf)photo=await up(pf,`chars/${fp(pf)}`);
-    const hf=document.getElementById('cf-header').files[0];if(hf)header_photo=await up(hf,`chars/${fp(hf)}`);
-    const data={name,nickname:gv('cf-nick'),age:gv('cf-age'),birthday:gv('cf-bday'),location:gv('cf-loc'),role:gv('cf-role'),
-      course:gv('cf-course'),work:gv('cf-work'),motto:gv('cf-motto'),description:gRTE('cf-desc')||null,
+    const pf=document.getElementById('cf-photo').files[0];
+    const hf=document.getElementById('cf-header').files[0];
+    if(pf)photo=await up(pf,`chars/${fp(pf)}`);
+    if(hf)header_photo=await up(hf,`chars/${fp(hf)}`);
+    const data={
+      name,nickname:gv('cf-nick'),age:gv('cf-age'),birthday:gv('cf-bday'),location:gv('cf-loc'),role:gv('cf-role'),
+      course:gv('cf-course'),work:gv('cf-work'),motto:gv('cf-motto'),
+      description:gRTE('cf-desc')||null,
       favorites:gv('cf-favs'),hobbies:gv('cf-hobbies'),
       ig_handle:gv('cf-ig-handle'),ig_dispname:gv('cf-ig-dispname'),ig_bio:gv('cf-ig-bio'),ig_followers:gv('cf-ig-followers'),ig_following:gv('cf-ig-following'),
       tw_handle:gv('cf-tw-handle'),tw_dispname:gv('cf-tw-dispname'),tw_bio:gv('cf-tw-bio'),tw_followers:gv('cf-tw-followers'),tw_following:gv('cf-tw-following'),
       fb_name:gv('cf-fb-name'),fb_bio:gv('cf-fb-bio'),imsg_name:gv('cf-imsg-name'),imsg_number:gv('cf-imsg-number'),
       private_ig_handle:gv('cf-priv-ig'),private_ig_dispname:gv('cf-priv-ig-dn'),private_ig_bio:gv('cf-priv-ig-bio'),
-      private_tw_handle:gv('cf-priv-tw'),private_tw_dispname:gv('cf-priv-tw-dn'),private_tw_bio:gv('cf-priv-tw-bio')};
+      private_tw_handle:gv('cf-priv-tw'),private_tw_dispname:gv('cf-priv-tw-dn'),private_tw_bio:gv('cf-priv-tw-bio'),
+    };
     if(photo)data.photo=photo;
     if(header_photo)data.header_photo=header_photo;
     const eid=document.getElementById('char-edit-id').value;
     if(eid){await api(`characters?id=eq.${eid}`,{method:'PATCH',body:JSON.stringify(data),prefer:'return=minimal'});}
     else{await api('characters',{method:'POST',body:JSON.stringify(data)});}
     await loadAllChars();hideCharForm();loadAdminChars();toast('character saved! 🍮');
-  }catch(e){toast('error saving 😔');console.error(e);}
+  }catch(e){toast('error saving character 😔');console.error(e);}
 }
 
 async function loadAdminChars(){
   const el=document.getElementById('admin-char-list');
   await loadAllChars();
-  el.innerHTML=allChars.length?`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0.8rem;">${allChars.map(c=>`
+  el.innerHTML=allChars.length?`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:0.8rem;">${allChars.map(c=>`
     <div style="background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:1rem;text-align:center;">
-      ${avEl(c.name,c.photo,56,'margin:0 auto 0.5rem;')}
-      <div style="font-weight:700;color:var(--brown);font-size:0.88rem;">${c.name}</div>
-      ${c.nickname?`<div style="font-size:0.72rem;color:var(--rose-dark);font-style:italic;">"${c.nickname}"</div>`:''}
-      <div style="font-size:0.72rem;color:var(--muted);margin-bottom:0.5rem;">${c.role||''}</div>
-      <div style="display:flex;gap:0.3rem;justify-content:center;flex-wrap:wrap;">
+      ${avEl(c.name,c.photo,52,'margin:0 auto 0.5rem;')}
+      <div style="font-weight:700;color:var(--brown);font-size:0.85rem;">${c.name}</div>
+      ${c.nickname?`<div style="font-size:0.7rem;color:var(--rose-dark);font-style:italic;">"${c.nickname}"</div>`:''}
+      <div style="font-size:0.7rem;color:var(--muted);margin-bottom:0.5rem;">${c.role||''}</div>
+      <div style="display:flex;gap:0.3rem;justify-content:center;">
         <button class="btn btn-sage btn-sm" style="font-size:0.72rem;padding:0.2rem 0.5rem;" onclick="editChar('${c.id}')">edit</button>
         <button class="btn btn-secondary btn-sm" style="font-size:0.72rem;padding:0.2rem 0.5rem;" onclick="deleteChar('${c.id}','${c.name.replace(/'/g,"\\'")}')">del</button>
       </div>
@@ -721,16 +808,73 @@ function editChar(id){
   showCharForm();
   document.getElementById('char-form-title').textContent='edit character';
   document.getElementById('char-edit-id').value=id;
-  const map={'name':'cf-name','nickname':'cf-nick','age':'cf-age','birthday':'cf-bday','location':'cf-loc','role':'cf-role','course':'cf-course','work':'cf-work','motto':'cf-motto','favorites':'cf-favs','hobbies':'cf-hobbies','ig_handle':'cf-ig-handle','ig_dispname':'cf-ig-dispname','ig_bio':'cf-ig-bio','ig_followers':'cf-ig-followers','ig_following':'cf-ig-following','tw_handle':'cf-tw-handle','tw_dispname':'cf-tw-dispname','tw_bio':'cf-tw-bio','tw_followers':'cf-tw-followers','tw_following':'cf-tw-following','fb_name':'cf-fb-name','fb_bio':'cf-fb-bio','imsg_name':'cf-imsg-name','imsg_number':'cf-imsg-number','private_ig_handle':'cf-priv-ig','private_ig_dispname':'cf-priv-ig-dn','private_ig_bio':'cf-priv-ig-bio','private_tw_handle':'cf-priv-tw','private_tw_dispname':'cf-priv-tw-dn','private_tw_bio':'cf-priv-tw-bio'};
+  const map={name:'cf-name',nickname:'cf-nick',age:'cf-age',birthday:'cf-bday',location:'cf-loc',role:'cf-role',course:'cf-course',work:'cf-work',motto:'cf-motto',favorites:'cf-favs',hobbies:'cf-hobbies',ig_handle:'cf-ig-handle',ig_dispname:'cf-ig-dispname',ig_bio:'cf-ig-bio',ig_followers:'cf-ig-followers',ig_following:'cf-ig-following',tw_handle:'cf-tw-handle',tw_dispname:'cf-tw-dispname',tw_bio:'cf-tw-bio',tw_followers:'cf-tw-followers',tw_following:'cf-tw-following',fb_name:'cf-fb-name',fb_bio:'cf-fb-bio',imsg_name:'cf-imsg-name',imsg_number:'cf-imsg-number',private_ig_handle:'cf-priv-ig',private_ig_dispname:'cf-priv-ig-dn',private_ig_bio:'cf-priv-ig-bio',private_tw_handle:'cf-priv-tw',private_tw_dispname:'cf-priv-tw-dn',private_tw_bio:'cf-priv-tw-bio'};
   for(const[k,v]of Object.entries(map)){const e=document.getElementById(v);if(e)e.value=c[k]||'';}
   sRTE('cf-desc',c.description||'');
   document.getElementById('char-form-wrap').scrollIntoView({behavior:'smooth'});
 }
-
 async function deleteChar(id,name){
   if(!confirm(`delete "${name}"?`))return;
   try{await api(`characters?id=eq.${id}`,{method:'DELETE',prefer:'return=minimal'});await loadAllChars();loadAdminChars();toast('deleted');}
   catch(e){toast('error 😔');}
+}
+
+// ── SAVED GCS ────────────────────────────────────────────
+function showGCForm(){
+  document.getElementById('gc-form-wrap').style.display='block';
+  document.getElementById('gc-edit-id').value='';
+  document.getElementById('gc-name').value='';
+  document.getElementById('gc-member-list').innerHTML='';
+  addGCMemberRow();addGCMemberRow();
+}
+function hideGCForm(){document.getElementById('gc-form-wrap').style.display='none';}
+function addGCMemberRow(){
+  const el=document.getElementById('gc-member-list');
+  const row=document.createElement('div');
+  row.style.cssText='display:flex;gap:0.4rem;align-items:center;';
+  row.innerHTML=`<select style="flex:1;padding:0.45rem;border:1.5px solid var(--border);border-radius:8px;font-family:Lato,sans-serif;font-size:0.85rem;">${charOpts(true)}</select><button onclick="this.parentNode.remove()" style="background:none;border:none;cursor:pointer;color:var(--muted);">✕</button>`;
+  el.appendChild(row);
+}
+
+async function saveGC(){
+  const name=document.getElementById('gc-name').value.trim();
+  if(!name){toast('gc name required! 🌸');return;}
+  const selects=document.getElementById('gc-member-list').querySelectorAll('select');
+  const members=[];
+  for(const s of selects){
+    const charId=s.value;if(!charId)continue;
+    const c=gChar(charId);
+    if(c)members.push({char_id:charId,name:c.imsg_name||c.name,photo:c.photo||null});
+  }
+  if(members.length<2){toast('add at least 2 members! 🌸');return;}
+  try{
+    const eid=document.getElementById('gc-edit-id').value;
+    if(eid){await api(`saved_gcs?id=eq.${eid}`,{method:'PATCH',body:JSON.stringify({name,members}),prefer:'return=minimal'});}
+    else{await api('saved_gcs',{method:'POST',body:JSON.stringify({name,members})});}
+    await loadAllGCs();hideGCForm();loadAdminGCs();toast('gc saved! 🍮');
+  }catch(e){toast('error saving gc 😔');console.error(e);}
+}
+
+async function loadAdminGCs(){
+  const el=document.getElementById('admin-gc-list');
+  await loadAllGCs();
+  el.innerHTML=allGCs.length?allGCs.map(g=>`
+    <div style="background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:0.8rem 1rem;margin-bottom:0.5rem;display:flex;justify-content:space-between;align-items:center;">
+      <div>
+        <div style="font-weight:700;color:var(--brown);">💬 ${g.name}</div>
+        <div style="font-size:0.78rem;color:var(--muted);">${(g.members||[]).map(m=>m.name).join(', ')}</div>
+      </div>
+      <div style="display:flex;gap:0.4rem;">
+        <button class="btn btn-secondary btn-sm" style="font-size:0.75rem;" onclick="deleteGC('${g.id}','${g.name.replace(/'/g,"\\'")}')">delete</button>
+      </div>
+    </div>`).join('')
+  :'<div class="empty-state"><div class="emoji">💬</div><p>no saved gcs yet</p></div>';
+}
+
+async function deleteGC(id,name){
+  if(!confirm(`delete gc "${name}"?`))return;
+  try{await api(`saved_gcs?id=eq.${id}`,{method:'DELETE',prefer:'return=minimal'});await loadAllGCs();loadAdminGCs();toast('gc deleted');}
+  catch(e){toast('error');}
 }
 
 // ── SCENE BUILDER ────────────────────────────────────────
@@ -757,14 +901,17 @@ function renderSL(listId){
 
 function buildSE(sc,cid,listId){
   const el=document.getElementById(cid);if(!el)return;
-  const d=sc.data;const isMsg=['imessage','imessage-gc','groupchat'].includes(sc.type);
+  const d=sc.data;
+  const isGC=sc.type==='imessage-gc'||sc.type==='groupchat';
+  const isMsg=sc.type==='imessage'||isGC;
+
   if(isMsg){
-    const isGC=sc.type!=='imessage';
     el.innerHTML=`<div class="se">
+      ${isGC?`<label>load saved gc</label><select onchange="loadSavedGC('${listId}','${sc.id}',this.value)">${gcOpts()}</select><hr style="border-color:var(--border);margin:0.3rem 0;"/>`:''}
       <label>${isGC?'group name':'contact name'}</label>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;">
-        <select onchange="onCharSel('${listId}','${sc.id}','contact',this.value,'imsg')">${charOpts()}</select>
-        <input placeholder="name" value="${d.contact||''}" oninput="uSD('${listId}','${sc.id}','contact',this.value)"/>
+        ${!isGC?`<select onchange="onCharSel('${listId}','${sc.id}','contact',this.value,'imsg')">${charOpts()}</select>`:''}
+        <input placeholder="name" value="${d.contact||''}" ${isGC?'style="grid-column:1/-1"':''} oninput="uSD('${listId}','${sc.id}','contact',this.value)"/>
       </div>
       <label>messages</label>
       <div class="msg-rows" id="msgs-${sc.id}"></div>
@@ -781,18 +928,18 @@ function buildSE(sc,cid,listId){
       </div>
       <input placeholder="@handle" value="${d.handle||''}" oninput="uSD('${listId}','${sc.id}','handle',this.value)"/>
       <textarea rows="3" placeholder="tweet text..." oninput="uSD('${listId}','${sc.id}','body',this.value)">${d.body||''}</textarea>
-      <label>attach image</label><input type="file" accept="image/*" onchange="scUpload(this,'${listId}','${sc.id}','img_url')"/>
-      ${d.img_url?`<img src="${d.img_url}" style="max-width:180px;border-radius:8px;"/>` :''}
-      <input placeholder="time" value="${d.time||''}" oninput="uSD('${listId}','${sc.id}','time',this.value)"/>
+      <label>attach image</label><input type="file" accept="image/*" onchange="scUp(this,'${listId}','${sc.id}','img_url')"/>
+      ${d.img_url?`<img src="${d.img_url}" style="max-width:180px;border-radius:8px;"/>`:''}
+      <input placeholder="time (e.g. 3:42 PM · Jan 12)" value="${d.time||''}" oninput="uSD('${listId}','${sc.id}','time',this.value)"/>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.4rem;">
         <input type="number" placeholder="replies" value="${d.replies||''}" oninput="uSD('${listId}','${sc.id}','replies',this.value)"/>
         <input type="number" placeholder="retweets" value="${d.retweets||''}" oninput="uSD('${listId}','${sc.id}','retweets',this.value)"/>
         <input type="number" placeholder="likes" value="${d.likes||''}" oninput="uSD('${listId}','${sc.id}','likes',this.value)"/>
       </div>
       <label style="display:flex;align-items:center;gap:0.4rem;cursor:pointer;"><input type="checkbox" ${d.verified?'checked':''} onchange="uSD('${listId}','${sc.id}','verified',this.checked)"/> verified</label>
-      <label>comments</label>
+      <label>replies / comments</label>
       <div class="scene-cmts" id="scmts-${sc.id}"></div>
-      <button class="btn btn-sage btn-sm" style="align-self:flex-start;" onclick="addScCmt('${listId}','${sc.id}')">+ comment</button>
+      <button class="btn btn-sage btn-sm" style="align-self:flex-start;" onclick="addScCmt('${listId}','${sc.id}')">+ reply</button>
     </div>`;
     renderScCmts(listId,sc,`scmts-${sc.id}`,'tw');
   } else if(sc.type==='instagram'){
@@ -802,11 +949,11 @@ function buildSE(sc,cid,listId){
         <select onchange="onCharSel('${listId}','${sc.id}','char_id',this.value,'ig')">${charOpts()}</select>
         <input placeholder="display name / @handle" value="${d.username||''}" oninput="uSD('${listId}','${sc.id}','username',this.value)"/>
       </div>
-      <label>post image</label><input type="file" accept="image/*" onchange="scUpload(this,'${listId}','${sc.id}','img_url')"/>
-      ${d.img_url?`<img src="${d.img_url}" style="max-width:180px;border-radius:8px;"/>` :''}
+      <label>post image</label><input type="file" accept="image/*" onchange="scUp(this,'${listId}','${sc.id}','img_url')"/>
+      ${d.img_url?`<img src="${d.img_url}" style="max-width:180px;border-radius:8px;"/>`:''}
       <textarea rows="2" placeholder="caption..." oninput="uSD('${listId}','${sc.id}','caption',this.value)">${d.caption||''}</textarea>
       <input type="number" placeholder="likes" value="${d.likes||''}" oninput="uSD('${listId}','${sc.id}','likes',this.value)"/>
-      <input placeholder="time posted" value="${d.time||''}" oninput="uSD('${listId}','${sc.id}','time',this.value)"/>
+      <input placeholder="time posted (e.g. 2 hours ago)" value="${d.time||''}" oninput="uSD('${listId}','${sc.id}','time',this.value)"/>
       <label>comments</label>
       <div class="scene-cmts" id="scmts-${sc.id}"></div>
       <button class="btn btn-sage btn-sm" style="align-self:flex-start;" onclick="addScCmt('${listId}','${sc.id}')">+ comment</button>
@@ -820,9 +967,9 @@ function buildSE(sc,cid,listId){
         <input placeholder="display name" value="${d.name||''}" oninput="uSD('${listId}','${sc.id}','name',this.value)"/>
       </div>
       <textarea rows="3" placeholder="post text..." oninput="uSD('${listId}','${sc.id}','body',this.value)">${d.body||''}</textarea>
-      <label>post image</label><input type="file" accept="image/*" onchange="scUpload(this,'${listId}','${sc.id}','img_url')"/>
-      ${d.img_url?`<img src="${d.img_url}" style="max-width:180px;border-radius:8px;"/>` :''}
-      <input placeholder="time" value="${d.time||''}" oninput="uSD('${listId}','${sc.id}','time',this.value)"/>
+      <label>post image</label><input type="file" accept="image/*" onchange="scUp(this,'${listId}','${sc.id}','img_url')"/>
+      ${d.img_url?`<img src="${d.img_url}" style="max-width:180px;border-radius:8px;"/>`:''}
+      <input placeholder="time (e.g. 2 hrs · 🌐)" value="${d.time||''}" oninput="uSD('${listId}','${sc.id}','time',this.value)"/>
       <input placeholder="reactions (e.g. 👍❤️ · 142)" value="${d.reactions||''}" oninput="uSD('${listId}','${sc.id}','reactions',this.value)"/>
       <label>comments</label>
       <div class="scene-cmts" id="scmts-${sc.id}"></div>
@@ -832,11 +979,20 @@ function buildSE(sc,cid,listId){
   }
 }
 
+function loadSavedGC(listId,scId,gcId){
+  const gc=allGCs.find(g=>g.id===gcId);if(!gc)return;
+  const sc=SS[listId]?.find(s=>s.id===scId);if(!sc)return;
+  sc.data.contact=gc.name;
+  sc.data.messages=(gc.members||[]).map(m=>({text:'',side:'them',sender:m.name,char_photo:m.photo,char_id:m.char_id}));
+  buildSE(sc,`se-${scId}`,listId);
+  toast(`loaded "${gc.name}" with ${gc.members.length} members! 💬`);
+}
+
 function renderMsgs(listId,sc,cid,isGC){
   const el=document.getElementById(cid);if(!el)return;
   const msgs=sc.data.messages||[];
   el.innerHTML=msgs.map((m,i)=>`
-    <div class="msg-row-ed ${isGC?'gc':'dm'}">
+    <div class="msg-row-ed" style="grid-template-columns:${isGC?'100px 1fr 70px auto':'100px 1fr 70px auto'};">
       <select onchange="onMsgChar('${listId}','${sc.id}',${i},this.value)">${charOpts()}</select>
       <input placeholder="${isGC?'or type name':'message'}" value="${m.text||''}" oninput="uMsg('${listId}','${sc.id}',${i},'text',this.value)"/>
       <select onchange="uMsg('${listId}','${sc.id}',${i},'side',this.value)">
@@ -844,54 +1000,43 @@ function renderMsgs(listId,sc,cid,isGC){
         <option value="me" ${m.side==='me'?'selected':''}>me</option>
       </select>
       <div style="display:flex;gap:0.2rem;align-items:center;">
-        <label title="photo" style="cursor:pointer;color:var(--muted);">📎<input type="file" accept="image/*" style="display:none;" onchange="msgPhotoUp(this,'${listId}','${sc.id}',${i})"/></label>
+        <label title="attach photo" style="cursor:pointer;color:var(--muted);">📎<input type="file" accept="image/*" style="display:none;" onchange="msgPhotoUp(this,'${listId}','${sc.id}',${i})"/></label>
         <button class="del-btn" onclick="rmMsg('${listId}','${sc.id}',${i})">✕</button>
       </div>
     </div>`).join('');
 }
 
 function onMsgChar(listId,scId,idx,charId){
-  const c=gChar(charId);const sc=SS[listId]?.find(s=>s.id===scId);if(!sc)return;
+  const c=gChar(charId);const sc=SS[listId]?.find(s=>s.id===scId);if(!sc||!sc.data.messages[idx])return;
   if(c){sc.data.messages[idx].sender=c.imsg_name||c.name;sc.data.messages[idx].char_photo=c.photo;}
   renderMsgs(listId,sc,`msgs-${scId}`,sc.type!=='imessage');
 }
-
 async function msgPhotoUp(inp,listId,scId,idx){
   const f=inp.files[0];if(!f)return;
   try{toast('uploading...');const url=await up(f,`scenes/${fp(f)}`);uMsg(listId,scId,idx,'photo',url);toast('attached! 📎');}
-  catch(e){toast('upload failed 😔');}
+  catch(e){toast('failed 😔');}
 }
-
 function addMsg(listId,scId){
   const sc=SS[listId]?.find(s=>s.id===scId);if(!sc)return;
   sc.data.messages.push({text:'',side:'them',sender:'',photo:null});
   buildSE(sc,`se-${scId}`,listId);
 }
-function rmMsg(listId,scId,idx){
-  const sc=SS[listId]?.find(s=>s.id===scId);if(!sc)return;
-  sc.data.messages.splice(idx,1);buildSE(sc,`se-${scId}`,listId);
-}
-function uMsg(listId,scId,idx,k,v){
-  const sc=SS[listId]?.find(s=>s.id===scId);if(!sc||!sc.data.messages[idx])return;
-  sc.data.messages[idx][k]=v;
-}
+function rmMsg(listId,scId,idx){const sc=SS[listId]?.find(s=>s.id===scId);if(!sc)return;sc.data.messages.splice(idx,1);buildSE(sc,`se-${scId}`,listId);}
+function uMsg(listId,scId,idx,k,v){const sc=SS[listId]?.find(s=>s.id===scId);if(!sc||!sc.data.messages[idx])return;sc.data.messages[idx][k]=v;}
 
-function renderScCmts(listId,sc,cid,platform){
+function renderScCmts(listId,sc,cid,plat){
   const el=document.getElementById(cid);if(!el)return;
-  const cmts=sc.data.comments||[];
-  el.innerHTML=cmts.map((c,i)=>`
+  el.innerHTML=(sc.data.comments||[]).map((c,i)=>`
     <div class="scmt-row">
-      <select onchange="onCmtChar('${listId}','${sc.id}',${i},this.value,'${platform}')">${charOpts()}</select>
+      <select onchange="onCmtChar('${listId}','${sc.id}',${i},this.value,'${plat}')">${charOpts()}</select>
       <input placeholder="name" value="${c.name||''}" oninput="uCmt('${listId}','${sc.id}',${i},'name',this.value)"/>
       <input placeholder="comment text" value="${c.text||''}" oninput="uCmt('${listId}','${sc.id}',${i},'text',this.value)"/>
       <button class="del-btn" onclick="rmCmt('${listId}','${sc.id}',${i})">✕</button>
     </div>`).join('');
 }
-
 function onCmtChar(listId,scId,idx,charId,plat){
-  const c=gChar(charId);const sc=SS[listId]?.find(s=>s.id===scId);if(!sc)return;
-  if(c&&sc.data.comments[idx]){
-    sc.data.comments[idx].char_photo=c.photo;sc.data.comments[idx].char_id=charId;
+  const c=gChar(charId);const sc=SS[listId]?.find(s=>s.id===scId);if(!sc||!sc.data.comments[idx])return;
+  if(c){sc.data.comments[idx].char_photo=c.photo;sc.data.comments[idx].char_id=charId;
     if(plat==='tw')sc.data.comments[idx].name=c.tw_dispname||c.tw_handle||c.name;
     else if(plat==='ig')sc.data.comments[idx].name=c.ig_handle||c.ig_dispname||c.name;
     else if(plat==='fb')sc.data.comments[idx].name=c.fb_name||c.name;
@@ -899,17 +1044,11 @@ function onCmtChar(listId,scId,idx,charId,plat){
     renderScCmts(listId,sc,`scmts-${scId}`,plat);
   }
 }
-
-function addScCmt(listId,scId){
-  const sc=SS[listId]?.find(s=>s.id===scId);if(!sc)return;
-  sc.data.comments.push({name:'',text:'',char_photo:null});
-  buildSE(sc,`se-${scId}`,listId);
-}
+function addScCmt(listId,scId){const sc=SS[listId]?.find(s=>s.id===scId);if(!sc)return;sc.data.comments.push({name:'',text:'',char_photo:null});buildSE(sc,`se-${scId}`,listId);}
 function rmCmt(listId,scId,idx){const sc=SS[listId]?.find(s=>s.id===scId);if(!sc)return;sc.data.comments.splice(idx,1);buildSE(sc,`se-${scId}`,listId);}
 function uCmt(listId,scId,idx,k,v){const sc=SS[listId]?.find(s=>s.id===scId);if(!sc||!sc.data.comments[idx])return;sc.data.comments[idx][k]=v;}
 function uSD(listId,scId,k,v){const sc=SS[listId]?.find(s=>s.id===scId);if(!sc)return;sc.data[k]=v;}
 function gSDs(listId){return(SS[listId]||[]).map(s=>({type:s.type,data:s.data}));}
-
 function onCharSel(listId,scId,key,charId,plat){
   const c=gChar(charId);const sc=SS[listId]?.find(s=>s.id===scId);if(!sc)return;
   uSD(listId,scId,key,charId);
@@ -920,70 +1059,161 @@ function onCharSel(listId,scId,key,charId,plat){
   else if(plat==='imsg'){sc.data.contact=c.imsg_name||c.name;sc.data.char_photo=c.photo;}
   buildSE(sc,`se-${scId}`,listId);
 }
-
-async function scUpload(inp,listId,scId,key){
+async function scUp(inp,listId,scId,key){
   const f=inp.files[0];if(!f)return;
   try{toast('uploading...');const url=await up(f,`scenes/${fp(f)}`);uSD(listId,scId,key,url);const sc=SS[listId]?.find(s=>s.id===scId);if(sc)buildSE(sc,`se-${scId}`,listId);toast('uploaded! ✨');}
   catch(e){toast('upload failed 😔');}
 }
 
-// ── RENDER SCENES ────────────────────────────────────────
-function renderScene(sc){
+// ── RENDER SCENES (readers) ──────────────────────────────
+function renderScene(sc,sceneIdx,auId,counts){
   const d=sc.data||{};
-  if(['imessage','imessage-gc','groupchat'].includes(sc.type)){
+  const key=`scene_${sceneIdx}`;
+  const actionsHtml=mkAct(auId,'scene',sceneIdx,counts);
+
+  let html='';
+  if(sc.type==='imessage'||sc.type==='imessage-gc'||sc.type==='groupchat'){
     const msgs=d.messages||[];const isGC=sc.type!=='imessage';const isDark=sc.type==='groupchat';
+    const bgColor=isDark?'#1c1c1e':'#f5f5f7';
     const msgsHtml=msgs.map(m=>{
       const isMe=m.side==='me';const sname=m.sender||'?';
-      return `<div class="imsg-row ${isMe?'me':''} ${isGC?'gc':''}">
-        ${isGC?`<div class="imsg-av" style="background:${avc(sname)}">${m.char_photo?`<img src="${m.char_photo}"/>`:`${ini(sname)}`}</div>`:''}
-        <div>${isGC?`<div class="imsg-sender" style="${isDark?'color:#ebebf5;':''}">${sname}</div>`:''}
-          <div class="imsg-bubble ${isMe?'me':'them'}" style="${isGC&&!isMe?`background:${avc(sname)};color:white;`:''}">${m.text||''}${m.photo?`<img src="${m.photo}" alt=""/>`:''}</div>
+      const bubbleColor=isGC&&!isMe?avc(sname):'';
+      return `<div class="imsg-row ${isMe?'me':''} ${isGC?'gc-row':''}">
+        ${isGC&&!isMe?`<div class="imsg-mini-av" style="background:${avc(sname)}">${m.char_photo?`<img src="${m.char_photo}"/>`:`${ini(sname)}`}</div>`:''}
+        <div class="imsg-bubble-wrap" style="${isMe?'align-items:flex-end;':''}">
+          ${isGC&&!isMe?`<div class="imsg-sender-lbl" style="${isDark?'color:#ebebf5;':''}">${sname}</div>`:''}
+          <div class="imsg-bubble ${isMe?'me':'them'}" style="${bubbleColor?`background:${bubbleColor};color:white;`:''}">
+            ${m.text||''}${m.photo?`<img src="${m.photo}" alt=""/>`:''}
+          </div>
         </div>
+        ${isGC&&isMe?`<div class="imsg-mini-av" style="background:${avc(sname)}">${m.char_photo?`<img src="${m.char_photo}"/>`:`${ini(sname)}`}</div>`:''}
       </div>`;
     }).join('');
-    return `<div class="imsg-wrap" style="margin:0.5rem 0;${isDark?'background:#1c1c1e;':''}">
-      <div class="imsg-hdr"><div class="imsg-contact" style="${isDark?'color:#fff;':''}">${isGC?'👥 ':''}${d.contact||'unknown'}</div></div>
-      <div class="imsg-msgs">${msgsHtml}</div>
-      ${!isGC&&d.read?`<div class="imsg-read">${d.read}</div>`:''}
-    </div>`;
-  }
-  if(sc.type==='twitter'){
-    const cmts=d.comments||[];
-    return `<div class="tweet-wrap" style="margin:0.5rem 0;">
-      <div class="tweet-hdr">${avEl(d.name||'?',d.char_photo,40)}
-        <div><div class="tweet-name">${d.name||'username'}${d.verified?' <span class="tweet-verified">✓</span>':''}</div><div class="tweet-handle">${d.handle||'@handle'}</div></div>
+    html=`<div class="imsg-phone" style="background:${bgColor};margin:0.5rem 0;">
+      <div class="imsg-status-bar" style="${isDark?'background:#1c1c1e;color:#fff;':''}"><span>${now12()}</span><span>●●● 🔋</span></div>
+      <div class="imsg-nav-bar" style="${isDark?'background:#1c1c1e;border-color:#3a3a3c;':''}">
+        <div class="imsg-nav-back" style="${isDark?'color:#0a84ff;':''}">‹ Messages</div>
+        <div class="imsg-nav-center">
+          ${isGC?`<div class="imsg-nav-name" style="${isDark?'color:#fff;':''}">${d.contact||'group chat'}</div>`
+          :`<div class="imsg-nav-av" style="background:${avc(d.contact||'?')}">${d.char_photo?`<img src="${d.char_photo}"/>`:`${ini(d.contact||'?')}`}</div>
+           <div class="imsg-nav-name" style="${isDark?'color:#fff;':''}">${d.contact||'unknown'}</div>`}
+        </div>
+        <span style="width:28px;"></span>
       </div>
-      <div class="tweet-body">${d.body||''}</div>
-      ${d.img_url?`<img class="tweet-img" src="${d.img_url}" onclick="openLB('${d.img_url}')" alt=""/>` :''}
-      <div class="tweet-time">${d.time||''}</div>
-      <div class="tweet-stats"><span>💬 ${d.replies||0}</span><span>🔁 ${d.retweets||0}</span><span>🩷 ${d.likes||0}</span></div>
-      ${cmts.length?`<div class="tweet-cmts">${cmts.map(c=>`<div class="tweet-cmt">${avEl(c.name||'?',c.char_photo,28)}<div class="tweet-cmt-body"><span class="tweet-cmt-name">${c.name||'anon'}</span> ${c.text||''}</div></div>`).join('')}</div>`:''}
+      <div class="imsg-msgs-area" style="${isDark?'background:#1c1c1e;':''}">
+        <div class="imsg-time-stamp" style="${isDark?'color:#636366;':''}">Today ${now12()}</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">${msgsHtml}</div>
+      </div>
+      ${!isGC&&d.read?`<div class="imsg-read-receipt" style="${isDark?'background:#1c1c1e;':''}">${d.read}</div>`:''}
+      <div class="imsg-input-bar" style="${isDark?'background:#1c1c1e;border-color:#3a3a3c;':''}">
+        <div class="imsg-input-fake" style="${isDark?'background:#2c2c2e;color:#636366;':''}">iMessage</div>
+        <div class="imsg-send-btn" style="${isDark?'background:#0a84ff;':''}">↑</div>
+      </div>
     </div>`;
-  }
-  if(sc.type==='instagram'){
+  } else if(sc.type==='twitter'){
     const cmts=d.comments||[];
-    return `<div class="ig-wrap" style="margin:0.5rem 0;">
-      <div class="ig-hdr"><div class="ig-av">${d.char_photo?`<img src="${d.char_photo}"/>`:`${ini(d.username||'?')}`}</div><div class="ig-username">${d.username||'username'}</div></div>
-      ${d.img_url?`<img class="ig-post-img" src="${d.img_url}" onclick="openLB('${d.img_url}')" alt=""/>` :`<div class="ig-img-placeholder">📸</div>`}
-      <div class="ig-actions">🤍 💬 📤</div>
-      <div class="ig-likes">${d.likes||0} likes</div>
-      <div class="ig-caption"><span>${d.username||'username'}</span> ${d.caption||''}</div>
-      ${cmts.length?`<div class="ig-cmts">${cmts.map(c=>`<div class="ig-cmt"><strong>${c.name||'anon'}</strong> ${c.text||''}</div>`).join('')}</div>`:''}
-      <div class="ig-time">${d.time||''}</div>
+    html=`<div class="tweet-card" style="margin:0.5rem 0;">
+      <div class="tweet-header">
+        <div class="tweet-user">
+          <div class="tweet-av">${d.char_photo?`<img src="${d.char_photo}"/>`:`<div style="width:100%;height:100%;background:${avc(d.name||'?')};display:flex;align-items:center;justify-content:center;">${ini(d.name||'?')}</div>`}</div>
+          <div>
+            <div class="tweet-name-row">
+              <span class="tweet-display-name">${d.name||'username'}</span>
+              ${d.verified?'<span class="tweet-verified-icon">✓</span>':''}
+            </div>
+            <div class="tweet-handle-time">${d.handle||'@handle'}</div>
+          </div>
+        </div>
+        <div class="tweet-more">···</div>
+      </div>
+      <div class="tweet-body-text">${d.body||''}</div>
+      ${d.img_url?`<div class="tweet-media"><img src="${d.img_url}" onclick="openLB('${d.img_url}')" alt=""/></div>`:''}
+      <div class="tweet-meta">${d.time||''}</div>
+      <div class="tweet-actions">
+        <div class="tweet-action-btn">💬 ${d.replies||0}</div>
+        <div class="tweet-action-btn">🔁 ${d.retweets||0}</div>
+        <div class="tweet-action-btn">🩷 ${d.likes||0}</div>
+        <div class="tweet-action-btn">📊</div>
+        <div class="tweet-action-btn">↗️</div>
+      </div>
+      ${cmts.length?`<div class="tweet-replies-section">${cmts.map(c=>`
+        <div class="tweet-reply">
+          <div class="tweet-reply-av">${c.char_photo?`<img src="${c.char_photo}"/>`:`<div style="width:100%;height:100%;background:${avc(c.name||'?')};display:flex;align-items:center;justify-content:center;">${ini(c.name||'?')}</div>`}</div>
+          <div class="tweet-reply-body">
+            <div class="tweet-reply-header"><span class="tweet-reply-name">${c.name||'anon'}</span></div>
+            <div class="tweet-reply-text">${c.text||''}</div>
+          </div>
+        </div>`).join('')}</div>`:''}
     </div>`;
-  }
-  if(sc.type==='facebook'){
+  } else if(sc.type==='instagram'){
     const cmts=d.comments||[];
-    return `<div class="fb-wrap" style="margin:0.5rem 0;">
-      <div class="fb-hdr">${avEl(d.name||'?',d.char_photo,40)}<div><div class="fb-name">${d.name||'name'}</div><div class="fb-meta">${d.time||''}</div></div></div>
-      <div class="fb-body">${d.body||''}</div>
-      ${d.img_url?`<img class="fb-post-img" src="${d.img_url}" onclick="openLB('${d.img_url}')" alt=""/>` :''}
-      <div class="fb-reactions"><span>${d.reactions||''}</span></div>
-      <div class="fb-actions-bar"><div class="fb-action">👍 Like</div><div class="fb-action">💬 Comment</div><div class="fb-action">↗️ Share</div></div>
-      ${cmts.length?`<div class="fb-cmts">${cmts.map(c=>`<div class="fb-cmt-row">${avEl(c.name||'?',c.char_photo,28)}<div class="fb-cmt-bubble"><div class="fb-cmt-name">${c.name||'anon'}</div><div>${c.text||''}</div></div></div>`).join('')}</div>`:''}
+    html=`<div class="ig-card" style="margin:0.5rem 0;">
+      <div class="ig-card-header">
+        <div class="ig-header-left">
+          <div class="ig-story-ring">
+            <div class="ig-av-inner" style="background:${avc(d.username||'?')}">${d.char_photo?`<img src="${d.char_photo}"/>`:`${ini(d.username||'?')}`}</div>
+          </div>
+          <div>
+            <div class="ig-username-bold">${d.username||'username'}</div>
+          </div>
+        </div>
+        <div class="ig-more-btn">···</div>
+      </div>
+      ${d.img_url?`<div class="ig-post-image"><img src="${d.img_url}" onclick="openLB('${d.img_url}')" alt=""/></div>`:`<div style="width:100%;height:240px;background:linear-gradient(135deg,var(--rose),var(--sage));display:flex;align-items:center;justify-content:center;font-size:3rem;">📸</div>`}
+      <div class="ig-actions-bar">
+        <div class="ig-left-actions">
+          <div class="ig-action-icon">🤍</div>
+          <div class="ig-action-icon">💬</div>
+          <div class="ig-action-icon">📤</div>
+        </div>
+        <div class="ig-action-icon">🔖</div>
+      </div>
+      <div class="ig-likes-count">${d.likes||0} likes</div>
+      <div class="ig-caption-area"><span class="ig-caption-username">${d.username||'username'}</span> ${d.caption||''}</div>
+      ${cmts.length?`<div class="ig-comments-area">
+        ${cmts.map(c=>`<div class="ig-comment-row">
+          <div class="ig-comment-av" style="background:${avc(c.name||'?')}">${c.char_photo?`<img src="${c.char_photo}"/>`:`${ini(c.name||'?')}`}</div>
+          <div class="ig-comment-text"><span class="ig-comment-username">${c.name||'anon'}</span> ${c.text||''}</div>
+        </div>`).join('')}
+      </div>`:''}
+      <div class="ig-timestamp">${d.time||''}</div>
+      <div class="ig-add-comment">
+        <div class="ig-add-comment-av"></div>
+        <div class="ig-add-comment-input">Add a comment...</div>
+      </div>
+    </div>`;
+  } else if(sc.type==='facebook'){
+    const cmts=d.comments||[];
+    html=`<div class="fb-card" style="margin:0.5rem 0;">
+      <div class="fb-card-header">
+        <div class="fb-header-left">
+          <div class="fb-av" style="background:${avc(d.name||'?')}">${d.char_photo?`<img src="${d.char_photo}"/>`:`${ini(d.name||'?')}`}</div>
+          <div>
+            <div class="fb-post-name">${d.name||'name'}</div>
+            <div class="fb-post-meta"><span>${d.time||'Just now'}</span><span class="fb-globe">· 🌐</span></div>
+          </div>
+        </div>
+        <div class="fb-more-btn">···</div>
+      </div>
+      ${d.body?`<div class="fb-post-text">${d.body}</div>`:''}
+      ${d.img_url?`<div class="fb-post-image"><img src="${d.img_url}" onclick="openLB('${d.img_url}')" alt=""/></div>`:''}
+      ${d.reactions?`<div class="fb-reaction-bar"><div class="fb-reaction-icons"><span>👍</span><span>❤️</span><span>😂</span><span class="fb-reaction-count"> ${d.reactions}</span></div></div>`:''}
+      <div class="fb-actions-bar">
+        <div class="fb-action-btn">👍 Like</div>
+        <div class="fb-action-btn">💬 Comment</div>
+        <div class="fb-action-btn">↗️ Share</div>
+      </div>
+      ${cmts.length?`<div class="fb-comments-section">${cmts.map(c=>`
+        <div class="fb-comment-item">
+          <div class="fb-comment-av" style="background:${avc(c.name||'?')}">${c.char_photo?`<img src="${c.char_photo}"/>`:`${ini(c.name||'?')}`}</div>
+          <div>
+            <div class="fb-comment-bubble"><div class="fb-comment-name">${c.name||'anon'}</div><div class="fb-comment-content">${c.text||''}</div></div>
+            <div class="fb-comment-actions"><span>Like</span><span>Reply</span></div>
+          </div>
+        </div>`).join('')}</div>`:''}
     </div>`;
   }
-  return '';
+  return html?`<div style="margin-bottom:0.5rem;">${html}${actionsHtml}</div>`:'';
 }
 
 // ── BOOKMARKS ────────────────────────────────────────────
@@ -1003,7 +1233,7 @@ function jumpPanel(n){
 
 // ── REACTIONS ────────────────────────────────────────────
 function getLR(){try{return JSON.parse(localStorage.getItem('au_rx')||'{}');}catch(e){return {};}}
-function hasRx(auId,t,i){return !!getLR()[`${auId}_${t}_${i}`];}
+function hasRx(auId,t,i){return!!getLR()[`${auId}_${t}_${i}`];}
 function markRx(auId,t,i){const r=getLR();r[`${auId}_${t}_${i}`]=true;localStorage.setItem('au_rx',JSON.stringify(r));}
 async function loadCounts(auId){try{const rows=await api(`reactions?au_id=eq.${auId}&select=target_type,target_index`);const c={};for(const r of rows){const k=`${r.target_type}_${r.target_index}`;c[k]=(c[k]||0)+1;}return c;}catch(e){return {};}}
 async function react(auId,t,i,btnId){
@@ -1011,28 +1241,28 @@ async function react(auId,t,i,btnId){
   try{await api('reactions',{method:'POST',body:JSON.stringify({au_id:auId,target_type:t,target_index:i})});markRx(auId,t,i);const b=document.getElementById(btnId);if(b){const c=parseInt(b.dataset.count||'0')+1;b.dataset.count=c;b.innerHTML=`🩷 ${c}`;b.classList.add('reacted');}toast('liked! 🩷');}
   catch(e){toast('error 😔');}
 }
-function mkRB(auId,t,i,counts){const k=`${t}_${i}`,c=counts[k]||0,r=hasRx(auId,t,i),id=`rx-${auId}-${t}-${i}`;return `<button class="react-btn${r?' reacted':''}" id="${id}" data-count="${c}" onclick="react('${auId}','${t}',${i},'${id}')">${r?'🩷':'🤍'} ${c}</button>`;}
+function mkRB(auId,t,i,counts){const k=`${t}_${i}`,c=counts[k]||0,r=hasRx(auId,t,i),id=`rx-${auId}-${t}-${i}`;return`<button class="react-btn${r?' reacted':''}" id="${id}" data-count="${c}" onclick="react('${auId}','${t}',${i},'${id}')">${r?'🩷':'🤍'} ${c}</button>`;}
 
-// ── PANEL COMMENTS ───────────────────────────────────────
+// ── PANEL/SCENE COMMENTS ─────────────────────────────────
 async function togPCmt(auId,t,i){
   const box=document.getElementById(`pcb-${auId}-${t}-${i}`);if(!box)return;
   const open=box.classList.toggle('open');
   if(open&&!box.dataset.loaded){box.dataset.loaded='1';const list=document.getElementById(`pcl-${auId}-${t}-${i}`);list.innerHTML='<div style="color:var(--muted);font-size:0.85rem;">loading...</div>';
-    try{const cm=await api(`comments?au_id=eq.${auId}&target_type=eq.${t}&target_index=eq.${i}&order=created_at.asc`);rndrPCmts(list,cm);updCmtCnt(auId,t,i,cm.length);}
+    try{const cm=await api(`comments?au_id=eq.${auId}&target_type=eq.${t}&target_index=eq.${i}&order=created_at.asc`);rndrPCmts(list,cm);updCnt(auId,t,i,cm.length);}
     catch(e){list.innerHTML='<div style="color:var(--muted);">error</div>';}}
 }
 function rndrPCmts(el,cmts){el.innerHTML=cmts.length?cmts.map(c=>`<div class="pcmt-item"><div class="pcmt-name">${c.name}</div><div class="pcmt-text">${c.content}</div></div>`).join(''):'<div style="color:var(--muted);font-size:0.85rem;">no comments yet 🌸</div>';}
-function updCmtCnt(auId,t,i,n){const b=document.getElementById(`pcbtn-${auId}-${t}-${i}`);if(b)b.innerHTML=`💬 ${n>0?n:'comments'}`;}
+function updCnt(auId,t,i,n){const b=document.getElementById(`pcbtn-${auId}-${t}-${i}`);if(b)b.innerHTML=`💬 ${n>0?n:'comments'}`;}
 async function subPCmt(auId,t,i){
   const name=(document.getElementById(`pcn-${auId}-${t}-${i}`)?.value||'').trim()||'anonymous';
   const content=(document.getElementById(`pct-${auId}-${t}-${i}`)?.value||'').trim();
   if(!content){toast('write something! 🌸');return;}
-  try{await api('comments',{method:'POST',body:JSON.stringify({au_id:auId,name,content,target_type:t,target_index:i})});document.getElementById(`pcn-${auId}-${t}-${i}`).value='';document.getElementById(`pct-${auId}-${t}-${i}`).value='';const box=document.getElementById(`pcb-${auId}-${t}-${i}`);box.dataset.loaded='';const cm=await api(`comments?au_id=eq.${auId}&target_type=eq.${t}&target_index=eq.${i}&order=created_at.asc`);rndrPCmts(document.getElementById(`pcl-${auId}-${t}-${i}`),cm);updCmtCnt(auId,t,i,cm.length);toast('posted! 💬');}
+  try{await api('comments',{method:'POST',body:JSON.stringify({au_id:auId,name,content,target_type:t,target_index:i})});document.getElementById(`pcn-${auId}-${t}-${i}`).value='';document.getElementById(`pct-${auId}-${t}-${i}`).value='';const box=document.getElementById(`pcb-${auId}-${t}-${i}`);box.dataset.loaded='';const cm=await api(`comments?au_id=eq.${auId}&target_type=eq.${t}&target_index=eq.${i}&order=created_at.asc`);rndrPCmts(document.getElementById(`pcl-${auId}-${t}-${i}`),cm);updCnt(auId,t,i,cm.length);toast('posted! 💬');}
   catch(e){toast('error 😔');}
 }
 function mkAct(auId,t,i,counts){
   const id=`${auId}-${t}-${i}`;
-  return `<div class="panel-actions">${mkRB(auId,t,i,counts)}<button class="cmt-toggle-btn" id="pcbtn-${id}" onclick="togPCmt('${auId}','${t}',${i})">💬 comments</button></div>
+  return`<div class="panel-actions">${mkRB(auId,t,i,counts)}<button class="cmt-toggle-btn" id="pcbtn-${id}" onclick="togPCmt('${auId}','${t}',${i})">💬 comments</button></div>
   <div class="pcmt-box" id="pcb-${id}"><div id="pcl-${id}"></div><div class="pcmt-form"><input type="text" id="pcn-${id}" placeholder="your name (optional)"/><input type="text" id="pct-${id}" placeholder="write a comment..."/><button class="pcmt-submit" onclick="subPCmt('${auId}','${t}',${i})">post 💬</button></div></div>`;
 }
 
@@ -1042,11 +1272,9 @@ function openEditModal(updId,auId){
   document.getElementById('edit-modal').classList.add('open');
   initRTE('em-rte-tb','em-rte');
   initSceneBar('em-scenes','em-scene-bar');
-  // load current update
   api(`au_updates?id=eq.${updId}&select=*&limit=1`).then(r=>{
     if(r[0]){
       sRTE('em-rte',r[0].content||'');
-      // populate existing scenes
       if(r[0].scenes&&r[0].scenes.length){
         SS['em-scenes']=r[0].scenes.map(s=>({id:uid(),type:s.type,data:s.data||{messages:[],comments:[]}}));
         renderSL('em-scenes');
@@ -1059,8 +1287,7 @@ async function saveEditUpdate(){
   if(!editingUpdId)return;
   try{
     toast('saving... ✨');
-    const content=gRTE('em-rte')||null;
-    const scenes=gSDs('em-scenes');
+    const content=gRTE('em-rte')||null;const scenes=gSDs('em-scenes');
     const files=document.getElementById('em-photos').files;
     const patch={content,scenes:scenes.length?scenes:null};
     if(files.length){const imgs=[];for(const f of files)imgs.push(await up(f,`photos/${fp(f)}`));patch.images=imgs;}
@@ -1096,7 +1323,7 @@ function rndrBrowse(){
 function auCard(au){
   const tags=au.au_tags?.map(t=>t.tags?.name).filter(Boolean)||[];
   const img=au.cover_image?`<div class="au-card-img"><img src="${au.cover_image}" alt=""/></div>`:`<div class="au-card-img">${TE[au.type]||'📝'}</div>`;
-  return `<div class="au-card" onclick="openAU('${au.id}')">${img}<div class="au-card-body"><div class="au-card-type">${TL[au.type]||'au'}</div><div class="au-card-title">${au.title}</div><div class="au-card-desc">${au.description||''}</div><div class="tags-row" style="margin-top:0.5rem;">${tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div></div>`;
+  return`<div class="au-card" onclick="openAU('${au.id}')">${img}<div class="au-card-body"><div class="au-card-type">${TL[au.type]||'au'}</div><div class="au-card-title">${au.title}</div><div class="au-card-desc">${au.description||''}</div><div class="tags-row" style="margin-top:0.5rem;">${tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div></div>`;
 }
 
 // ── AU DETAIL ────────────────────────────────────────────
@@ -1123,7 +1350,6 @@ async function rndrDetail(au,updates,comments,cast,chapIdx){
   const date=new Date(au.created_at).toLocaleDateString('en-PH',{year:'numeric',month:'long',day:'numeric'});
   const counts=await loadCounts(au.id);
   const castChars=(cast||[]).map(c=>c.characters).filter(Boolean);
-
   const castHtml=castChars.length?`<div style="margin-bottom:1.5rem;">
     <h3 style="font-family:'Playfair Display',serif;color:var(--brown);font-size:1.2rem;margin-bottom:0.8rem;">cast 👥</h3>
     <div class="char-grid">${castChars.map(c=>`<div class="char-card" onclick="showCharModal('${c.id}')">
@@ -1139,15 +1365,20 @@ async function rndrDetail(au,updates,comments,cast,chapIdx){
     if(!chs.length){main=`<div style="background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:2rem;color:var(--muted);margin-bottom:1.5rem;">no chapters yet 🌸</div>`;}
     else{const ch=chs[chapIdx];main=`<div class="chapters-sidebar"><div class="chap-list"><h3>chapters</h3>${chs.map((c,i)=>`<div class="chap-item ${i===chapIdx?'active':''}" onclick="swChap(${i})">${i+1}. ${c.title||'untitled'}</div>`).join('')}</div><div><div class="chap-content">${ch.content||'(empty)'}</div>${mkAct(au.id,'chapter',chapIdx,counts)}<div class="chap-nav">${chapIdx>0?`<button class="btn btn-secondary btn-sm" onclick="swChap(${chapIdx-1})">← prev</button>`:'<span></span>'}${chapIdx<chs.length-1?`<button class="btn btn-primary btn-sm" onclick="swChap(${chapIdx+1})">next →</button>`:'<span></span>'}</div></div></div>`;}
   } else {
-    let pNum=0;
+    let pNum=0;let sceneIdx=0;
     const items=updates.map((u,i)=>{
       let body='';
       if(u.content)body+=`<div class="thread-text">${u.content}</div>`;
-      if(u.scenes&&u.scenes.length)body+=u.scenes.map(s=>renderScene(s)).join('');
-      if(u.images&&u.images.length)body+=u.images.map(src=>{pNum++;const n=pNum;return `<div class="panel-wrap"><div class="panel-num" data-panel="${n}" onclick="saveBM('${au.id}',${n},'${au.title.replace(/'/g,"\\'")}')">panel ${n} 🔖</div><img class="panel-img" src="${src}" onclick="openLB('${src}')" alt="panel ${n}"/>${mkAct(au.id,'panel',n,counts)}</div>`;}).join('');
-      if(!body)return '';
+      if(u.scenes&&u.scenes.length){
+        u.scenes.forEach(sc=>{
+          body+=renderScene(sc,sceneIdx,au.id,counts);
+          sceneIdx++;
+        });
+      }
+      if(u.images&&u.images.length)body+=u.images.map(src=>{pNum++;const n=pNum;return`<div class="panel-wrap"><div class="panel-num" data-panel="${n}" onclick="saveBM('${au.id}',${n},'${au.title.replace(/'/g,"\\'")}')">panel ${n} 🔖</div><img class="panel-img" src="${src}" onclick="openLB('${src}')" alt="panel ${n}"/>${mkAct(au.id,'panel',n,counts)}</div>`;}).join('');
+      if(!body)return'';
       const isLast=i===updates.length-1;
-      return `<div class="thread-item"><div class="thread-left"><div class="thread-av">🍮</div>${!isLast?'<div class="thread-line"></div>':''}</div><div class="thread-body"><div class="thread-label">${new Date(u.created_at).toLocaleDateString('en-PH',{month:'short',day:'numeric',year:'numeric'})}</div>${body}</div></div>`;
+      return`<div class="thread-item"><div class="thread-left"><div class="thread-av">🍮</div>${!isLast?'<div class="thread-line"></div>':''}</div><div class="thread-body"><div class="thread-label">${new Date(u.created_at).toLocaleDateString('en-PH',{month:'short',day:'numeric',year:'numeric'})}</div>${body}</div></div>`;
     }).filter(Boolean).join('');
     main=`<div class="thread">${items||'<div style="color:var(--muted);padding:1rem;">no updates yet 🌸</div>'}</div>`;
   }
@@ -1173,7 +1404,6 @@ async function rndrDetail(au,updates,comments,cast,chapIdx){
 }
 
 function swChap(i){rndrDetail(window._au,window._updates,window._comments,window._cast||[],i);window.scrollTo(0,200);}
-
 async function subCmt(auId){
   const name=(document.getElementById('cmt-name')?.value||'').trim()||'anonymous';
   const content=(document.getElementById('cmt-text')?.value||'').trim();
@@ -1181,7 +1411,6 @@ async function subCmt(auId){
   try{await api('comments',{method:'POST',body:JSON.stringify({au_id:auId,name,content,target_type:'au',target_index:null})});document.getElementById('cmt-name').value='';document.getElementById('cmt-text').value='';toast('posted! 💬');openAU(auId);}
   catch(e){toast('error 😔');}
 }
-
 async function submitSuggestion(){
   const name=(document.getElementById('sug-name')?.value||'').trim()||'anonymous';
   const content=(document.getElementById('sug-content')?.value||'').trim();
@@ -1199,42 +1428,36 @@ function adminLogin(){
     toast('welcome back, adobongtiramisu! 🍮');
     initRTE('post-rte-tb','post-rte');initRTE('photo-rte-tb','photo-rte');
     initSceneBar('post-scenes','post-scene-bar');initSceneBar('photo-scenes','photo-scene-bar');
-    loadAllChars();
+    loadAllChars();loadAllGCs();
   }else{toast('wrong password! 🔐');}
 }
 function adminLogout(){isAdmin=false;document.getElementById('admin-login-section').style.display='block';document.getElementById('admin-panel-section').style.display='none';document.getElementById('admin-pass').value='';}
-
 function showAdminTab(tab,btn){
-  ['post','manage','characters','tags','suggestions'].forEach(t=>document.getElementById(`admin-tab-${t}`).style.display=t===tab?'block':'none');
+  ['post','manage','characters','gcs','tags','suggestions'].forEach(t=>document.getElementById(`admin-tab-${t}`).style.display=t===tab?'block':'none');
   document.querySelectorAll('.admin-tab').forEach(b=>b.classList.remove('active'));
   if(btn)btn.classList.add('active');
   if(tab==='manage')loadManageAUs();
   if(tab==='characters'){initRTE('cf-desc-tb','cf-desc');loadAdminChars();}
+  if(tab==='gcs'){loadAdminGCs();}
   if(tab==='tags')loadAdminTags();
   if(tab==='suggestions')loadAdminSuggestions();
 }
-
 function toggleAUType(){
   const t=document.getElementById('au-type').value;
   ['text','photo','story'].forEach(v=>document.getElementById(`${v}-content-group`).style.display=t===v?'block':'none');
   if(t==='story'&&!document.getElementById('chapter-editors').children.length)addChapEditor();
 }
-
 function addChapEditor(){
   chapCnt++;const d=document.createElement('div');d.className='chap-editor';d.id=`che-${chapCnt}`;
   d.innerHTML=`<div class="chap-editor-hdr"><span style="font-weight:700;color:var(--brown);font-size:0.9rem;">chapter ${chapCnt}</span><button class="btn btn-secondary btn-sm" onclick="document.getElementById('che-${chapCnt}').remove()">remove</button></div><input type="text" placeholder="chapter title..." id="cht-${chapCnt}"/><div class="rte-wrap"><div class="rte-toolbar" id="chr-tb-${chapCnt}"></div><div class="rte-editor" id="chr-ed-${chapCnt}" data-placeholder="write chapter content..."></div></div>`;
-  document.getElementById('chapter-editors').appendChild(d);
-  initRTE(`chr-tb-${chapCnt}`,`chr-ed-${chapCnt}`);
+  document.getElementById('chapter-editors').appendChild(d);initRTE(`chr-tb-${chapCnt}`,`chr-ed-${chapCnt}`);
 }
-
 function previewFor(inp,prev){const files=document.getElementById(inp).files;const el=document.getElementById(prev);el.innerHTML='';for(const f of files){const img=document.createElement('img');img.src=URL.createObjectURL(f);el.appendChild(img);}}
 function prevCover(){const f=document.getElementById('au-cover').files[0];document.getElementById('cover-preview').innerHTML=f?`<img src="${URL.createObjectURL(f)}" style="width:120px;height:80px;object-fit:cover;border-radius:8px;border:1.5px solid var(--border);"/>`:'';  }
 
 async function postAU(){
-  const title=document.getElementById('au-title').value.trim();
-  const type=document.getElementById('au-type').value;
-  const desc=document.getElementById('au-desc').value.trim();
-  const tagsRaw=document.getElementById('au-tags-input').value.trim();
+  const title=document.getElementById('au-title').value.trim();const type=document.getElementById('au-type').value;
+  const desc=document.getElementById('au-desc').value.trim();const tagsRaw=document.getElementById('au-tags-input').value.trim();
   if(!title){toast('please add a title! 🌸');return;}
   try{
     toast('uploading... ✨');
@@ -1277,12 +1500,13 @@ async function loadManageAUs(){
         <div id="cast-mgr-${au.id}" style="display:none;background:var(--cream);border:1.5px solid var(--border);border-radius:10px;padding:0.8rem;margin-top:0.5rem;">
           <div style="font-weight:700;color:var(--brown);font-size:0.88rem;margin-bottom:0.6rem;">cast for this au</div>
           <div id="cast-list-${au.id}"></div>
-          <div style="margin-top:0.5rem;"><label style="font-size:0.78rem;font-weight:700;color:var(--muted);">add to cast</label>
-          <div style="display:flex;gap:0.4rem;margin-top:0.3rem;">
-            <select id="cast-sel-${au.id}" style="flex:1;padding:0.4rem;border:1.5px solid var(--border);border-radius:8px;font-family:'Lato',sans-serif;font-size:0.85rem;">${charOpts(false)}</select>
-            <input id="cast-role-${au.id}" placeholder="role in this au" style="flex:1;padding:0.4rem;border:1.5px solid var(--border);border-radius:8px;font-family:'Lato',sans-serif;font-size:0.85rem;"/>
-            <button class="btn btn-sage btn-sm" onclick="addCast('${au.id}')">add</button>
-          </div></div>
+          <div style="margin-top:0.5rem;">
+            <div style="display:flex;gap:0.4rem;margin-top:0.3rem;">
+              <select id="cast-sel-${au.id}" style="flex:1;padding:0.4rem;border:1.5px solid var(--border);border-radius:8px;font-family:'Lato',sans-serif;font-size:0.85rem;">${charOpts(false)}</select>
+              <input id="cast-role-${au.id}" placeholder="role in this au" style="flex:1;padding:0.4rem;border:1.5px solid var(--border);border-radius:8px;font-family:'Lato',sans-serif;font-size:0.85rem;"/>
+              <button class="btn btn-sage btn-sm" onclick="addCast('${au.id}')">add</button>
+            </div>
+          </div>
         </div>
         <div class="add-upd-form" id="uf-${au.id}">
           <div style="font-weight:700;color:var(--brown);margin-bottom:0.8rem;font-size:0.9rem;">add update</div>
@@ -1323,10 +1547,8 @@ async function deleteUpd(updId,auId){
   try{
     await api(`au_updates?id=eq.${updId}`,{method:'DELETE',prefer:'return=minimal'});
     toast('update deleted 🗑️');
-    // refresh updates list
     document.getElementById(`upd-list-${auId}`).style.display='none';
     setTimeout(()=>togUpdList(auId),100);
-    // if currently viewing this AU, refresh reader view too
     if(window._au&&window._au.id===auId)openAU(auId);
   }catch(e){toast('error deleting 😔');}
 }
@@ -1336,7 +1558,6 @@ async function togCastMgr(auId){
   if(el.style.display==='none'){el.style.display='block';loadCastList(auId);}
   else el.style.display='none';
 }
-
 async function loadCastList(auId){
   const el=document.getElementById(`cast-list-${auId}`);
   try{
@@ -1344,15 +1565,12 @@ async function loadCastList(auId){
     el.innerHTML=cast.length?cast.map(c=>`<div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;">${avEl(c.characters?.name||'?',c.characters?.photo,28)}<span style="font-size:0.85rem;color:var(--brown);font-weight:700;">${c.characters?.name||'unknown'}</span><span style="font-size:0.75rem;color:var(--muted);">${c.au_role||''}</span><button class="btn btn-secondary btn-sm" style="font-size:0.72rem;padding:0.2rem 0.5rem;margin-left:auto;" onclick="rmCast('${c.id}','${auId}')">remove</button></div>`).join(''):'<div style="color:var(--muted);font-size:0.82rem;margin-bottom:0.5rem;">no cast yet</div>';
   }catch(e){}
 }
-
 async function addCast(auId){
-  const charId=document.getElementById(`cast-sel-${auId}`).value;
-  const role=document.getElementById(`cast-role-${auId}`).value.trim()||null;
+  const charId=document.getElementById(`cast-sel-${auId}`).value;const role=document.getElementById(`cast-role-${auId}`).value.trim()||null;
   if(!charId){toast('select a character! 🌸');return;}
   try{await api('au_cast',{method:'POST',body:JSON.stringify({au_id:auId,character_id:charId,au_role:role})});loadCastList(auId);toast('added! 🍮');}
   catch(e){toast('already in cast or error 😔');}
 }
-
 async function rmCast(castId,auId){
   try{await api(`au_cast?id=eq.${castId}`,{method:'DELETE',prefer:'return=minimal'});loadCastList(auId);toast('removed');}
   catch(e){toast('error');}
@@ -1363,7 +1581,6 @@ function togUpdForm(auId){
   form.classList.toggle('open');
   if(!wasOpen){initRTE(`utb-${auId}`,`ued-${auId}`);initSceneBar(`uscenes-${auId}`,`usbar-${auId}`);}
 }
-
 async function postUpdate(auId){
   const content=gRTE(`ued-${auId}`)||null;const files=document.getElementById(`up-${auId}`).files;
   const scenes=gSDs(`uscenes-${auId}`);
@@ -1378,39 +1595,26 @@ async function postUpdate(auId){
     document.getElementById(`uf-${auId}`).classList.remove('open');toast('update posted! 🍮✨');
   }catch(e){toast('error posting update 😔');console.error(e);}
 }
-
 async function deleteAU(id,title){
-  if(!confirm(`delete "${title}"? this cannot be undone.`))return;
+  if(!confirm(`delete "${title}"?`))return;
   try{await api(`aus?id=eq.${id}`,{method:'DELETE',prefer:'return=minimal'});toast('au deleted 🗑️');loadManageAUs();}
   catch(e){toast('error deleting au 😔');}
 }
-
 async function loadAdminTags(){
   const el=document.getElementById('tags-list');
   try{const tags=await api('tags?order=name.asc');el.innerHTML=tags.length?tags.map(t=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:0.6rem 0;border-bottom:1.5px solid var(--border);"><span class="tag">${t.name}</span><button class="btn btn-secondary btn-sm" onclick="deleteTag('${t.id}','${t.name}')">remove</button></div>`).join(''):'<p style="color:var(--muted);padding:1rem 0;">no tags yet</p>';}catch(e){}
 }
 async function addTag(){const name=document.getElementById('new-tag-input').value.trim();if(!name)return;try{await api('tags',{method:'POST',body:JSON.stringify({name})});document.getElementById('new-tag-input').value='';toast(`"${name}" added! 🏷️`);loadAdminTags();}catch(e){toast('already exists 😔');}}
 async function deleteTag(id,name){if(!confirm(`remove "${name}"?`))return;try{await api(`tags?id=eq.${id}`,{method:'DELETE',prefer:'return=minimal'});toast('removed!');loadAdminTags();}catch(e){toast('error');}}
-
 async function loadAdminSuggestions(){
   const el=document.getElementById('suggestions-list');
   try{const s=await api('suggestions?order=created_at.desc');el.innerHTML=s.length?s.map(s=>`<div style="border-top:1.5px solid var(--border);padding:1rem 0;"><div style="font-weight:700;color:var(--brown);font-size:0.9rem;">${s.name||'anonymous'} · <span style="color:var(--muted);font-weight:400;">${new Date(s.created_at).toLocaleDateString()}</span></div><div style="margin-top:0.4rem;line-height:1.6;">${s.content}</div></div>`).join(''):'<div class="empty-state"><div class="emoji">💌</div><p>no suggestions yet</p></div>';}
   catch(e){el.innerHTML='<p style="color:var(--muted)">could not load</p>';}
 }
 
-// need these columns on characters table:
-// alter table characters add column if not exists ig_dispname text;
-// alter table characters add column if not exists tw_dispname text;
-// alter table characters add column if not exists private_ig_dispname text;
-// alter table characters add column if not exists private_tw_dispname text;
-// alter table characters add column if not exists course text;
-// alter table characters add column if not exists work text;
-// alter table characters add column if not exists motto text;
-// alter table characters add column if not exists favorites text;
-// alter table characters add column if not exists hobbies text;
-
 loadHomeAUs();
 loadAllChars();
+loadAllGCs();
 </script>
 </body>
 </html>
