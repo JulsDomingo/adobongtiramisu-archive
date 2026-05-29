@@ -987,20 +987,32 @@ function loadSavedGC(listId,scId,gcId){
   const gc=allGCs.find(g=>g.id===gcId);if(!gc)return;
   const sc=SS[listId]?.find(s=>s.id===scId);if(!sc)return;
   sc.data.contact=gc.name;
+  sc.data.gc_members=gc.members||[];
   sc.data.messages=(gc.members||[]).map(m=>({text:'',side:'them',sender:m.name,char_photo:m.photo,char_id:m.char_id}));
   buildSE(sc,`se-${scId}`,listId);
-  toast(`loaded "${gc.name}" with ${gc.members.length} members! 💬`);
+  toast(`loaded "${gc.name}" — ${gc.members.length} members! 💬`);
+}
+
+function charOptsSelected(selectedId){
+  return'<option value="">— custom —</option>'+allChars.map(c=>`<option value="${c.id}" ${c.id===selectedId?'selected':''}>${c.name}${c.nickname?` "${c.nickname}"`:''}</option>`).join('');
+}
+
+function charOptsFromList(members,selectedId){
+  return'<option value="">— select member —</option>'+members.map(m=>`<option value="${m.char_id}" ${m.char_id===selectedId?'selected':''}>${m.name}</option>`).join('');
 }
 
 function renderMsgs(listId,sc,cid,isGC){
   const el=document.getElementById(cid);if(!el)return;
   const msgs=sc.data.messages||[];
+  // if gc has saved members, restrict dropdown to those members only
+  const gcMembers=sc.data.gc_members||null;
   el.innerHTML=msgs.map((m,i)=>{
     const senderName=m.sender||'';
     const sideColor=m.side==='me'?'#007aff':'#636366';
+    const selectOpts=gcMembers?charOptsFromList(gcMembers,m.char_id||''):charOptsSelected(m.char_id||'');
     return `<div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:0.4rem 0.6rem;margin-bottom:0.3rem;">
       <div style="display:flex;align-items:center;gap:0.4rem;margin-bottom:0.4rem;flex-wrap:wrap;">
-        <select style="border:none;outline:none;background:transparent;font-size:0.82rem;color:var(--brown);font-weight:700;max-width:130px;" onchange="onMsgChar('${listId}','${sc.id}',${i},this.value)">${charOpts()}</select>
+        <select style="border:none;outline:none;background:transparent;font-size:0.82rem;color:var(--brown);font-weight:700;max-width:140px;" onchange="onMsgChar('${listId}','${sc.id}',${i},this.value)">${selectOpts}</select>
         ${senderName?`<span style="font-size:0.78rem;font-weight:700;color:${sideColor};background:${m.side==='me'?'#e8f0fe':'#f0f0f0'};border-radius:10px;padding:0.1rem 0.5rem;">${senderName} · ${m.side==='me'?'me':'them'}</span>`:''}
         <select style="border:1px solid var(--border);border-radius:6px;background:var(--cream);font-size:0.8rem;color:var(--muted);padding:0.1rem 0.3rem;margin-left:auto;" onchange="uMsg('${listId}','${sc.id}',${i},'side',this.value)">
           <option value="them" ${m.side!=='me'?'selected':''}>them</option>
