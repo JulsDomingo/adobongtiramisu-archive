@@ -995,19 +995,24 @@ function loadSavedGC(listId,scId,gcId){
 function renderMsgs(listId,sc,cid,isGC){
   const el=document.getElementById(cid);if(!el)return;
   const msgs=sc.data.messages||[];
-  el.innerHTML=msgs.map((m,i)=>`
-    <div class="msg-row-ed" style="grid-template-columns:${isGC?'100px 1fr 70px auto':'100px 1fr 70px auto'};">
-      <select onchange="onMsgChar('${listId}','${sc.id}',${i},this.value)">${charOpts()}</select>
-      <input placeholder="${isGC?'or type name':'message'}" value="${m.text||''}" oninput="uMsg('${listId}','${sc.id}',${i},'text',this.value)"/>
-      <select onchange="uMsg('${listId}','${sc.id}',${i},'side',this.value)">
-        <option value="them" ${m.side!=='me'?'selected':''}>them</option>
-        <option value="me" ${m.side==='me'?'selected':''}>me</option>
-      </select>
-      <div style="display:flex;gap:0.2rem;align-items:center;">
-        <label title="attach photo" style="cursor:pointer;color:var(--muted);">📎<input type="file" accept="image/*" style="display:none;" onchange="msgPhotoUp(this,'${listId}','${sc.id}',${i})"/></label>
+  el.innerHTML=msgs.map((m,i)=>{
+    const senderName=m.sender||'';
+    const sideColor=m.side==='me'?'#007aff':'#636366';
+    return `<div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:0.4rem 0.6rem;margin-bottom:0.3rem;">
+      <div style="display:flex;align-items:center;gap:0.4rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+        <select style="border:none;outline:none;background:transparent;font-size:0.82rem;color:var(--brown);font-weight:700;max-width:130px;" onchange="onMsgChar('${listId}','${sc.id}',${i},this.value)">${charOpts()}</select>
+        ${senderName?`<span style="font-size:0.78rem;font-weight:700;color:${sideColor};background:${m.side==='me'?'#e8f0fe':'#f0f0f0'};border-radius:10px;padding:0.1rem 0.5rem;">${senderName} · ${m.side==='me'?'me':'them'}</span>`:''}
+        <select style="border:1px solid var(--border);border-radius:6px;background:var(--cream);font-size:0.8rem;color:var(--muted);padding:0.1rem 0.3rem;margin-left:auto;" onchange="uMsg('${listId}','${sc.id}',${i},'side',this.value)">
+          <option value="them" ${m.side!=='me'?'selected':''}>them</option>
+          <option value="me" ${m.side==='me'?'selected':''}>me</option>
+        </select>
+        <label title="attach photo" style="cursor:pointer;color:var(--muted);font-size:0.9rem;">📎<input type="file" accept="image/*" style="display:none;" onchange="msgPhotoUp(this,'${listId}','${sc.id}',${i})"/></label>
         <button class="del-btn" onclick="rmMsg('${listId}','${sc.id}',${i})">✕</button>
       </div>
-    </div>`).join('');
+      <input style="width:100%;border:none;outline:none;background:var(--cream);border-radius:6px;padding:0.4rem 0.6rem;font-size:0.88rem;" placeholder="type message here..." value="${m.text||''}" oninput="uMsg('${listId}','${sc.id}',${i},'text',this.value)"/>
+      ${m.photo?`<img src="${m.photo}" style="max-width:80px;border-radius:6px;margin-top:0.3rem;"/>` :''}
+    </div>`;
+  }).join('');
 }
 
 function onMsgChar(listId,scId,idx,charId){
