@@ -1017,7 +1017,8 @@ function renderMsgs(listId,sc,cid,isGC){
 
 function onMsgChar(listId,scId,idx,charId){
   const c=gChar(charId);const sc=SS[listId]?.find(s=>s.id===scId);if(!sc||!sc.data.messages[idx])return;
-  if(c){sc.data.messages[idx].sender=c.imsg_name||c.name;sc.data.messages[idx].char_photo=c.photo;}
+  if(c){sc.data.messages[idx].sender=c.imsg_name||c.name;sc.data.messages[idx].char_photo=c.photo;sc.data.messages[idx].char_id=charId;}
+  else{sc.data.messages[idx].sender='';sc.data.messages[idx].char_photo=null;sc.data.messages[idx].char_id='';}
   renderMsgs(listId,sc,`msgs-${scId}`,sc.type!=='imessage');
 }
 async function msgPhotoUp(inp,listId,scId,idx){
